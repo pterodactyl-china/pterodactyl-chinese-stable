@@ -1,5 +1,5 @@
 
-# Pterodactyl Panel 中文汉化
+# Pterodactyl Panel 中文汉化 For Pterodactyl Panel V1.7.0
 这里是我 Pterodacyl 中文汉化仓库  
 你可以自由使用我汉化修改后的软件，甚至删除位于 Panel 底部的署名，不过前提是准守 Pterodactyl 官方的 License。  
 不过为了支持我的汉化工作，还请您尽量保留！  
