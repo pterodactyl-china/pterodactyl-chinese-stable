@@ -44,7 +44,7 @@ https://github.com/ilworkcn/panel
 以下部分说明了如何执行此操作。 
 
 ##### 1.安装依赖项
-`以下命令将安装构建面板资产所需的依赖项。 构建工具需要 NodeJS，yarn 用作包管理器。`
+`以下命令将安装构建面板所需的依赖项。 构建工具需要 NodeJS，yarn 用作包管理器。`
 ```
 # Ubuntu/Debian 系统
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
