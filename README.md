@@ -65,7 +65,7 @@ yarn       # 安装面板构建依赖项
 ##### 2.开始构建面板
 `以下命令将重新构建 翼龙面板前端。`
 ```
-cd /var/www/pterodactyl
+cd /var/www/pterodactyl     #进入面板前端目录，请按您的运行环境进行调整
 yarn build:production       # 开始构建面板
 ```
 
