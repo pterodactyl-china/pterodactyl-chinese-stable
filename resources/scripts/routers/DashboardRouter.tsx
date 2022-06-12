@@ -19,9 +19,9 @@ export default () => {
             {location.pathname.startsWith('/account') &&
                 <SubNavigation>
                     <div>
-                        <NavLink to={'/account'} exact>…Ë÷√</NavLink>
-                        <NavLink to={'/account/api'}>API ∆æ÷§</NavLink>
-                        <NavLink to={'/account/ssh'}>SSH √‹‘ø</NavLink>
+                        <NavLink to={'/account'} exact>ËÆæÁΩÆ</NavLink>
+                        <NavLink to={'/account/api'}>API Âá≠ËØÅ</NavLink>
+                        <NavLink to={'/account/ssh'}>SSH ÂØÜÈí•</NavLink>
                     </div>
                 </SubNavigation>
             }
