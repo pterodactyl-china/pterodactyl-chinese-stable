@@ -23,6 +23,6 @@ Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP�
 
 ## 开源协议
 Pterodactyl® Copyright © 2015 - 2022 Dane Everitt and contributors.
-Code released under the [MIT License](./LICENSE.md).
+Code released under the [MIT License](./LICENSE.md).  
 此本地化项目同样遵循 翼龙开源协议 与 MIT 开源协议。
 
