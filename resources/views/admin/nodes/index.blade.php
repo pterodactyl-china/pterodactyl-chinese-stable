@@ -28,7 +28,7 @@
     <div class="col-xs-12">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Node List</h3>
+                <h3 class="box-title">节点服务器列表</h3>
                 <div class="box-tools search01">
                     <form action="{{ route('admin.nodes') }}" method="GET">
                         <div class="input-group input-group-sm">

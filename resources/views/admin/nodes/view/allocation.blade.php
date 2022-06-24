@@ -7,16 +7,16 @@
 @extends('layouts.admin')
 
 @section('title')
-    {{ $node->name }}: 资源分配
+    {{ $node->name }}: 网络分配
 @endsection
 
 @section('content-header')
-    <h1>{{ $node->name }}<small>控制此节点上的服务器可用的资源分配.</small></h1>
+    <h1>{{ $node->name }}<small>控制此节点上的服务器可用的网络分配.</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">管理</a></li>
         <li><a href="{{ route('admin.nodes') }}">节点服务器</a></li>
         <li><a href="{{ route('admin.nodes.view', $node->id) }}">{{ $node->name }}</a></li>
-        <li class="active">资源分配</li>
+        <li class="active">网络分配</li>
     </ol>
 @endsection
 
@@ -38,7 +38,7 @@
     <div class="col-sm-8">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">已使用的分配</h3>
+                <h3 class="box-title">已使用的网络分配</h3>
             </div>
             <div class="box-body table-responsive no-padding" style="overflow-x: visible">
                 <table class="table table-hover" style="margin-bottom:0;">
@@ -305,13 +305,13 @@
 
             formattedItems = formattedItems.slice(0, -2);
             if (selectedItems.length > 5) {
-                formattedItems += ', and ' + (selectedItems.length - 5) + ' other(s)';
+                formattedItems += ', 与 ' + (selectedItems.length - 5) + ' 其他';
             }
 
             swal({
                 type: 'warning',
                 title: '',
-                text: 'Are you sure you want to delete the following allocations: ' + formattedItems + '?',
+                text: '你确定你要删除以下网络分配: ' + formattedItems + '?',
                 html: true,
                 showCancelButton: true,
                 showConfirmButton: true,
@@ -338,7 +338,7 @@
 
                     swal({
                         type: 'success',
-                        title: 'Allocations Deleted'
+                        title: '分配已删除'
                     });
                 }).fail(function (jqXHR) {
                     console.error(jqXHR);
@@ -346,7 +346,7 @@
                         type: 'error',
                         title: 'Whoops!',
                         html: true,
-                        text: 'An error occurred while attempting to delete these allocations. Please try again.',
+                        text: '删除网络分配时发生错误，请重试.',
                     });
                 });
             });
@@ -354,7 +354,7 @@
             swal({
                 type: 'warning',
                 title: '',
-                text: 'Please select allocation(s) to delete.',
+                text: '请选择要删除的网络分配.',
             });
         }
     }

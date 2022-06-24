@@ -136,7 +136,7 @@
                         </div>
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="pAllocation" class="control-label">端口</label>
+                                <label for="pAllocation" class="control-label">使用网络</label>
                                 <select id="pAllocation" name="allocation_id" class="form-control">
                                     @foreach ($assigned as $assignment)
                                         <option value="{{ $assignment->id }}"
@@ -149,7 +149,7 @@
                                 <p class="text-muted small">将用于此服务器的默认连接地址。</p>
                             </div>
                             <div class="form-group">
-                                <label for="pAddAllocations" class="control-label">分配额外端口</label>
+                                <label for="pAddAllocations" class="control-label">分配额外网络</label>
                                 <div>
                                     <select name="add_allocations[]" class="form-control" multiple id="pAddAllocations">
                                         @foreach ($unassigned as $assignment)
@@ -160,7 +160,7 @@
                                 <p class="text-muted small">请注意，由于软件限制，您不能将不同 IP 上的相同端口分配给同一台服务器.</p>
                             </div>
                             <div class="form-group">
-                                <label for="pRemoveAllocations" class="control-label">移除额外端口</label>
+                                <label for="pRemoveAllocations" class="control-label">移除额外网络</label>
                                 <div>
                                     <select name="remove_allocations[]" class="form-control" multiple id="pRemoveAllocations">
                                         @foreach ($assigned as $assignment)
@@ -168,7 +168,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <p class="text-muted small">只需从上面的列表中选择您要删除的端口。 如果您想在已使用的不同 IP 上分配一个端口，您可以从左侧选择它并在此处将其删除.</p>
+                                <p class="text-muted small">只需从上面的列表中选择您要删除的网络。 如果您想在已使用的不同 IP 上分配一个端口，您可以从左侧选择它并在此处将其删除.</p>
                             </div>
                         </div>
                         <div class="box-footer">

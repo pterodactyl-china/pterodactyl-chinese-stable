@@ -28,7 +28,7 @@
                 <li><a href="{{ route('admin.nodes.view', $node->id) }}">关于</a></li>
                 <li class="active"><a href="{{ route('admin.nodes.view.settings', $node->id) }}">节点服务器设置</a></li>
                 <li><a href="{{ route('admin.nodes.view.configuration', $node->id) }}">守护进程设置</a></li>
-                <li><a href="{{ route('admin.nodes.view.allocation', $node->id) }}">资源分配</a></li>
+                <li><a href="{{ route('admin.nodes.view.allocation', $node->id) }}">网络分配</a></li>
                 <li><a href="{{ route('admin.nodes.view.servers', $node->id) }}">服务器实例</a></li>
             </ul>
         </div>
