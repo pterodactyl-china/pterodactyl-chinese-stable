@@ -69,14 +69,14 @@ type ServerErrorProps = (Omit<PropsWithBack, 'image' | 'title'> | Omit<PropsWith
 }
 
 const ServerError = ({ title, ...props }: ServerErrorProps) => (
-    <ScreenBlock title={title || '³ö´íÁË'} image={ServerErrorSvg} {...props}/>
+    <ScreenBlock title={title || 'å‡ºé”™äº†'} image={ServerErrorSvg} {...props}/>
 );
 
 const NotFound = ({ title, message, onBack }: Partial<Pick<ScreenBlockProps, 'title' | 'message' | 'onBack'>>) => (
     <ScreenBlock
         title={title || '404'}
         image={NotFoundSvg}
-        message={message || 'ÕÒ²»µ½ÄúÇëÇóµÄ×ÊÔ´.'}
+        message={message || 'æ‰¾ä¸åˆ°æ‚¨è¯·æ±‚çš„èµ„æº.'}
         onBack={onBack}
     />
 );

@@ -12,8 +12,8 @@ const RequireServerPermission: React.FC<RequireServerPermissionProps> = ({ child
             action={permissions}
             renderOnError={
                 <ServerError
-                    title={'È¨ÏÞ²»×ã'}
-                    message={'ÄúÃ»ÓÐ·ÃÎÊ¸ÃÒ³ÃæµÄÈ¨ÏÞ.'}
+                    title={'æƒé™ä¸è¶³'}
+                    message={'æ‚¨æ²¡æœ‰è®¿é—®è¯¥é¡µé¢çš„æƒé™.'}
                 />
             }
         >
