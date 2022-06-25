@@ -38,7 +38,7 @@
                             <tr>
                                 <td>外部 ID</td>
                                 @if(is_null($server->external_id))
-                                    <td><span class="label label-default">Not Set</span></td>
+                                    <td><span class="label label-default">未设置</span></td>
                                 @else
                                     <td><code>{{ $server->external_id }}</code></td>
                                 @endif

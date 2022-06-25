@@ -99,7 +99,7 @@
                 <div class="box-footer">
                     {!! csrf_field() !!}
                     <p class="text-muted small no-margin">该数据库的用户名和密码将在此表单提交后随机生成。</p>
-                    <input type="submit" class="btn btn-sm btn-success pull-right" value="Create Database" />
+                    <input type="submit" class="btn btn-sm btn-success pull-right" value="创建数据库" />
                 </div>
             </form>
         </div>

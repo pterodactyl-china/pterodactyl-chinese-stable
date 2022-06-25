@@ -12,8 +12,8 @@ const RequireServerPermission: React.FC<RequireServerPermissionProps> = ({ child
             action={permissions}
             renderOnError={
                 <ServerError
-                    title={'Access Denied'}
-                    message={'You do not have permission to access this page.'}
+                    title={'权限不足'}
+                    message={'您没有访问该页面的权限.'}
                 />
             }
         >
