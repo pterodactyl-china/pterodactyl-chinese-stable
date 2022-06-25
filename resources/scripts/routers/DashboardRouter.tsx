@@ -19,9 +19,9 @@ export default () => {
             {location.pathname.startsWith('/account') &&
                 <SubNavigation>
                     <div>
-                        <NavLink to={'/account'} exact>Settings</NavLink>
-                        <NavLink to={'/account/api'}>API Credentials</NavLink>
-                        <NavLink to={'/account/ssh'}>SSH Keys</NavLink>
+                        <NavLink to={'/account'} exact>设置</NavLink>
+                        <NavLink to={'/account/api'}>API 凭证</NavLink>
+                        <NavLink to={'/account/ssh'}>SSH 密钥</NavLink>
                     </div>
                 </SubNavigation>
             }
