@@ -63,7 +63,7 @@ const BackupContainer = () => {
                 <div css={tw`mt-6 sm:flex items-center justify-end`}>
                     {backupLimit > 0 && backups.backupCount > 0 && (
                         <p css={tw`text-sm text-neutral-300 mb-4 sm:mr-6 sm:mb-0`}>
-                            已为此服务器创建 {backups.backupCount} / {backupLimit} 个备份。.
+                            已为此服务器创建 {backups.backupCount} / {backupLimit} 个备份.
                         </p>
                     )}
                     {backupLimit > 0 && backupLimit > backups.backupCount && (

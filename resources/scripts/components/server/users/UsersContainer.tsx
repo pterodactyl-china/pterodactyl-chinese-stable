@@ -51,7 +51,7 @@ export default () => {
         <ServerContentBlock title={'子用户'}>
             <FlashMessageRender byKey={'users'} css={tw`mb-4`} />
             {!subusers.length ? (
-                <p css={tw`text-center text-sm text-neutral-300`}>看起来您没有任何子用户。.</p>
+                <p css={tw`text-center text-sm text-neutral-300`}>看起来您没有任何子用户.</p>
             ) : (
                 subusers.map((subuser) => <UserRow key={subuser.uuid} subuser={subuser} />)
             )}
