@@ -38,7 +38,7 @@
                             <tr>
                                 <td>外部 ID</td>
                                 @if(is_null($server->external_id))
-                                    <td><span class="label label-default">Not Set</span></td>
+                                    <td><span class="label label-default">未设置</span></td>
                                 @else
                                     <td><code>{{ $server->external_id }}</code></td>
                                 @endif
@@ -62,7 +62,7 @@
                                 <td>CPU 限制</td>
                                 <td>
                                     @if($server->cpu === 0)
-                                        <code>Unlimited</code>
+                                        <code>无限制</code>
                                     @else
                                         <code>{{ $server->cpu }}%</code>
                                     @endif
@@ -74,7 +74,7 @@
                                     @if($server->threads != null)
                                         <code>{{ $server->threads }}</code>
                                     @else
-                                        <span class="label label-default">Not Set</span>
+                                        <span class="label label-default">未设置</span>
                                     @endif
                                 </td>
                             </tr>
