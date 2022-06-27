@@ -12,7 +12,8 @@ Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP�
 ![Image](https://s1.ax1x.com/2022/06/27/jVJDaQ.png)  
 
 ## 汉化
-访问此仓库 Releases 界面即可获取最新版本的汉化补丁！
+访问此仓库 Releases 界面即可获取最新版本的汉化补丁！  
+或者直接拉取对应版本分支进行构建！  
 
 ## 文档（本地化进行中）
 * [Panel 前端文档 在鸽](https://pterodactyl.io/panel/1.0/getting_started.html)
