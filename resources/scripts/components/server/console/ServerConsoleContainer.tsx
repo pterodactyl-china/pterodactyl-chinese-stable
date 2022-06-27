@@ -1,4 +1,4 @@
-`import React, { memo } from 'react';
+import React, { memo } from 'react';
 import { ServerContext } from '@/state/server';
 import Can from '@/components/elements/Can';
 import ContentContainer from '@/components/elements/ContentContainer';
