@@ -3,13 +3,13 @@
 ![Github Licenses](https://img.shields.io/github/license/ilworkcn/pterodactyl-chinese-manual?style=for-the-badge)
 ![GitHub Releases](https://img.shields.io/github/license/ilworkcn/pterodactyl-chinese-manual/latest/total?style=for-the-badge)
 
-# Pterodactyl 翼龙面板本地化项目
+# Pterodactyl 翼龙面板本地化项目  
 
-Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP、React 和 Go 构建。
-此本地化项目仅负责官方稳定发行版汉化，不保证DEV分支使用汉化补丁的稳定性！
-所有 Releases 均经过构建测试，可放心使用！
-## 1.9.0 版本大改正跟进！！！
-![Image](https://s1.ax1x.com/2022/06/27/jVJDaQ.png)
+Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP、React 和 Go 构建。  
+此本地化项目仅负责官方稳定发行版汉化，不保证DEV分支使用汉化补丁的稳定性！  
+所有 Releases 均经过构建测试，可放心使用！  
+## 1.9.0 版本大改正跟进！！！  
+![Image](https://s1.ax1x.com/2022/06/27/jVJDaQ.png)  
 
 ## 汉化
 访问此仓库 Releases 界面即可获取最新版本的汉化补丁！
