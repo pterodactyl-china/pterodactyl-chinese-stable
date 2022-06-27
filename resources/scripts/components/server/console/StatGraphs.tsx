@@ -76,7 +76,7 @@ export default () => {
                 <Line {...memory.props} />
             </ChartBlock>
             <ChartBlock
-                title={'网络了了'}
+                title={'网络流量'}
                 legend={
                     <>
                         <Tooltip arrow content={'接收'}>

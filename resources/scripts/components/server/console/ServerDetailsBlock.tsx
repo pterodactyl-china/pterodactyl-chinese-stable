@@ -104,7 +104,7 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
                         : '此服务器可无限制使用运行内存资源.'
                 }
             >
-                {status === 'offline' ? <span className={'text-gray-400'}>Offline</span> : bytesToString(stats.memory)}
+                {status === 'offline' ? <span className={'text-gray-400'}>离线</span> : bytesToString(stats.memory)}
             </StatBlock>
             <StatBlock
                 icon={faHdd}
