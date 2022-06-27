@@ -72,67 +72,67 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
 
     return (
         <div className={classNames('grid grid-cols-6 gap-2 md:gap-4', className)}>
-            <StatBlock icon={faWifi} title={'Address'}>
+            <StatBlock icon={faWifi} title={'连接地址'}>
                 {allocation}
             </StatBlock>
             <StatBlock
                 icon={faClock}
-                title={'Uptime'}
+                title={'运行时间'}
                 color={getBackgroundColor(status === 'running' ? 0 : status !== 'offline' ? 9 : 10, 10)}
             >
-                {stats.uptime > 0 ? <UptimeDuration uptime={stats.uptime / 1000} /> : 'Offline'}
+                {stats.uptime > 0 ? <UptimeDuration uptime={stats.uptime / 1000} /> : '离线'}
             </StatBlock>
             <StatBlock
                 icon={faMicrochip}
-                title={'CPU Load'}
+                title={'CPU 负载'}
                 color={getBackgroundColor(stats.cpu, limits.cpu)}
                 description={
                     limits.cpu
-                        ? `This server is allowed to use up to ${limits.cpu}% of the host's available CPU resources.`
-                        : 'No CPU limit has been configured for this server.'
+                        ? `此服务器允许使用 ${limits.cpu}% 的 CPU 处理资源.`
+                        : '此服务器可无限制使用 CPU 处理资源.'
                 }
             >
-                {status === 'offline' ? <span className={'text-gray-400'}>Offline</span> : `${stats.cpu.toFixed(2)}%`}
+                {status === 'offline' ? <span className={'text-gray-400'}>离线</span> : `${stats.cpu.toFixed(2)}%`}
             </StatBlock>
             <StatBlock
                 icon={faMemory}
-                title={'Memory'}
+                title={'运行内存'}
                 color={getBackgroundColor(stats.memory / 1024, limits.memory * 1024)}
                 description={
                     limits.memory
-                        ? `This server is allowed to use up to ${bytesToString(mbToBytes(limits.memory))} of memory.`
-                        : 'No memory limit has been configured for this server.'
+                        ? `此服务器允许使用 ${bytesToString(mbToBytes(limits.memory))} 的运行内存.`
+                        : '此服务器可无限制使用运行内存资源.'
                 }
             >
                 {status === 'offline' ? <span className={'text-gray-400'}>Offline</span> : bytesToString(stats.memory)}
             </StatBlock>
             <StatBlock
                 icon={faHdd}
-                title={'Disk'}
+                title={'存储空间'}
                 color={getBackgroundColor(stats.disk / 1024, limits.disk * 1024)}
                 description={
                     limits.disk
-                        ? `This server is allowed to use up to ${bytesToString(mbToBytes(limits.disk))} of disk space.`
-                        : 'No disk space limit has been configured for this server.'
+                        ? `此服务器允许使用 ${bytesToString(mbToBytes(limits.disk))} 的存储空间.`
+                        : '此服务器可无限制使用存储空间资源.'
                 }
             >
                 {bytesToString(stats.disk)}
             </StatBlock>
             <StatBlock
                 icon={faCloudDownloadAlt}
-                title={'Network (Inbound)'}
-                description={'The total amount of network traffic that your server has recieved since it was started.'}
+                title={'网络流量 (接收)'}
+                description={'您的服务器自启动以来收到的网络流量总量.'}
             >
-                {status === 'offline' ? <span className={'text-gray-400'}>Offline</span> : bytesToString(stats.tx)}
+                {status === 'offline' ? <span className={'text-gray-400'}>离线</span> : bytesToString(stats.tx)}
             </StatBlock>
             <StatBlock
                 icon={faCloudUploadAlt}
-                title={'Network (Outbound)'}
+                title={'网络流量 (发送)'}
                 description={
-                    'The total amount of traffic your server has sent across the internet since it was started.'
+                    '您的服务器自启动以来向广域网发送的总流量.'
                 }
             >
-                {status === 'offline' ? <span className={'text-gray-400'}>Offline</span> : bytesToString(stats.rx)}
+                {status === 'offline' ? <span className={'text-gray-400'}>离线</span> : bytesToString(stats.rx)}
             </StatBlock>
         </div>
     );
