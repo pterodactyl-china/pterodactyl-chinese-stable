@@ -7,6 +7,7 @@
 
 Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP、React 和 Go 构建。
 此本地化项目仅负责官方稳定发行版汉化，不保证DEV分支使用汉化补丁的稳定性！
+所有 Releases 均经过构建测试，可放心使用！
 ## 1.9.0 版本大改正跟进！！！
 ![Image](https://s1.ax1x.com/2022/06/27/jVJDaQ.png)
 
@@ -17,7 +18,7 @@ Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP�
 * [Panel 前端文档](https://pterodactyl.io/panel/1.0/getting_started.html)
 * [Wings 后端文档](https://pterodactyl.io/wings/1.0/installing.html)
 * [社区支援文档](https://pterodactyl.io/community/about.html)
-* * [欢迎支持冰凌家 iLwork.CN STUDIO](https://pterodactyl.io/panel/1.0/getting_started.html)
+*  [欢迎支持冰凌家 iLwork.CN STUDIO](https://pterodactyl.io/panel/1.0/getting_started.html)
 
 ## 开源协议
 Pterodactyl® Copyright © 2015 - 2022 Dane Everitt and contributors.  
