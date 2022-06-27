@@ -22,7 +22,7 @@ const ServerConsoleContainer = () => {
     const eggFeatures = ServerContext.useStoreState((state) => state.server.data!.eggFeatures, isEqual);
 
     return (
-        <ServerContentBlock title={'Console'} className={'flex flex-col gap-2 sm:gap-4'}>
+        <ServerContentBlock title={'控制台'} className={'flex flex-col gap-2 sm:gap-4'}>
             <div className={'flex gap-4 items-end'}>
                 <div className={'hidden sm:block flex-1'}>
                     <h1 className={'font-header text-2xl text-gray-50 leading-relaxed line-clamp-1'}>{name}</h1>
@@ -45,8 +45,8 @@ const ServerConsoleContainer = () => {
                     <div css={tw`mt-4 rounded bg-yellow-500 p-3`}>
                         <ContentContainer>
                             <p css={tw`text-sm text-yellow-900`}>
-                                This server is currently running its installation process and most actions are
-                                unavailable.
+                                此服务器实例当前正在运行其安装过程，大多数操作都是
+                                不可用的。
                             </p>
                         </ContentContainer>
                     </div>
@@ -54,8 +54,8 @@ const ServerConsoleContainer = () => {
                     <div css={tw`mt-4 rounded bg-yellow-500 p-3`}>
                         <ContentContainer>
                             <p css={tw`text-sm text-yellow-900`}>
-                                This server is currently being transferred to another node and all actions are
-                                unavailable.
+                                此服务器实例当前正在转移到另一个节点服务器，所有操作
+                                都不可用。
                             </p>
                         </ContentContainer>
                     </div>

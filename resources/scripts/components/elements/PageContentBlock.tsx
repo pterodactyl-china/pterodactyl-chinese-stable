@@ -32,7 +32,16 @@ const PageContentBlock: React.FC<PageContentBlockProps> = ({ title, showFlashKey
                             target={'_blank'}
                             css={tw`no-underline text-neutral-500 hover:text-neutral-300`}
                         >
-                            Pterodactyl which Sinicizated by iLwork.CN STUDIO &reg;
+                            Pterodactyl
+                        </a>
+						which Sinicizated by
+						<a
+                            rel={'noopener nofollow noreferrer'}
+                            href={'https://ilwork.cn'}
+                            target={'_blank'}
+                            css={tw`no-underline text-neutral-500 hover:text-neutral-300`}
+                        >
+                             iLwork.CN STUDIO &reg;
                         </a>
                         &nbsp;&copy; 2015 - {new Date().getFullYear()}
                     </p>

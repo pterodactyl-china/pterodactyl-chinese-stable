@@ -50,8 +50,8 @@ export default ({ activity, children }: Props) => {
             <div className={'col-span-10 sm:col-span-9 flex'}>
                 <div className={'flex-1 px-4 sm:px-0'}>
                     <div className={'flex items-center text-gray-50'}>
-                        <Tooltip placement={'top'} content={actor?.email || 'System User'}>
-                            <span>{actor?.username || 'System'}</span>
+                        <Tooltip placement={'top'} content={actor?.email || '系统用户'}>
+                            <span>{actor?.username || '系统'}</span>
                         </Tooltip>
                         <span className={'text-gray-400'}>&nbsp;&mdash;&nbsp;</span>
                         <Link
@@ -62,7 +62,7 @@ export default ({ activity, children }: Props) => {
                         </Link>
                         <div className={classNames(style.icons, 'group-hover:text-gray-300')}>
                             {activity.isApi && (
-                                <Tooltip placement={'top'} content={'Performed using API Key'}>
+                                <Tooltip placement={'top'} content={'使用 API 进行的操作'}>
                                     <span>
                                         <TerminalIcon />
                                     </span>
