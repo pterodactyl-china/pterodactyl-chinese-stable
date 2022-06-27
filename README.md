@@ -15,10 +15,10 @@ Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP�
 访问此仓库 Releases 界面即可获取最新版本的汉化补丁！
 
 ## 文档（本地化进行中）
-* [Panel 前端文档](https://pterodactyl.io/panel/1.0/getting_started.html)
-* [Wings 后端文档](https://pterodactyl.io/wings/1.0/installing.html)
-* [社区支援文档](https://pterodactyl.io/community/about.html)
-*  [欢迎支持冰凌家 iLwork.CN STUDIO](https://pterodactyl.io/panel/1.0/getting_started.html)
+* [Panel 前端文档 在鸽](https://pterodactyl.io/panel/1.0/getting_started.html)
+* [Wings 后端文档 在鸽](https://pterodactyl.io/wings/1.0/installing.html)
+* [社区支援文档 在鸽](https://pterodactyl.io/community/about.html)
+* [欢迎支持冰凌家 iLwork.CN STUDIO （不要脸）](https://pterodactyl.io/panel/1.0/getting_started.html)
 
 ## 开源协议
 Pterodactyl® Copyright © 2015 - 2022 Dane Everitt and contributors.  
