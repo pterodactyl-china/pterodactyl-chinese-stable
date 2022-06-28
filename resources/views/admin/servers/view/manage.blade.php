@@ -1,22 +1,21 @@
-{{-- Pterodactyl - Panel which Sinicizated by iLwork.CN STUDIO --}}
+{{-- Pterodactyl - Panel --}}
 {{-- Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com> --}}
-{{-- Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn> --}}
 
 {{-- This software is licensed under the terms of the MIT license. --}}
 {{-- https://opensource.org/licenses/MIT --}}
 @extends('layouts.admin')
 
 @section('title')
-    服务器实例 — {{ $server->name }}: 管理
+    Server — {{ $server->name }}: Manage
 @endsection
 
 @section('content-header')
-    <h1>{{ $server->name }}<small>控制此服务器的其他操作.</small></h1>
+    <h1>{{ $server->name }}<small>Additional actions to control this server.</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">管理</a></li>
-        <li><a href="{{ route('admin.servers') }}">服务器实例</a></li>
+        <li><a href="{{ route('admin.index') }}">Admin</a></li>
+        <li><a href="{{ route('admin.servers') }}">Servers</a></li>
         <li><a href="{{ route('admin.servers.view', $server->id) }}">{{ $server->name }}</a></li>
-        <li class="active">管理</li>
+        <li class="active">Manage</li>
     </ol>
 @endsection
 
@@ -26,19 +25,19 @@
         <div class="col-sm-4">
             <div class="box box-danger">
                 <div class="box-header with-border">
-                    <h3 class="box-title">重新安装服务器实例</h3>
+                    <h3 class="box-title">Reinstall Server</h3>
                 </div>
                 <div class="box-body">
-                    <p>此操作将使用预设的安装程序对服务器初始化。 <strong>微信!</strong> 这会覆盖一部分数据.</p>
+                    <p>This will reinstall the server with the assigned service scripts. <strong>Danger!</strong> This could overwrite server data.</p>
                 </div>
                 <div class="box-footer">
                     @if($server->isInstalled())
                         <form action="{{ route('admin.servers.view.manage.reinstall', $server->id) }}" method="POST">
                             {!! csrf_field() !!}
-                            <button type="submit" class="btn btn-danger">重新安装服务器实例</button>
+                            <button type="submit" class="btn btn-danger">Reinstall Server</button>
                         </form>
                     @else
-                        <button class="btn btn-danger disabled">服务器实例必须正常安装之后才可重新安装</button>
+                        <button class="btn btn-danger disabled">Server Must Install Properly to Reinstall</button>
                     @endif
                 </div>
             </div>
@@ -46,15 +45,15 @@
         <div class="col-sm-4">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">安装状态</h3>
+                    <h3 class="box-title">Install Status</h3>
                 </div>
                 <div class="box-body">
-                    <p>如果您需要将安装状态从已卸载更改为已安装，反之亦然，您可以使用下面的按钮进行操作。</p>
+                    <p>If you need to change the install status from uninstalled to installed, or vice versa, you may do so with the button below.</p>
                 </div>
                 <div class="box-footer">
                     <form action="{{ route('admin.servers.view.manage.toggle', $server->id) }}" method="POST">
                         {!! csrf_field() !!}
-                        <button type="submit" class="btn btn-primary">更改安装状态</button>
+                        <button type="submit" class="btn btn-primary">Toggle Install Status</button>
                     </form>
                 </div>
             </div>
@@ -64,16 +63,16 @@
             <div class="col-sm-4">
                 <div class="box box-warning">
                     <div class="box-header with-border">
-                        <h3 class="box-title">冻结服务器实例</h3>
+                        <h3 class="box-title">Suspend Server</h3>
                     </div>
                     <div class="box-body">
-                        <p>这将暂停服务器实例，停止任何正在运行的进程，并立即阻止用户访问他们的文件或通过面板或 API 管理服务器实例.</p>
+                        <p>This will suspend the server, stop any running processes, and immediately block the user from being able to access their files or otherwise manage the server through the panel or API.</p>
                     </div>
                     <div class="box-footer">
                         <form action="{{ route('admin.servers.view.manage.suspension', $server->id) }}" method="POST">
                             {!! csrf_field() !!}
                             <input type="hidden" name="action" value="suspend" />
-                            <button type="submit" class="btn btn-warning @if(! is_null($server->transfer)) disabled @endif">冻结服务器实例</button>
+                            <button type="submit" class="btn btn-warning @if(! is_null($server->transfer)) disabled @endif">Suspend Server</button>
                         </form>
                     </div>
                 </div>
@@ -82,16 +81,16 @@
             <div class="col-sm-4">
                 <div class="box box-success">
                     <div class="box-header with-border">
-                        <h3 class="box-title">撤销冻结服务器实例</h3>
+                        <h3 class="box-title">Unsuspend Server</h3>
                     </div>
                     <div class="box-body">
-                        <p>这将撤销服务器实例的冻结，且用户将有权限管理此服务器实例.</p>
+                        <p>This will unsuspend the server and restore normal user access.</p>
                     </div>
                     <div class="box-footer">
                         <form action="{{ route('admin.servers.view.manage.suspension', $server->id) }}" method="POST">
                             {!! csrf_field() !!}
                             <input type="hidden" name="action" value="unsuspend" />
-                            <button type="submit" class="btn btn-success">撤销冻结服务器实例</button>
+                            <button type="submit" class="btn btn-success">Unsuspend Server</button>
                         </form>
                     </div>
                 </div>
@@ -102,12 +101,12 @@
             <div class="col-sm-4">
                 <div class="box box-success">
                     <div class="box-header with-border">
-                        <h3 class="box-title">转移服务器实例</h3>
+                        <h3 class="box-title">Transfer Server</h3>
                     </div>
                     <div class="box-body">
                         <p>
-                            将此服务器实例转移到连接到此面板的另一个节点服务器.
-                            <strong>警告!</strong> 此功能未完全测试可能有BUG.
+                            Transfer this server to another node connected to this panel.
+                            <strong>Warning!</strong> This feature has not been fully tested and may have bugs.
                         </p>
                     </div>
 
@@ -115,8 +114,8 @@
                         @if($canTransfer)
                             <button class="btn btn-success" data-toggle="modal" data-target="#transferServerModal">Transfer Server</button>
                         @else
-                            <button class="btn btn-success disabled">转移服务器实例</button>
-                            <p style="padding-top: 1rem;">转移一台服务器实例需要在您的面板上配置多个节点服务器。</p>
+                            <button class="btn btn-success disabled">Transfer Server</button>
+                            <p style="padding-top: 1rem;">Transferring a server requires more than one node to be configured on your panel.</p>
                         @endif
                     </div>
                 </div>
@@ -125,17 +124,17 @@
             <div class="col-sm-4">
                 <div class="box box-success">
                     <div class="box-header with-border">
-                        <h3 class="box-title">转移服务器实例</h3>
+                        <h3 class="box-title">Transfer Server</h3>
                     </div>
                     <div class="box-body">
                         <p>
-                            此服务器实例正在转移至另一个节点服务器.
-                            转移开始于 <strong>{{ $server->transfer->created_at }}</strong>
+                            This server is currently being transferred to another node.
+                            Transfer was initiated at <strong>{{ $server->transfer->created_at }}</strong>
                         </p>
                     </div>
 
                     <div class="box-footer">
-                        <button class="btn btn-success disabled">转移服务器实例</button>
+                        <button class="btn btn-success disabled">Transfer Server</button>
                     </div>
                 </div>
             </div>
@@ -148,13 +147,13 @@
                 <form action="{{ route('admin.servers.view.manage.transfer', $server->id) }}" method="POST">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">转移服务器实例</h4>
+                        <h4 class="modal-title">Transfer Server</h4>
                     </div>
 
                     <div class="modal-body">
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label for="pNodeId">节点服务器</label>
+                                <label for="pNodeId">Node</label>
                                 <select name="node_id" id="pNodeId" class="form-control">
                                     @foreach($locations as $location)
                                         <optgroup label="{{ $location->long }} ({{ $location->short }})">
@@ -170,27 +169,27 @@
                                         </optgroup>
                                     @endforeach
                                 </select>
-                                <p class="small text-muted no-margin">该服务器实例将被转移到的节点服务器.</p>
+                                <p class="small text-muted no-margin">The node which this server will be transferred to.</p>
                             </div>
 
                             <div class="form-group col-md-12">
-                                <label for="pAllocation">默认分配</label>
+                                <label for="pAllocation">Default Allocation</label>
                                 <select name="allocation_id" id="pAllocation" class="form-control"></select>
-                                <p class="small text-muted no-margin">将分配给此服务器实例的主要分配。</p>
+                                <p class="small text-muted no-margin">The main allocation that will be assigned to this server.</p>
                             </div>
 
                             <div class="form-group col-md-12">
-                                <label for="pAllocationAdditional">额外分配</label>
+                                <label for="pAllocationAdditional">Additional Allocation(s)</label>
                                 <select name="allocation_additional[]" id="pAllocationAdditional" class="form-control" multiple></select>
-                                <p class="small text-muted no-margin">将分配给此服务器实例的额外分配。</p>
+                                <p class="small text-muted no-margin">Additional allocations to assign to this server on creation.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="modal-footer">
                         {!! csrf_field() !!}
-                        <button type="button" class="btn btn-default btn-sm pull-left" data-dismiss="modal">取消</button>
-                        <button type="submit" class="btn btn-success btn-sm">确定</button>
+                        <button type="button" class="btn btn-default btn-sm pull-left" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-success btn-sm">Confirm</button>
                     </div>
                 </form>
             </div>

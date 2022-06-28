@@ -42,37 +42,33 @@ export default ({ className }: PowerButtonProps) => {
                 open={open}
                 hideCloseIcon
                 onClose={() => setOpen(false)}
-                title={'强制停止进程'}
-                confirm={'继续'}
+                title={'Forcibly Stop Process'}
+                confirm={'Continue'}
                 onConfirmed={onButtonClick.bind(this, 'kill-confirmed')}
             >
-                强行停止服务器会导致数据损坏。
+                Forcibly stopping a server can lead to data corruption.
             </Dialog.Confirm>
             <Can action={'control.start'}>
                 <Button
-                    className={'w-full sm:w-24'}
+                    className={'flex-1'}
                     disabled={status !== 'offline'}
                     onClick={onButtonClick.bind(this, 'start')}
                 >
-                    启动
+                    Start
                 </Button>
             </Can>
             <Can action={'control.restart'}>
-                <Button.Text
-                    className={'w-full sm:w-24'}
-                    disabled={!status}
-                    onClick={onButtonClick.bind(this, 'restart')}
-                >
-                    重启
+                <Button.Text className={'flex-1'} disabled={!status} onClick={onButtonClick.bind(this, 'restart')}>
+                    Restart
                 </Button.Text>
             </Can>
             <Can action={'control.stop'}>
                 <Button.Danger
-                    className={'w-full sm:w-24'}
+                    className={'flex-1'}
                     disabled={status === 'offline'}
                     onClick={onButtonClick.bind(this, killable ? 'kill' : 'stop')}
                 >
-                    {killable ? '强制停止' : '停止'}
+                    {killable ? 'Kill' : 'Stop'}
                 </Button.Danger>
             </Can>
         </div>

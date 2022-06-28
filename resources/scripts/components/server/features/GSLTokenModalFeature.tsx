@@ -75,24 +75,25 @@ const GSLTokenModalFeature = () => {
             >
                 <FlashMessageRender key={'feature:gslToken'} css={tw`mb-4`} />
                 <Form>
-                    <h2 css={tw`text-2xl mb-4 text-neutral-100`}>GSL 令牌无效!</h2>
+                    <h2 css={tw`text-2xl mb-4 text-neutral-100`}>Invalid GSL token!</h2>
                     <p css={tw`mt-4`}>
-                        您的游戏服务器登录令牌（GSL 令牌）似乎无效或已过期。
+                        It seems like your Gameserver Login Token (GSL token) is invalid or has expired.
                     </p>
                     <p css={tw`mt-4`}>
-                        您可以生成一个新的并在下面输入，也可以将该字段留空以将其完全删除.
+                        You can either generate a new one and enter it below or leave the field blank to remove it
+                        completely.
                     </p>
                     <div css={tw`sm:flex items-center mt-4`}>
                         <Field
                             name={'gslToken'}
-                            label={'GSL 令牌'}
-                            description={'访问 https://steamcommunity.com/dev/managegameservers 以生成令牌.'}
+                            label={'GSL Token'}
+                            description={'Visit https://steamcommunity.com/dev/managegameservers to generate a token.'}
                             autoFocus
                         />
                     </div>
                     <div css={tw`mt-8 sm:flex items-center justify-end`}>
                         <Button type={'submit'} css={tw`mt-4 sm:mt-0 sm:ml-4 w-full sm:w-auto`}>
-                            更新 GSL 令牌
+                            Update GSL Token
                         </Button>
                     </div>
                 </Form>

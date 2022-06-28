@@ -69,19 +69,19 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
             onSubmit={onSubmit}
             initialValues={{ username: '', password: '' }}
             validationSchema={object().shape({
-                username: string().required('必须提供用户名或电子邮件。'),
-                password: string().required('请输入您的帐户密码。'),
+                username: string().required('A username or email must be provided.'),
+                password: string().required('Please enter your account password.'),
             })}
         >
             {({ isSubmitting, setSubmitting, submitForm }) => (
-                <LoginFormContainer title={'请登入账号以继续'} css={tw`w-full flex`}>
-                    <Field light type={'text'} label={'用户名或电子邮箱地址'} name={'username'} disabled={isSubmitting} />
+                <LoginFormContainer title={'Login to Continue'} css={tw`w-full flex`}>
+                    <Field light type={'text'} label={'Username or Email'} name={'username'} disabled={isSubmitting} />
                     <div css={tw`mt-6`}>
-                        <Field light type={'password'} label={'密码'} name={'password'} disabled={isSubmitting} />
+                        <Field light type={'password'} label={'Password'} name={'password'} disabled={isSubmitting} />
                     </div>
                     <div css={tw`mt-6`}>
                         <Button type={'submit'} size={'xlarge'} isLoading={isSubmitting} disabled={isSubmitting}>
-                            登入系统
+                            Login
                         </Button>
                     </div>
                     {recaptchaEnabled && (
@@ -104,7 +104,7 @@ const LoginContainer = ({ history }: RouteComponentProps) => {
                             to={'/auth/password'}
                             css={tw`text-xs text-neutral-500 tracking-wide no-underline uppercase hover:text-neutral-600`}
                         >
-                            忘记密码?
+                            Forgot password?
                         </Link>
                     </div>
                 </LoginFormContainer>

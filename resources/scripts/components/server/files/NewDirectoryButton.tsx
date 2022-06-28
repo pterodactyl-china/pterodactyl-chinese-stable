@@ -21,7 +21,7 @@ interface Values {
 }
 
 const schema = object().shape({
-    directoryName: string().required('必须提供有效的目录名称。'),
+    directoryName: string().required('A valid directory name must be provided.'),
 });
 
 const generateDirectoryData = (name: string): FileObject => ({
@@ -72,7 +72,7 @@ export default ({ className }: WithClassname) => {
                 <Formik onSubmit={submit} validationSchema={schema} initialValues={{ directoryName: '' }}>
                     {({ resetForm, submitForm, isSubmitting: _, values }) => (
                         <Dialog
-                            title={'创建目录'}
+                            title={'Create Directory'}
                             open={visible}
                             onClose={() => {
                                 setVisible(false);
@@ -83,7 +83,7 @@ export default ({ className }: WithClassname) => {
                             <Form css={tw`m-0`}>
                                 <Field autoFocus id={'directoryName'} name={'directoryName'} label={'Name'} />
                                 <p css={tw`mt-2 text-sm md:text-base break-all`}>
-                                    <span css={tw`text-neutral-200`}>该目录将被创建为&nbsp;</span>
+                                    <span css={tw`text-neutral-200`}>This directory will be created as&nbsp;</span>
                                     <Code>
                                         /home/container/
                                         <span css={tw`text-cyan-200`}>
@@ -100,10 +100,10 @@ export default ({ className }: WithClassname) => {
                                         resetForm();
                                     }}
                                 >
-                                    取消
+                                    Cancel
                                 </Button.Text>
                                 <Button className={'w-full sm:w-auto'} onClick={submitForm}>
-                                    创建
+                                    Create
                                 </Button>
                             </Dialog.Buttons>
                         </Dialog>
@@ -111,7 +111,7 @@ export default ({ className }: WithClassname) => {
                 </Formik>
             </Portal>
             <Button.Text onClick={() => setVisible(true)} className={className}>
-                创建目录
+                Create Directory
             </Button.Text>
         </>
     );

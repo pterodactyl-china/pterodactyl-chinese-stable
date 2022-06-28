@@ -59,7 +59,7 @@ export default () => {
     }
 
     return (
-        <ServerContentBlock title={'文件管理器'} showFlashKey={'files'}>
+        <ServerContentBlock title={'File Manager'} showFlashKey={'files'}>
             <ErrorBoundary>
                 <div className={'flex flex-wrap-reverse md:flex-nowrap mb-4'}>
                     <FileManagerBreadcrumbs
@@ -77,7 +77,7 @@ export default () => {
                             <NewDirectoryButton />
                             <UploadButton />
                             <NavLink to={`/server/${id}/files/new${window.location.hash}`}>
-                                <Button>新文件</Button>
+                                <Button>New File</Button>
                             </NavLink>
                         </div>
                     </Can>
@@ -88,15 +88,15 @@ export default () => {
             ) : (
                 <>
                     {!files.length ? (
-                        <p css={tw`text-sm text-neutral-400 text-center`}>此目录为空.</p>
+                        <p css={tw`text-sm text-neutral-400 text-center`}>This directory seems to be empty.</p>
                     ) : (
                         <CSSTransition classNames={'fade'} timeout={150} appear in>
                             <div>
                                 {files.length > 250 && (
                                     <div css={tw`rounded bg-yellow-400 mb-px p-3`}>
                                         <p css={tw`text-yellow-900 text-sm text-center`}>
-                                            此目录文件太多，无法在浏览器中显示，
-                                            将输出限制为前 250 个文件。
+                                            This directory is too large to display in the browser, limiting the output
+                                            to the first 250 files.
                                         </p>
                                     </div>
                                 )}

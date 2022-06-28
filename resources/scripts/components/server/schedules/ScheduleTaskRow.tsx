@@ -29,13 +29,13 @@ interface Props {
 const getActionDetails = (action: string): [string, any] => {
     switch (action) {
         case 'command':
-            return ['发送指令', faCode];
+            return ['Send Command', faCode];
         case 'power':
-            return ['发送电源操作', faToggleOn];
+            return ['Send Power Action', faToggleOn];
         case 'backup':
-            return ['创建备份', faFileArchive];
+            return ['Create Backup', faFileArchive];
         default:
-            return ['其他动作', faCode];
+            return ['Unknown Action', faCode];
     }
 };
 
@@ -76,13 +76,13 @@ export default ({ schedule, task }: Props) => {
                 onModalDismissed={() => setIsEditing(false)}
             />
             <ConfirmationModal
-                title={'确认删除任务'}
-                buttonText={'删除'}
+                title={'Confirm task deletion'}
+                buttonText={'Delete Task'}
                 onConfirmed={onConfirmDeletion}
                 visible={visible}
                 onModalDismissed={() => setVisible(false)}
             >
-                您确定要删除此任务吗？ 此操作无法撤消。
+                Are you sure you want to delete this task? This action cannot be undone.
             </ConfirmationModal>
             <FontAwesomeIcon icon={icon} css={tw`text-lg text-white hidden md:block`} />
             <div css={tw`flex-none sm:flex-1 w-full sm:w-auto overflow-x-auto`}>
@@ -90,7 +90,7 @@ export default ({ schedule, task }: Props) => {
                 {task.payload && (
                     <div css={tw`md:ml-6 mt-2`}>
                         {task.action === 'backup' && (
-                            <p css={tw`text-xs uppercase text-neutral-400 mb-1`}>忽略的文件 & 目录:</p>
+                            <p css={tw`text-xs uppercase text-neutral-400 mb-1`}>Ignoring files & folders:</p>
                         )}
                         <div
                             css={tw`font-mono bg-neutral-800 rounded py-1 px-2 text-sm w-auto inline-block whitespace-pre-wrap break-all`}
@@ -105,7 +105,7 @@ export default ({ schedule, task }: Props) => {
                     <div css={tw`mr-6`}>
                         <div css={tw`flex items-center px-2 py-1 bg-yellow-500 text-yellow-800 text-sm rounded-full`}>
                             <Icon icon={faArrowCircleDown} css={tw`w-3 h-3 mr-2`} />
-                            出错时也继续运行
+                            Continues on Failure
                         </div>
                     </div>
                 )}
@@ -113,7 +113,7 @@ export default ({ schedule, task }: Props) => {
                     <div css={tw`mr-6`}>
                         <div css={tw`flex items-center px-2 py-1 bg-neutral-500 text-sm rounded-full`}>
                             <Icon icon={faClock} css={tw`w-3 h-3 mr-2`} />
-                            {task.timeOffset}秒后
+                            {task.timeOffset}s later
                         </div>
                     </div>
                 )}

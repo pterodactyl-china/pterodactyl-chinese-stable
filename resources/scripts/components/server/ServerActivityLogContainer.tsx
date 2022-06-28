@@ -32,7 +32,7 @@ export default () => {
     }, [error]);
 
     return (
-        <ServerContentBlock title={'操作日志'}>
+        <ServerContentBlock title={'Activity Log'}>
             <FlashMessageRender byKey={'server:activity'} />
             {(filters.filters?.event || filters.filters?.ip) && (
                 <div className={'flex justify-end mb-2'}>
@@ -41,14 +41,14 @@ export default () => {
                         className={classNames(btnStyles.button, btnStyles.text, 'w-full sm:w-auto')}
                         onClick={() => setFilters((value) => ({ ...value, filters: {} }))}
                     >
-                        清除过滤器 <XCircleIcon className={'w-4 h-4 ml-2'} />
+                        Clear Filters <XCircleIcon className={'w-4 h-4 ml-2'} />
                     </Link>
                 </div>
             )}
             {!data && isValidating ? (
                 <Spinner centered />
             ) : !data?.items.length ? (
-                <p className={'text-sm text-center text-gray-400'}>服务器目前无可用操作日志.</p>
+                <p className={'text-sm text-center text-gray-400'}>No activity logs available for this server.</p>
             ) : (
                 <div className={'bg-gray-700'}>
                     {data?.items.map((activity) => (

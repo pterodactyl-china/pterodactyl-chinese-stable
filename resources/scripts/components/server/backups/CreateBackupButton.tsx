@@ -31,18 +31,18 @@ const ModalContent = ({ ...props }: RequiredModalProps) => {
                 <h2 css={tw`text-2xl mb-6`}>Create server backup</h2>
                 <Field
                     name={'name'}
-                    label={'备份名称'}
-                    description={'如果填写，则应用于此备份的名称。'}
+                    label={'Backup name'}
+                    description={'If provided, the name that should be used to reference this backup.'}
                 />
                 <div css={tw`mt-6`}>
                     <FormikFieldWrapper
                         name={'ignored'}
-                        label={'忽略的文件和目录'}
+                        label={'Ignored Files & Directories'}
                         description={`
-                            输入生成此备份时要忽略的文件或文件夹。 留空使用
-                            服务器目录根目录中 .pteroignore 文件的内容（如果存在）。
-                            除了通过以下方式否定规则外，还支持文件和文件夹的通配符匹配
-                            用感叹号作为路径前缀。
+                            Enter the files or folders to ignore while generating this backup. Leave blank to use
+                            the contents of the .pteroignore file in the root of the server directory if present.
+                            Wildcard matching of files and folders is supported in addition to negating a rule by
+                            prefixing the path with an exclamation point.
                         `}
                     >
                         <FormikField as={Textarea} name={'ignored'} rows={6} />
@@ -52,14 +52,14 @@ const ModalContent = ({ ...props }: RequiredModalProps) => {
                     <div css={tw`mt-6 bg-neutral-700 border border-neutral-800 shadow-inner p-4 rounded`}>
                         <FormikSwitch
                             name={'isLocked'}
-                            label={'锁定'}
-                            description={'防止此备份被删除，直到解锁。'}
+                            label={'Locked'}
+                            description={'Prevents this backup from being deleted until explicitly unlocked.'}
                         />
                     </div>
                 </Can>
                 <div css={tw`flex justify-end mt-6`}>
                     <Button type={'submit'} disabled={isSubmitting}>
-                        开始备份
+                        Start backup
                     </Button>
                 </div>
             </Form>
@@ -109,7 +109,7 @@ export default () => {
                 </Formik>
             )}
             <Button css={tw`w-full sm:w-auto`} onClick={() => setVisible(true)}>
-                创建备份
+                Create backup
             </Button>
         </>
     );

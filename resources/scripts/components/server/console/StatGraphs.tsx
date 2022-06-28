@@ -34,7 +34,7 @@ export default () => {
         callback(opts, index) {
             return {
                 ...opts,
-                label: !index ? '接收网络流量' : '发送网络流量',
+                label: !index ? 'Network In' : 'Network Out',
                 borderColor: !index ? theme('colors.cyan.400') : theme('colors.yellow.400'),
                 backgroundColor: hexToRgba(!index ? theme('colors.cyan.700') : theme('colors.yellow.700'), 0.5),
             };
@@ -57,7 +57,7 @@ export default () => {
             return;
         }
 
-        cpu.push(values.cpu_absolute);
+        cpu.push(values.cpu_absolute.toFixed(2));
         memory.push(Math.floor(values.memory_bytes / 1024 / 1024));
         network.push([
             previous.current.tx < 0 ? 0 : Math.max(0, values.network.tx_bytes - previous.current.tx),
@@ -69,20 +69,20 @@ export default () => {
 
     return (
         <>
-            <ChartBlock title={'CPU 负载'}>
+            <ChartBlock title={'CPU Load'}>
                 <Line {...cpu.props} />
             </ChartBlock>
-            <ChartBlock title={'运行内存'}>
+            <ChartBlock title={'Memory'}>
                 <Line {...memory.props} />
             </ChartBlock>
             <ChartBlock
-                title={'网络流量'}
+                title={'Network'}
                 legend={
                     <>
-                        <Tooltip arrow content={'接收'}>
+                        <Tooltip arrow content={'Inbound'}>
                             <CloudDownloadIcon className={'mr-2 w-4 h-4 text-yellow-400'} />
                         </Tooltip>
-                        <Tooltip arrow content={'发送'}>
+                        <Tooltip arrow content={'Outbound'}>
                             <CloudUploadIcon className={'w-4 h-4 text-cyan-400'} />
                         </Tooltip>
                     </>

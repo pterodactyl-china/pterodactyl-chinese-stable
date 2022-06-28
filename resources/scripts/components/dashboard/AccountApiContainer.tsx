@@ -42,26 +42,26 @@ export default () => {
     };
 
     return (
-        <PageContentBlock title={'账户 API'}>
+        <PageContentBlock title={'Account API'}>
             <FlashMessageRender byKey={'account'} />
             <div css={tw`md:flex flex-nowrap my-10`}>
-                <ContentBox title={'创建 API 密钥'} css={tw`flex-none w-full md:w-1/2`}>
+                <ContentBox title={'Create API Key'} css={tw`flex-none w-full md:w-1/2`}>
                     <CreateApiKeyForm onKeyCreated={(key) => setKeys((s) => [...s!, key])} />
                 </ContentBox>
-                <ContentBox title={'API 密钥'} css={tw`flex-1 overflow-hidden mt-8 md:mt-0 md:ml-8`}>
+                <ContentBox title={'API Keys'} css={tw`flex-1 overflow-hidden mt-8 md:mt-0 md:ml-8`}>
                     <SpinnerOverlay visible={loading} />
                     <Dialog.Confirm
-                        title={'确认删除密钥'}
-                        confirm={'删除'}
+                        title={'Delete API Key'}
+                        confirm={'Delete Key'}
                         open={!!deleteIdentifier}
                         onClose={() => setDeleteIdentifier('')}
                         onConfirmed={() => doDeletion(deleteIdentifier)}
                     >
-                        所有使用 <Code>{deleteIdentifier}</Code> 密钥的服务请求都将立即失效.
+                        All requests using the <Code>{deleteIdentifier}</Code> key will be invalidated.
                     </Dialog.Confirm>
                     {keys.length === 0 ? (
                         <p css={tw`text-center text-sm`}>
-                            {loading ? '载入中...' : '此账户无 API 密钥'}
+                            {loading ? 'Loading...' : 'No API keys exist for this account.'}
                         </p>
                     ) : (
                         keys.map((key, index) => (
@@ -74,7 +74,7 @@ export default () => {
                                     <p css={tw`text-sm break-words`}>{key.description}</p>
                                     <p css={tw`text-2xs text-neutral-300 uppercase`}>
                                         Last used:&nbsp;
-                                        {key.lastUsedAt ? format(key.lastUsedAt, 'MMM do, yyyy HH:mm') : '从未使用'}
+                                        {key.lastUsedAt ? format(key.lastUsedAt, 'MMM do, yyyy HH:mm') : 'Never'}
                                     </p>
                                 </div>
                                 <p css={tw`text-sm ml-4 hidden md:block`}>
