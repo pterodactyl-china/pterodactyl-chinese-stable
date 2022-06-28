@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
     faClock,
     faCloudDownloadAlt,
@@ -31,6 +31,13 @@ const getBackgroundColor = (value: number, max: number | null): string | undefin
     return undefined;
 };
 
+const Limit = ({ limit, children }: { limit: string | null; children: React.ReactNode }) => (
+    <>
+        {children}
+        <span className={'ml-1 text-gray-300 text-[70%] select-none'}>/ {limit || <>&infin;</>}</span>
+    </>
+);
+
 const ServerDetailsBlock = ({ className }: { className?: string }) => {
     const [stats, setStats] = useState<Stats>({ memory: 0, cpu: 0, disk: 0, uptime: 0, tx: 0, rx: 0 });
 
@@ -38,6 +45,16 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
     const connected = ServerContext.useStoreState((state) => state.socket.connected);
     const instance = ServerContext.useStoreState((state) => state.socket.instance);
     const limits = ServerContext.useStoreState((state) => state.server.data!.limits);
+
+    const textLimits = useMemo(
+        () => ({
+            cpu: limits?.cpu ? `${limits.cpu}%` : null,
+            memory: limits?.memory ? bytesToString(mbToBytes(limits.memory)) : null,
+            disk: limits?.disk ? bytesToString(mbToBytes(limits.disk)) : null,
+        }),
+        [limits]
+    );
+
     const allocation = ServerContext.useStoreState((state) => {
         const match = state.server.data!.allocations.find((allocation) => allocation.isDefault);
 
@@ -72,7 +89,7 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
 
     return (
         <div className={classNames('grid grid-cols-6 gap-2 md:gap-4', className)}>
-            <StatBlock icon={faWifi} title={'连接地址'}>
+            <StatBlock icon={faWifi} title={'连接地址'} copyOnClick={allocation}>
                 {allocation}
             </StatBlock>
             <StatBlock
@@ -82,57 +99,32 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
             >
                 {stats.uptime > 0 ? <UptimeDuration uptime={stats.uptime / 1000} /> : '离线'}
             </StatBlock>
-            <StatBlock
-                icon={faMicrochip}
-                title={'CPU 负载'}
-                color={getBackgroundColor(stats.cpu, limits.cpu)}
-                description={
-                    limits.cpu
-                        ? `此服务器允许使用 ${limits.cpu}% 的 CPU 处理资源.`
-                        : '此服务器可无限制使用 CPU 处理资源.'
-                }
-            >
-                {status === 'offline' ? <span className={'text-gray-400'}>离线</span> : `${stats.cpu.toFixed(2)}%`}
+            <StatBlock icon={faMicrochip} title={'CPU 负载'} color={getBackgroundColor(stats.cpu, limits.cpu)}>
+                {status === 'offline' ? (
+                    <span className={'text-gray-400'}>离线</span>
+                ) : (
+                    <Limit limit={textLimits.cpu}>{stats.cpu.toFixed(2)}%</Limit>
+                )}
             </StatBlock>
             <StatBlock
                 icon={faMemory}
                 title={'运行内存'}
                 color={getBackgroundColor(stats.memory / 1024, limits.memory * 1024)}
-                description={
-                    limits.memory
-                        ? `此服务器允许使用 ${bytesToString(mbToBytes(limits.memory))} 的运行内存.`
-                        : '此服务器可无限制使用运行内存资源.'
-                }
             >
-                {status === 'offline' ? <span className={'text-gray-400'}>离线</span> : bytesToString(stats.memory)}
+                {status === 'offline' ? (
+                    <span className={'text-gray-400'}>离线</span>
+                ) : (
+                    <Limit limit={textLimits.memory}>{bytesToString(stats.memory)}</Limit>
+                )}
             </StatBlock>
-            <StatBlock
-                icon={faHdd}
-                title={'存储空间'}
-                color={getBackgroundColor(stats.disk / 1024, limits.disk * 1024)}
-                description={
-                    limits.disk
-                        ? `此服务器允许使用 ${bytesToString(mbToBytes(limits.disk))} 的存储空间.`
-                        : '此服务器可无限制使用存储空间资源.'
-                }
-            >
-                {bytesToString(stats.disk)}
+            <StatBlock icon={faHdd} title={'存储空间'} color={getBackgroundColor(stats.disk / 1024, limits.disk * 1024)}>
+                <Limit limit={textLimits.disk}>{bytesToString(stats.disk)}</Limit>
             </StatBlock>
-            <StatBlock
-                icon={faCloudDownloadAlt}
-                title={'网络流量 (接收)'}
-                description={'您的服务器自启动以来收到的网络流量总量.'}
-            >
-                {status === 'offline' ? <span className={'text-gray-400'}>离线</span> : bytesToString(stats.tx)}
-            </StatBlock>
-            <StatBlock
-                icon={faCloudUploadAlt}
-                title={'网络流量 (发送)'}
-                description={
-                    '您的服务器自启动以来向广域网发送的总流量.'
-                }
-            >
+            <StatBlock icon={faCloudDownloadAlt} title={'网络流量 (接收)'}>
                 {status === 'offline' ? <span className={'text-gray-400'}>离线</span> : bytesToString(stats.rx)}
+            </StatBlock>
+            <StatBlock icon={faCloudUploadAlt} title={'网络流量 (发送)'}>
+                {status === 'offline' ? <span className={'text-gray-400'}>离线</span> : bytesToString(stats.tx)}
             </StatBlock>
         </div>
     );

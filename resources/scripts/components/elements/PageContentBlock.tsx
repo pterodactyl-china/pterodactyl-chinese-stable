@@ -34,7 +34,7 @@ const PageContentBlock: React.FC<PageContentBlockProps> = ({ title, showFlashKey
                         >
                             Pterodactyl
                         </a>
-						 which Sinicizated by 
+						&nbsp;which Sinicizated by&nbsp;
 						<a
                             rel={'noopener nofollow noreferrer'}
                             href={'https://ilwork.cn'}
