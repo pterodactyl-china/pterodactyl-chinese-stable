@@ -84,9 +84,9 @@ export default ({ server, className }: { server: Server; className?: string }) =
         alarms.disk = server.limits.disk === 0 ? false : isAlarmState(stats.diskUsageInBytes, server.limits.disk);
     }
 
-    const diskLimit = server.limits.disk !== 0 ? bytesToString(mbToBytes(server.limits.disk)) : 'Unlimited';
-    const memoryLimit = server.limits.memory !== 0 ? bytesToString(mbToBytes(server.limits.memory)) : 'Unlimited';
-    const cpuLimit = server.limits.cpu !== 0 ? server.limits.cpu + ' %' : 'Unlimited';
+    const diskLimit = server.limits.disk !== 0 ? bytesToString(mbToBytes(server.limits.disk)) : '无限制';
+    const memoryLimit = server.limits.memory !== 0 ? bytesToString(mbToBytes(server.limits.memory)) : '无限制';
+    const cpuLimit = server.limits.cpu !== 0 ? server.limits.cpu + ' %' : '无限制';
 
     return (
         <StatusIndicatorBox as={Link} to={`/server/${server.id}`} className={className} $status={stats?.status}>
@@ -120,19 +120,19 @@ export default ({ server, className }: { server: Server; className?: string }) =
                     isSuspended ? (
                         <div css={tw`flex-1 text-center`}>
                             <span css={tw`bg-red-500 rounded px-2 py-1 text-red-100 text-xs`}>
-                                {server.status === 'suspended' ? 'Suspended' : 'Connection Error'}
+                                {server.status === 'suspended' ? '冻结中' : '连接错误'}
                             </span>
                         </div>
                     ) : server.isTransferring || server.status ? (
                         <div css={tw`flex-1 text-center`}>
                             <span css={tw`bg-neutral-500 rounded px-2 py-1 text-neutral-100 text-xs`}>
                                 {server.isTransferring
-                                    ? 'Transferring'
+                                    ? '转移中'
                                     : server.status === 'installing'
-                                    ? 'Installing'
+                                    ? '安装中'
                                     : server.status === 'restoring_backup'
-                                    ? 'Restoring Backup'
-                                    : 'Unavailable'}
+                                    ? '回档中'
+                                    : '不可用'}
                             </span>
                         </div>
                     ) : (
@@ -147,7 +147,7 @@ export default ({ server, className }: { server: Server; className?: string }) =
                                     {stats.cpuUsagePercent.toFixed(2)} %
                                 </IconDescription>
                             </div>
-                            <p css={tw`text-xs text-neutral-600 text-center mt-1`}>of {cpuLimit}</p>
+                            <p css={tw`text-xs text-neutral-600 text-center mt-1`}>可用 {cpuLimit}</p>
                         </div>
                         <div css={tw`flex-1 ml-4 sm:block hidden`}>
                             <div css={tw`flex justify-center`}>
@@ -156,7 +156,7 @@ export default ({ server, className }: { server: Server; className?: string }) =
                                     {bytesToString(stats.memoryUsageInBytes)}
                                 </IconDescription>
                             </div>
-                            <p css={tw`text-xs text-neutral-600 text-center mt-1`}>of {memoryLimit}</p>
+                            <p css={tw`text-xs text-neutral-600 text-center mt-1`}>可用 {memoryLimit}</p>
                         </div>
                         <div css={tw`flex-1 ml-4 sm:block hidden`}>
                             <div css={tw`flex justify-center`}>
@@ -165,7 +165,7 @@ export default ({ server, className }: { server: Server; className?: string }) =
                                     {bytesToString(stats.diskUsageInBytes)}
                                 </IconDescription>
                             </div>
-                            <p css={tw`text-xs text-neutral-600 text-center mt-1`}>of {diskLimit}</p>
+                            <p css={tw`text-xs text-neutral-600 text-center mt-1`}>可用 {diskLimit}</p>
                         </div>
                     </React.Fragment>
                 )}
