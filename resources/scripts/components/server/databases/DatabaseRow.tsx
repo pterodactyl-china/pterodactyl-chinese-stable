@@ -36,8 +36,8 @@ export default ({ database, className }: Props) => {
 
     const schema = object().shape({
         confirm: string()
-            .required('The database name must be provided.')
-            .oneOf([database.name.split('_', 2)[1], database.name], 'The database name must be provided.'),
+            .required('必须提供数据库名称.')
+            .oneOf([database.name.split('_', 2)[1], database.name], '必须提供数据库名称.'),
     });
 
     const submit = (values: { confirm: string }, { setSubmitting }: FormikHelpers<{ confirm: string }>) => {
@@ -68,18 +68,18 @@ export default ({ database, className }: Props) => {
                         }}
                     >
                         <FlashMessageRender byKey={'database:delete'} css={tw`mb-6`} />
-                        <h2 css={tw`text-2xl mb-6`}>Confirm database deletion</h2>
+                        <h2 css={tw`text-2xl mb-6`}>数据库删除确认</h2>
                         <p css={tw`text-sm`}>
-                            Deleting a database is a permanent action, it cannot be undone. This will permanently delete
-                            the <strong>{database.name}</strong> database and remove all associated data.
+                            删除数据库是一项永久性操作，无法撤消。
+							这将永久删除 <strong>{database.name}</strong> 数据库并删除所有相关数据。
                         </p>
                         <Form css={tw`m-0 mt-6`}>
                             <Field
                                 type={'text'}
                                 id={'confirm_name'}
                                 name={'confirm'}
-                                label={'Confirm Database Name'}
-                                description={'Enter the database name to confirm deletion.'}
+                                label={'数据库删除确认'}
+                                description={'输入数据库名称以确认删除。'}
                             />
                             <div css={tw`mt-6 text-right`}>
                                 <Button type={'button'} isSecondary css={tw`mr-2`} onClick={() => setVisible(false)}>

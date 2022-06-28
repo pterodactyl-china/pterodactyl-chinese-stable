@@ -20,7 +20,7 @@ const CopyOnClick: React.FC<{ text: string | number | null | undefined }> = ({ t
     }, [copied]);
 
     if (!React.isValidElement(children)) {
-        throw new Error('Component passed to <CopyOnClick/> must be a valid React element.');
+        throw new Error('传递给 <CopyOnClick/> 的组件必须是有效的 React 元素。');
     }
 
     const child = !text
@@ -43,7 +43,7 @@ const CopyOnClick: React.FC<{ text: string | number | null | undefined }> = ({ t
                     <Fade in appear timeout={250} key={copied ? 'visible' : 'invisible'}>
                         <div className={'fixed z-50 bottom-0 right-0 m-4'}>
                             <div className={'rounded-md py-3 px-4 text-gray-200 bg-neutral-600/95 shadow'}>
-                                <p>Copied &quot;{text}&quot; to clipboard.</p>
+                                <p>已复制 &quot;{text}&quot; 至剪切板.</p>
                             </div>
                         </div>
                     </Fade>
