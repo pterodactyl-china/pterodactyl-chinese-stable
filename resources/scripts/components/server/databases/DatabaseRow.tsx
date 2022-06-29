@@ -83,10 +83,10 @@ export default ({ database, className }: Props) => {
                             />
                             <div css={tw`mt-6 text-right`}>
                                 <Button type={'button'} isSecondary css={tw`mr-2`} onClick={() => setVisible(false)}>
-                                    Cancel
+                                    取消
                                 </Button>
                                 <Button type={'submit'} color={'red'} disabled={!isValid}>
-                                    Delete Database
+                                    删除数据库
                                 </Button>
                             </div>
                         </Form>
