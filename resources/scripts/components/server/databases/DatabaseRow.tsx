@@ -95,7 +95,7 @@ export default ({ database, className }: Props) => {
             </Formik>
             <Modal visible={connectionVisible} onDismissed={() => setConnectionVisible(false)}>
                 <FlashMessageRender byKey={'database-connection-modal'} css={tw`mb-6`} />
-                <h3 css={tw`mb-6 text-2xl`}>Database connection details</h3>
+                <h3 css={tw`mb-6 text-2xl`}>数据库连接详细信息</h3>
                 <div>
                     <Label>连接地址</Label>
                     <CopyOnClick text={database.connectionString}>
