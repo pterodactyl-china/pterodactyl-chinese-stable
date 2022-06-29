@@ -25,7 +25,7 @@ export default () => {
             </p>
             <div css={tw`mt-6`}>
                 <Button color={'red'} isSecondary onClick={() => setVisible(true)}>
-                    {isEnabled ? '已禁用' : '已启用'}
+                    {isEnabled ? '禁用' : '启用'}
                 </Button>
             </div>
         </div>
