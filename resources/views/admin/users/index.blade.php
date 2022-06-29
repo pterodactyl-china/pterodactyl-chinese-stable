@@ -68,7 +68,7 @@
                                     <a href="{{ route('admin.servers', ['filter[owner_id]' => $user->id]) }}">{{ $user->servers_count }}</a>
                                 </td>
                                 <td class="text-center">{{ $user->subuser_of_count }}</td>
-                                <td class="text-center"><img src="https://www.gravatar.com/avatar/{{ md5(strtolower($user->email)) }}?s=100" style="height:20px;" class="img-circle" /></td>
+                                <td class="text-center"><img src="https://gravatar.loli.net/avatar/{{ md5(strtolower($user->email)) }}?s=100" style="height:20px;" class="img-circle" /></td>
                             </tr>
                         @endforeach
                     </tbody>
