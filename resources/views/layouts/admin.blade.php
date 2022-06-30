@@ -58,7 +58,7 @@
                         <ul class="nav navbar-nav">
                             <li class="user-menu">
                                 <a href="{{ route('account') }}">
-                                    <img src="https://www.cravatar.cn/avatar/{{ md5(strtolower(Auth::user()->email)) }}?s=160" class="user-image" alt="User Image">
+                                    <img src="https://cravatar.cn/avatar/{{ md5(strtolower(Auth::user()->email)) }}?s=160" class="user-image" alt="User Image">
                                     <span class="hidden-xs">{{ Auth::user()->name_first }} {{ Auth::user()->name_last }}</span>
                                 </a>
                             </li>
