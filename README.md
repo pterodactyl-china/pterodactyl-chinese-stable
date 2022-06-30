@@ -9,7 +9,8 @@
 Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP、React 和 Go 构建。  
 此本地化项目仅负责官方稳定发行版汉化，不保证DEV分支使用汉化补丁的稳定性！  
 所有 Releases 均经过构建测试，可放心使用！  
-## 1.9.1 版本大改正跟进！！！  
+main 主分支默认同步 Cravatar 修复版 ，若阁下需要原生版本请拉取 official 分支！  
+## 1.9.1 版本汉化预览  
 ![Image](https://s1.ax1x.com/2022/06/28/jZbYXd.jpg)  
 
 ## 汉化
