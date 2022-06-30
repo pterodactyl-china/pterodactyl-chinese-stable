@@ -39,7 +39,7 @@ class AppSettingsCommand extends Command
     /**
      * @var string
      */
-    protected $description = 'Configure basic environment settings for the Panel.';
+    protected $description = '配置面板的基本环境设置.';
 
     /**
      * @var string
@@ -83,48 +83,48 @@ class AppSettingsCommand extends Command
             $this->variables['HASHIDS_SALT'] = str_random(20);
         }
 
-        $this->output->comment('Provide the email address that eggs exported by this Panel should be from. This should be a valid email address.');
+        $this->output->comment('提供此面板导出的预设应来自的电子邮件地址。这应该是一个有效的电子邮件地址.');
         $this->variables['APP_SERVICE_AUTHOR'] = $this->option('author') ?? $this->ask(
-            'Egg Author Email',
+            '预设作者电子邮件',
             config('pterodactyl.service.author', 'unknown@unknown.com')
         );
 
         if (!filter_var($this->variables['APP_SERVICE_AUTHOR'], FILTER_VALIDATE_EMAIL)) {
-            $this->output->error('The service author email provided is invalid.');
+            $this->output->error('提供的服务作者电子邮件无效.');
 
             return 1;
         }
 
-        $this->output->comment('The application URL MUST begin with https:// or http:// depending on if you are using SSL or not. If you do not include the scheme your emails and other content will link to the wrong location.');
+        $this->output->comment('应用程序URL必须以https://或 http://开头，具体取决于您是否使用SSL。如果您不包括该方案，您的电子邮件和其他内容将链接到错误的位置.');
         $this->variables['APP_URL'] = $this->option('url') ?? $this->ask(
-            'Application URL',
+            '应用程序URL',
             config('app.url', 'http://example.org')
         );
 
-        $this->output->comment('The timezone should match one of PHP\'s supported timezones. If you are unsure, please reference http://php.net/manual/en/timezones.php.');
+        $this->output->comment('时区应该匹配 PHP 支持的时区之一。如果您不确定，请参考 http://php.net/manual/en/timezones.php.');
         $this->variables['APP_TIMEZONE'] = $this->option('timezone') ?? $this->anticipate(
-            'Application Timezone',
+            '应用程序时区',
             DateTimeZone::listIdentifiers(DateTimeZone::ALL),
             config('app.timezone')
         );
 
         $selected = config('cache.default', 'redis');
         $this->variables['CACHE_DRIVER'] = $this->option('cache') ?? $this->choice(
-            'Cache Driver',
+            '缓存驱动程序',
             self::CACHE_DRIVERS,
             array_key_exists($selected, self::CACHE_DRIVERS) ? $selected : null
         );
 
         $selected = config('session.driver', 'redis');
         $this->variables['SESSION_DRIVER'] = $this->option('session') ?? $this->choice(
-            'Session Driver',
+            '会话驱动程序',
             self::SESSION_DRIVERS,
             array_key_exists($selected, self::SESSION_DRIVERS) ? $selected : null
         );
 
         $selected = config('queue.default', 'redis');
         $this->variables['QUEUE_CONNECTION'] = $this->option('queue') ?? $this->choice(
-            'Queue Driver',
+            '队列驱动程序',
             self::QUEUE_DRIVERS,
             array_key_exists($selected, self::QUEUE_DRIVERS) ? $selected : null
         );
@@ -132,7 +132,7 @@ class AppSettingsCommand extends Command
         if (!is_null($this->option('settings-ui'))) {
             $this->variables['APP_ENVIRONMENT_ONLY'] = $this->option('settings-ui') == 'true' ? 'false' : 'true';
         } else {
-            $this->variables['APP_ENVIRONMENT_ONLY'] = $this->confirm('Enable UI based settings editor?', true) ? 'false' : 'true';
+            $this->variables['APP_ENVIRONMENT_ONLY'] = $this->confirm('启用基于UI的设置编辑器?', true) ? 'false' : 'true';
         }
 
         // Make sure session cookies are set as "secure" when using HTTPS
@@ -160,22 +160,22 @@ class AppSettingsCommand extends Command
             return;
         }
 
-        $this->output->note('You\'ve selected the Redis driver for one or more options, please provide valid connection information below. In most cases you can use the defaults provided unless you have modified your setup.');
+        $this->output->note('您已经为一个或多个选项选择了Redis驱动程序，请在下面提供有效的连接信息。在大多数情况下，您可以使用提供的默认值，除非您修改了设置.');
         $this->variables['REDIS_HOST'] = $this->option('redis-host') ?? $this->ask(
-            'Redis Host',
+            'Redis主机',
             config('database.redis.default.host')
         );
 
         $askForRedisPassword = true;
         if (!empty(config('database.redis.default.password'))) {
             $this->variables['REDIS_PASSWORD'] = config('database.redis.default.password');
-            $askForRedisPassword = $this->confirm('It seems a password is already defined for Redis, would you like to change it?');
+            $askForRedisPassword = $this->confirm('似乎已经为Redis定义了密码，是否要更改?');
         }
 
         if ($askForRedisPassword) {
-            $this->output->comment('By default a Redis server instance has no password as it is running locally and inaccessible to the outside world. If this is the case, simply hit enter without entering a value.');
+            $this->output->comment('默认情况下，Redis服务器实例没有密码，因为它在本地运行，外部世界无法访问。如果是这种情况，只需按enter键而不输入值.');
             $this->variables['REDIS_PASSWORD'] = $this->option('redis-pass') ?? $this->output->askHidden(
-                'Redis Password'
+                'Redis密码'
             );
         }
 
@@ -184,7 +184,7 @@ class AppSettingsCommand extends Command
         }
 
         $this->variables['REDIS_PORT'] = $this->option('redis-port') ?? $this->ask(
-            'Redis Port',
+            'Redis端口',
             config('database.redis.default.port')
         );
     }

@@ -14,7 +14,7 @@ class CleanServiceBackupFilesCommand extends Command
     /**
      * @var string
      */
-    protected $description = 'Clean orphaned .bak files created when modifying services.';
+    protected $description = '清除修改服务器文件时创建的.bak文件.';
 
     /**
      * @var \Illuminate\Contracts\Filesystem\Filesystem

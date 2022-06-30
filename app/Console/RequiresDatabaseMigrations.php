@@ -38,18 +38,18 @@ trait RequiresDatabaseMigrations
         $this->getOutput()->writeln('<options=bold>
 | @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ |
 |                                                                              |
-|               Your database has not been properly migrated!                  |
+|                               您的数据库尚未正确迁移!                          |
 |                                                                              |
 | @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ |</>
 
-You must run the following command to finish migrating your database:
+您必须运行以下命令才能完成数据库迁移:
 
   <fg=green;options=bold>php artisan migrate --step --force</>
 
-You will not be able to use Pterodactyl Panel as expected without fixing your
-database state by running the command above.
+如果不修复您的问题，您将无法按预期使用翼龙面板
+数据库状态通过运行上面的命令.
 ');
 
-        $this->getOutput()->error('You must correct the error above before continuing.');
+        $this->getOutput()->error('在继续之前，您必须更正上述错误.');
     }
 }

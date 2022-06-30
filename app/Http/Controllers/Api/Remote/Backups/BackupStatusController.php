@@ -42,7 +42,7 @@ class BackupStatusController extends Controller
         $model = Backup::query()->where('uuid', $backup)->firstOrFail();
 
         if ($model->is_successful) {
-            throw new BadRequestHttpException('Cannot update the status of a backup that is already marked as completed.');
+            throw new BadRequestHttpException('无法更新已标记为已完成的备份的状态.');
         }
 
         $action = $request->boolean('successful') ? 'server:backup.complete' : 'server:backup.fail';
@@ -118,7 +118,7 @@ class BackupStatusController extends Controller
             if (!$successful) {
                 return;
             }
-            throw new DisplayException('Cannot complete backup request: no upload_id present on model.');
+            throw new DisplayException('无法完成备份请求：模型上不存在 upload_id.');
         }
 
         $params = [

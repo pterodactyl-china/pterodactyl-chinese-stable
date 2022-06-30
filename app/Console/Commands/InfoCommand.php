@@ -18,7 +18,7 @@ class InfoCommand extends Command
     /**
      * @var string
      */
-    protected $description = 'Displays the application, database, and email configurations along with the panel version.';
+    protected $description = '显示应用程序、数据库和电子邮件配置以及面板版本.';
 
     /**
      * @var \Illuminate\Contracts\Config\Repository
@@ -51,48 +51,48 @@ class InfoCommand extends Command
      */
     public function handle()
     {
-        $this->output->title('Version Information');
+        $this->output->title('版本信息');
         $this->table([], [
-            ['Panel Version', $this->config->get('app.version')],
-            ['Latest Version', $this->versionService->getPanel()],
-            ['Up-to-Date', $this->versionService->isLatestPanel() ? 'Yes' : $this->formatText('No', 'bg=red')],
-            ['Unique Identifier', $this->config->get('pterodactyl.service.author')],
+            ['面板版本', $this->config->get('app.version')],
+            ['最新版本', $this->versionService->getPanel()],
+            ['最新的', $this->versionService->isLatestPanel() ? 'Yes' : $this->formatText('No', 'bg=red')],
+            ['唯一标识符', $this->config->get('pterodactyl.service.author')],
         ], 'compact');
 
-        $this->output->title('Application Configuration');
+        $this->output->title('应用程序配置');
         $this->table([], [
-            ['Environment', $this->formatText($this->config->get('app.env'), $this->config->get('app.env') === 'production' ?: 'bg=red')],
-            ['Debug Mode', $this->formatText($this->config->get('app.debug') ? 'Yes' : 'No', !$this->config->get('app.debug') ?: 'bg=red')],
-            ['Installation URL', $this->config->get('app.url')],
-            ['Installation Directory', base_path()],
-            ['Timezone', $this->config->get('app.timezone')],
-            ['Cache Driver', $this->config->get('cache.default')],
-            ['Queue Driver', $this->config->get('queue.default')],
-            ['Session Driver', $this->config->get('session.driver')],
-            ['Filesystem Driver', $this->config->get('filesystems.default')],
-            ['Default Theme', $this->config->get('themes.active')],
-            ['Proxies', $this->config->get('trustedproxies.proxies')],
+            ['环境', $this->formatText($this->config->get('app.env'), $this->config->get('app.env') === 'production' ?: 'bg=red')],
+            ['调试模式', $this->formatText($this->config->get('app.debug') ? 'Yes' : 'No', !$this->config->get('app.debug') ?: 'bg=red')],
+            ['面板URL', $this->config->get('app.url')],
+            ['安装目录', base_path()],
+            ['时区', $this->config->get('app.timezone')],
+            ['缓存数据', $this->config->get('cache.default')],
+            ['队列数据', $this->config->get('queue.default')],
+            ['会话数据', $this->config->get('session.driver')],
+            ['文件系统驱动程序', $this->config->get('filesystems.default')],
+            ['默认主题', $this->config->get('themes.active')],
+            ['代理', $this->config->get('trustedproxies.proxies')],
         ], 'compact');
 
-        $this->output->title('Database Configuration');
+        $this->output->title('数据库配置');
         $driver = $this->config->get('database.default');
         $this->table([], [
-            ['Driver', $driver],
-            ['Host', $this->config->get("database.connections.{$driver}.host")],
-            ['Port', $this->config->get("database.connections.{$driver}.port")],
-            ['Database', $this->config->get("database.connections.{$driver}.database")],
-            ['Username', $this->config->get("database.connections.{$driver}.username")],
+            ['数据库类型', $driver],
+            ['主机', $this->config->get("database.connections.{$driver}.host")],
+            ['端口', $this->config->get("database.connections.{$driver}.port")],
+            ['数据库', $this->config->get("database.connections.{$driver}.database")],
+            ['用户名', $this->config->get("database.connections.{$driver}.username")],
         ], 'compact');
 
-        $this->output->title('Email Configuration');
+        $this->output->title('电子邮件配置');
         $this->table([], [
-            ['Driver', $this->config->get('mail.driver')],
-            ['Host', $this->config->get('mail.host')],
-            ['Port', $this->config->get('mail.port')],
-            ['Username', $this->config->get('mail.username')],
-            ['From Address', $this->config->get('mail.from.address')],
-            ['From Name', $this->config->get('mail.from.name')],
-            ['Encryption', $this->config->get('mail.encryption')],
+            ['服务器邮件类型', $this->config->get('mail.driver')],
+            ['主机', $this->config->get('mail.host')],
+            ['端口', $this->config->get('mail.port')],
+            ['用户名', $this->config->get('mail.username')],
+            ['发件人地址', $this->config->get('mail.from.address')],
+            ['发件人名称', $this->config->get('mail.from.name')],
+            ['加密类型', $this->config->get('mail.encryption')],
         ], 'compact');
     }
 

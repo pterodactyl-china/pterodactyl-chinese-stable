@@ -42,8 +42,8 @@ class UpdateServerDetailsRequest extends ServerWriteRequest
     public function attributes(): array
     {
         return [
-            'user' => 'User ID',
-            'name' => 'Server Name',
+            'user' => '用户ID',
+            'name' => '服务器名称',
         ];
     }
 }

@@ -50,16 +50,16 @@ class DaemonConnectionException extends DisplayException
         }
 
         if (is_null($response)) {
-            $message = 'Could not establish a connection to the machine running this server. Please try again.';
+            $message = '无法与运行此服务器的计算机建立连接。请再试一次.';
         } else {
-            $message = sprintf('There was an error while communicating with the machine running this server. This error has been logged, please try again. (code: %s) (request_id: %s)', $response->getStatusCode(), $this->requestId ?? '<nil>');
+            $message = sprintf('与运行此服务器的计算机通信时出错。此错误已记录，请重试. (code: %s) (request_id: %s)', $response->getStatusCode(), $this->requestId ?? '<nil>');
         }
 
         // Attempt to pull the actual error message off the response and return that if it is not
         // a 500 level error.
         if ($this->statusCode < 500 && !is_null($response)) {
             $body = json_decode($response->getBody()->__toString(), true);
-            $message = sprintf('An error occurred on the remote host: %s. (request id: %s)', $body['error'] ?? $message, $this->requestId ?? '<nil>');
+            $message = sprintf('远程主机发生错误: %s. (request id: %s)', $body['error'] ?? $message, $this->requestId ?? '<nil>');
         }
 
         $level = $this->statusCode >= 500 && $this->statusCode !== 504

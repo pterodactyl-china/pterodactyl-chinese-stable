@@ -23,13 +23,13 @@ class MakeLocationCommand extends Command
      * @var string
      */
     protected $signature = 'p:location:make
-                            {--short= : The shortcode name of this location (ex. us1).}
-                            {--long= : A longer description of this location.}';
+                            {--short= : 此位置的短代码名称 (ex. us1).}
+                            {--long= : 此位置的详细描述.}';
 
     /**
      * @var string
      */
-    protected $description = 'Creates a new location on the system via the CLI.';
+    protected $description = '通过CLI在系统上创建新位置.';
 
     /**
      * Create a new command instance.

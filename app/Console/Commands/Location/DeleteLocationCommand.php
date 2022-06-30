@@ -23,7 +23,7 @@ class DeleteLocationCommand extends Command
     /**
      * @var string
      */
-    protected $description = 'Deletes a location from the Panel.';
+    protected $description = '从面板中删除位置.';
 
     /**
      * @var \Illuminate\Support\Collection
@@ -38,7 +38,7 @@ class DeleteLocationCommand extends Command
     /**
      * @var string
      */
-    protected $signature = 'p:location:delete {--short= : The short code of the location to delete.}';
+    protected $signature = 'p:location:delete {--short= : 要删除的位置的短代码.}';
 
     /**
      * DeleteLocationCommand constructor.

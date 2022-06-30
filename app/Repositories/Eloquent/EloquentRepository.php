@@ -220,7 +220,7 @@ abstract class EloquentRepository extends Repository implements RepositoryInterf
      */
     public function updateWhereIn(string $column, array $values, array $fields): int
     {
-        Assert::notEmpty($column, 'First argument passed to updateWhereIn must be a non-empty string.');
+        Assert::notEmpty($column, '传递给 updateWhereIn 的第一个参数必须是非空字符串.');
 
         return $this->getBuilder()->whereIn($column, $values)->update($fields);
     }
@@ -236,7 +236,7 @@ abstract class EloquentRepository extends Repository implements RepositoryInterf
     public function updateOrCreate(array $where, array $fields, bool $validate = true, bool $force = false)
     {
         foreach ($where as $item) {
-            Assert::true(is_scalar($item) || is_null($item), 'First argument passed to updateOrCreate should be an array of scalar or null values, received an array value of %s.');
+            Assert::true(is_scalar($item) || is_null($item), '传递给 updateOrCreate 的第一个参数应该是一个标量或空值数组，收到的数组值为 %s.');
         }
 
         try {
