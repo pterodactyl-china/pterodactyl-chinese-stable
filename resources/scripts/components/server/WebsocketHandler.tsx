@@ -41,20 +41,20 @@ export default () => {
         socket.on('status', (status) => setServerStatus(status));
 
         socket.on('daemon error', (message) => {
-            console.warn('Got error message from daemon socket:', message);
+            console.warn('从守护进程套接字收到错误消息:', message);
         });
 
         socket.on('token expiring', () => updateToken(uuid, socket));
         socket.on('token expired', () => updateToken(uuid, socket));
         socket.on('jwt error', (error: string) => {
             setConnectionState(false);
-            console.warn('JWT validation error from wings:', error);
+            console.warn('守护进程超级密钥验证错误来自翼龙后端:', error);
 
             if (reconnectErrors.find((v) => error.toLowerCase().indexOf(v) >= 0)) {
                 updateToken(uuid, socket);
             } else {
                 setError(
-                    'There was an error validating the credentials provided for the websocket. Please refresh the page.'
+                    '验证为Web套接字提供的凭据时发生错误，请刷新页面.'
                 );
             }
         });
@@ -112,7 +112,7 @@ export default () => {
                         <>
                             <Spinner size={'small'} />
                             <p css={tw`ml-2 text-sm text-red-100`}>
-                                We&apos;re having some trouble connecting to your server, please wait...
+                                我们&apos;在连接到您的服务器时遇到问题，请稍候...
                             </p>
                         </>
                     ) : (
