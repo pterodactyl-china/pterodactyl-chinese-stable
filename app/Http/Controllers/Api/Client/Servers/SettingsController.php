@@ -88,7 +88,7 @@ class SettingsController extends ClientApiController
     public function dockerImage(SetDockerImageRequest $request, Server $server)
     {
         if (!in_array($server->image, array_values($server->egg->docker_images))) {
-            throw new BadRequestHttpException('This server\'s Docker image has been manually set by an administrator and cannot be updated.');
+            throw new BadRequestHttpException('此服务器的 Docker 映像已由管理员手动设置，无法更新。');
         }
 
         $original = $server->image;

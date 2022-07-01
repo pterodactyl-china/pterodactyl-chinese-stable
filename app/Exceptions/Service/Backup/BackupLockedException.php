@@ -11,6 +11,6 @@ class BackupLockedException extends DisplayException
      */
     public function __construct()
     {
-        parent::__construct('Cannot delete a backup that is marked as locked.');
+        parent::__construct('无法删除标记为锁定的备份.');
     }
 }

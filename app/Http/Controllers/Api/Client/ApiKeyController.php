@@ -34,7 +34,7 @@ class ApiKeyController extends ClientApiController
     public function store(StoreApiKeyRequest $request)
     {
         if ($request->user()->apiKeys->count() >= 5) {
-            throw new DisplayException('You have reached the account limit for number of API keys.');
+            throw new DisplayException('您已达到API密钥数量的帐户限制.');
         }
 
         $token = $request->user()->createToken(

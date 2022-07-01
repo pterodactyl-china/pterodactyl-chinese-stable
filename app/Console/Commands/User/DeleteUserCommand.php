@@ -24,7 +24,7 @@ class DeleteUserCommand extends Command
     /**
      * @var string
      */
-    protected $description = 'Deletes a user from the Panel if no servers are attached to their account.';
+    protected $description = '如果没有服务器连接到用户的帐户，则从面板中删除用户.';
 
     /**
      * @var \Pterodactyl\Contracts\Repository\UserRepositoryInterface
@@ -54,7 +54,7 @@ class DeleteUserCommand extends Command
     public function handle()
     {
         $search = $this->option('user') ?? $this->ask(trans('command/messages.user.search_users'));
-        Assert::notEmpty($search, 'Search term should be an email address, got: %s.');
+        Assert::notEmpty($search, '搜索词应该是一个电子邮件地址，得到: %s.');
 
         $results = User::query()
             ->where('id', 'LIKE', "$search%")

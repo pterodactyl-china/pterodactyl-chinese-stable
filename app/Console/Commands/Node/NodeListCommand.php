@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 
 class NodeListCommand extends Command
 {
-    protected $signature = 'p:node:list {--format=text : The output format: "text" or "json". }';
+    protected $signature = 'p:node:list {--format=text : 输出格式：“text”或“json”. }';
 
     public function handle()
     {

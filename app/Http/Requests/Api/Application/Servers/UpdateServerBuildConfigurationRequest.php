@@ -84,13 +84,13 @@ class UpdateServerBuildConfigurationRequest extends ServerWriteRequest
     public function attributes()
     {
         return [
-            'add_allocations' => 'allocations to add',
-            'remove_allocations' => 'allocations to remove',
-            'add_allocations.*' => 'allocation to add',
-            'remove_allocations.*' => 'allocation to remove',
-            'feature_limits.databases' => 'Database Limit',
-            'feature_limits.allocations' => 'Allocation Limit',
-            'feature_limits.backups' => 'Backup Limit',
+            'add_allocations' => '添加的分配',
+            'remove_allocations' => '要删除的分配',
+            'add_allocations.*' => '添加的分配',
+            'remove_allocations.*' => '分配删除',
+            'feature_limits.databases' => '数据库限制',
+            'feature_limits.allocations' => '分配限额',
+            'feature_limits.backups' => '备份限制',
         ];
     }
 

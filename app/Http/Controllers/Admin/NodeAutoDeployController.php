@@ -69,7 +69,7 @@ class NodeAutoDeployController extends Controller
         if (!$key) {
             $key = $this->keyCreationService->setKeyType(ApiKey::TYPE_APPLICATION)->handle([
                 'user_id' => $request->user()->id,
-                'memo' => 'Automatically generated node deployment key.',
+                'memo' => '自动生成的节点部署密钥.',
                 'allowed_ips' => [],
             ], ['r_nodes' => 1]);
         }

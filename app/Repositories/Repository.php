@@ -130,7 +130,7 @@ abstract class Repository implements RepositoryInterface
             case 2:
                 return $this->model = call_user_func([$this->app->make($model[0]), $model[1]]);
             default:
-                throw new InvalidArgumentException('Model must be a FQDN or an array with a count of two.');
+                throw new InvalidArgumentException('模型必须是域名或计数为2的数组.');
         }
     }
 }
