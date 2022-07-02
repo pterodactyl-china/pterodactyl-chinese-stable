@@ -78,7 +78,7 @@ const SetupTwoFactorModal = () => {
         >
             {recoveryTokens.length > 0 ? (
                 <>
-                    <h2 css={tw`text-2xl mb-4`}>Two-factor authentication enabled</h2>
+                    <h2 css={tw`text-2xl mb-4`}>启用双重身份验证</h2>
                     <p css={tw`text-neutral-300`}>
                         您的帐户已启用双重身份验证。 如果您日后无法使用
                         您的账户绑定的验证设备，您需要使用下面显示的代码之一才能访问您的

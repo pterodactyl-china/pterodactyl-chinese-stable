@@ -57,9 +57,9 @@ return [
         'file' => [
             'compress_one' => 'Compressed :directory:file',
             'compress_other' => 'Compressed :count files in :directory',
-            'read' => 'Viewed the contents of :file',
-            'copy' => 'Created a copy of :file',
-            'create-directory' => 'Created a new directory :name in :directory',
+            'read' => '查看内容 :file',
+            'copy' => '创建 :file',
+            'create-directory' => '创建目录 :name in :directory',
             'decompress' => 'Decompressed :files in :directory',
             'delete_one' => 'Deleted :directory:files.0',
             'delete_other' => 'Deleted :count files in :directory',

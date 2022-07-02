@@ -35,13 +35,13 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
-                                <label class="control-label">Site Key</label>
+                                <label class="control-label">站点密钥</label>
                                 <div>
                                     <input type="text" required class="form-control" name="recaptcha:website_key" value="{{ old('recaptcha:website_key', config('recaptcha.website_key')) }}">
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
-                                <label class="control-label">Secret Key</label>
+                                <label class="control-label">通信密钥</label>
                                 <div>
                                     <input type="text" required class="form-control" name="recaptcha:secret_key" value="{{ old('recaptcha:secret_key', config('recaptcha.secret_key')) }}">
                                     <p class="text-muted small">用于您的网站与 Google 之间的通信。</p>
