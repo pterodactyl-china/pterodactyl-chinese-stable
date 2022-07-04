@@ -6,9 +6,9 @@
 
 
 # 请注意！！！！  
-本仓库已迁移至 https://github.com/pterodactyl-china/panel-chinese-stable
-若阁下需要获取最新 Stable 汉化/汉化文档/最新 Dev 汉化  
-请转至 [翼龙中国](https://pterodactyl.top)
+本仓库已迁移至 https://github.com/pterodactyl-china/panel-chinese-stable  
+若阁下需要获取最新 Stable 汉化/汉化文档/最新 Dev 汉化    
+请转至 [翼龙中国](https://pterodactyl.top)  
 
 
 ## 翼龙面板本地化项目
