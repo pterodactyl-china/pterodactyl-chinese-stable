@@ -1,8 +1,8 @@
-name: V192C Panel Assests Build Test
+name: Main Branch Assests Build Test
 on:
   push:
     branches:
-      - 'v1.9.2_cravatar'
+      - 'main'
   pull_request:
 jobs:
   build:
