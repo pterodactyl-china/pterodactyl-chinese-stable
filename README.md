@@ -1,14 +1,8 @@
-[![Logo Image](https://s1.ax1x.com/2022/06/11/XgEqRP.png)](https://ilwork.cn)
 ![GitHub Stars](https://img.shields.io/github/stars/ilworkcn/pterodactyl-chinese-manual?style=for-the-badge)
 ![Github Licenses](https://img.shields.io/github/license/ilworkcn/pterodactyl-chinese-manual?style=for-the-badge&logo=appveyor)
 ![GitHub Releases](https://img.shields.io/github/v/release/ilworkcn/pterodactyl-chinese-manual.svg?style=for-the-badge&logo=appveyor)
 ![Alt](https://repobeats.axiom.co/api/embed/8c99aac5f0f0e2fba136dc5fff96a30d207c234e.svg "Repobeats analytics image")
 
-
-# 请注意！！！！  
-本仓库已迁移至 https://github.com/pterodactyl-china/panel-chinese-stable  
-若阁下需要获取最新 Stable 汉化/汉化文档/最新 Dev 汉化    
-请转至 [翼龙中国](https://pterodactyl.top)  
 
 
 ## 翼龙面板本地化项目
