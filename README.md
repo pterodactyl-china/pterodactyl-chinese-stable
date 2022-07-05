@@ -5,24 +5,18 @@
 ![Alt](https://repobeats.axiom.co/api/embed/81d74e5ff38632323a070c8c1f618cd96f59d9ee.svg "Repobeats analytics image")
 
 
-
-## 翼龙面板本地化项目
+## 翼龙面板
 Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP、React 和 Go 构建。  
-此本地化项目仅负责官方稳定发行版汉化，不保证DEV分支使用汉化补丁的稳定性！  
-所有 Releases 均经过构建测试，可放心使用！  
-main 主分支默认同步 Cravatar 修复版 ，若阁下需要原生版本请拉取 official 分支！  
+此仓库仅负责官方稳定发行版（stable）汉化 , 若阁下追求刺激（用开发版）, 请移步翼龙中国开发版仓库  
+自 v1.9.2.0 版本仅提供 Cravatar 修复版，若需要 Gravatar 版本请阁下自行修改    
+
 ## 汉化预览
 ![Image](https://s1.ax1x.com/2022/06/28/jZbYXd.jpg)  
-
-## 汉化
-访问此仓库 Releases 界面即可获取最新版本的汉化补丁！  
-或者直接拉取对应版本分支进行构建！  
 
 ## 文档（本地化进行中）
 * [Panel 前端中文文档](https://pterodactyl.top/panel/1.0/getting_started.html)
 * [Wings 后端中文文档](https://pterodactyl.top/wings/1.0/installing.html)
 * [社区支援文档](https://pterodactyl.io/community/about.html)
-
 
 ## 开源协议
 Pterodactyl® Copyright © 2015 - 2022 Dane Everitt and contributors.  
