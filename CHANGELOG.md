@@ -3,6 +3,22 @@ This file is a running track of new features and fixes to each version of the pa
 
 This project follows [Semantic Versioning](http://semver.org) guidelines.
 
+## v1.9.2.0
+### 修复
+* 修复了 CPU 使用率图表侧边栏中导致渲染过多零的问题。
+* 修复了最初选择了错误默认值的 Java 版本选择器模式。
+* 修复了 Safari 中导致控制台过度调整大小和图形覆盖内容的控制台渲染。
+* 修复服务器正常运行时间块中缺少“正在启动”/“停止”状态显示。
+* 修复查看某些文件操作时活动日志格式不正确的问题。
+
+### 更改
+* 更新了帐户双重验证设置的 UI，以使用新的 Dialog UI 并为新用户提供更好的视觉体验。
+* 将翼龙面板更新检测 API 更改至翼龙中国更新检测 API 若阁下希望使用原生 API，可移步config/pterodactyl.php
+
+### 新增
+* 在模板输出中添加了缺少的 `<DOCTYPE html>` 标签，以避免在浏览器中进入怪异模式。
+* 在帐户上启用 TOTP 时添加了密码要求。
+
 ## v1.9.2
 ### Fixed
 * Fixes rouding in sidebar of CPU usage graph that was causing an excessive number of zeros to be rendered.
