@@ -34,7 +34,7 @@ class EmailSettingsCommand extends Command
     protected $signature = 'p:environment:mail
                             {--driver= : 要使用的邮件驱动程序.}
                             {--email= : 邮件地址.}
-                            {--from= : The name emails from the Panel will appear to be from.}
+                            {--from= : 发件人地址.}
                             {--encryption=}
                             {--host=}
                             {--port=}
@@ -93,7 +93,7 @@ class EmailSettingsCommand extends Command
 
         $this->variables['MAIL_ENCRYPTION'] = $this->option('encryption') ?? $this->choice(
             trans('command/messages.environment.mail.ask_encryption'),
-            ['tls' => 'TLS', 'ssl' => 'SSL', '' => '无'],
+            ['tls' => 'TLS', 'ssl' => 'SSL', '' => 'None'],
             $this->config->get('mail.encryption', 'tls')
         );
 

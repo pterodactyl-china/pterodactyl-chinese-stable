@@ -101,7 +101,7 @@ class AppSettingsCommand extends Command
             config('app.url', 'http://example.org')
         );
 
-        $this->output->comment('时区应与 PHP 支持的时区之一匹配。 如果不确定，请参考 http://php.net/manual/en/timezones.php.');
+        $this->output->comment('时区应与 PHP 支持的时区之一匹配 北京时区是 Asia/Shanghai。 如果不确定，请参考 http://php.net/manual/en/timezones.php.');
         $this->variables['APP_TIMEZONE'] = $this->option('timezone') ?? $this->anticipate(
             '应用时区',
             DateTimeZone::listIdentifiers(DateTimeZone::ALL),
@@ -110,21 +110,21 @@ class AppSettingsCommand extends Command
 
         $selected = config('cache.default', 'redis');
         $this->variables['CACHE_DRIVER'] = $this->option('cache') ?? $this->choice(
-            'Cache 缓存驱动程序',
+            'Cache 缓存驱动程序 不懂你就按回车',
             self::CACHE_DRIVERS,
             array_key_exists($selected, self::CACHE_DRIVERS) ? $selected : null
         );
 
         $selected = config('session.driver', 'redis');
         $this->variables['SESSION_DRIVER'] = $this->option('session') ?? $this->choice(
-            'Session 会话驱动程序',
+            'Session 会话驱动程序 不懂你就按回车',
             self::SESSION_DRIVERS,
             array_key_exists($selected, self::SESSION_DRIVERS) ? $selected : null
         );
 
         $selected = config('queue.default', 'redis');
         $this->variables['QUEUE_CONNECTION'] = $this->option('queue') ?? $this->choice(
-            'Queue 队列驱动程序',
+            'Queue 队列驱动程序 不懂你就按回车',
             self::QUEUE_DRIVERS,
             array_key_exists($selected, self::QUEUE_DRIVERS) ? $selected : null
         );
