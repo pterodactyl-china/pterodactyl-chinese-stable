@@ -67,6 +67,6 @@ const DisableTOTPDialog = () => {
 };
 
 export default asDialog({
-    title: '关闭双重验证',
-    description: '关闭双重验证会让你的账户变得不那么安全.',
+    title: '关闭动态口令认证',
+    description: '关闭动态口令认证会让你的账户变得不那么安全.',
 })(DisableTOTPDialog);
