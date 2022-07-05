@@ -11,7 +11,7 @@ class NodeConfigurationCommand extends Command
                             {node : The ID or UUID of the node to return the configuration for.}
                             {--format=yaml : The output format. Options are "yaml" and "json".}';
 
-    protected $description = '显示指定节点的配置.';
+    protected $description = 'Displays the configuration for the specified node.';
 
     public function handle()
     {
@@ -19,14 +19,14 @@ class NodeConfigurationCommand extends Command
 
         /** @var \Pterodactyl\Models\Node $node */
         $node = Node::query()->where($column, $this->argument('node'))->firstOr(function () {
-            $this->error('所选节点不存在.');
+            $this->error('The selected node does not exist.');
 
             exit(1);
         });
 
         $format = $this->option('format');
         if (!in_array($format, ['yaml', 'yml', 'json'])) {
-            $this->error('指定的格式无效。有效选项是“yaml”和“json”.');
+            $this->error('Invalid format specified. Valid options are "yaml" and "json".');
 
             exit(1);
         }

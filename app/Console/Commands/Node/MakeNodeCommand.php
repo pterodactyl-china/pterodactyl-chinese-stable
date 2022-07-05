@@ -44,7 +44,7 @@ class MakeNodeCommand extends Command
     /**
      * @var string
      */
-    protected $description = '通过 CLI 在系统上创建一个新节点.';
+    protected $description = 'Creates a new node on the system via the CLI.';
 
     /**
      * Handle the command execution process.
@@ -55,38 +55,38 @@ class MakeNodeCommand extends Command
     {
         $this->creationService = $creationService;
 
-        $data['name'] = $this->option('name') ?? $this->ask('输入一个用于区分此节点与其他节点的简短标识符');
-        $data['description'] = $this->option('description') ?? $this->ask('输入描述以标识节点');
-        $data['location_id'] = $this->option('locationId') ?? $this->ask('输入一个有效的位置 ID');
-        $data['fqdn'] = $this->option('fqdn') ?? $this->ask('输入一个用于连接到守护进程的域名(如 node.example.com )。只有在不对此节点使用 SSL 的情况下，才可以使用 IP 地址');
+        $data['name'] = $this->option('name') ?? $this->ask('Enter a short identifier used to distinguish this node from others');
+        $data['description'] = $this->option('description') ?? $this->ask('Enter a description to identify the node');
+        $data['location_id'] = $this->option('locationId') ?? $this->ask('Enter a valid location id');
+        $data['fqdn'] = $this->option('fqdn') ?? $this->ask('Enter a domain name (e.g node.example.com) to be used for connecting to the daemon. An IP address may only be used if you are not using SSL for this node');
         if (!filter_var(gethostbyname($data['fqdn']), FILTER_VALIDATE_IP)) {
-            $this->error('提供的域名 或 IP 地址不能解析为有效的 IP 地址.');
+            $this->error('The FQDN or IP address provided does not resolve to a valid IP address.');
 
             return;
         }
-        $data['public'] = $this->option('public') ?? $this->confirm('这个节点应该是公开的吗？请注意，将节点设置为私有您将拒绝自动部署到该节点的能力.', true);
+        $data['public'] = $this->option('public') ?? $this->confirm('Should this node be public? As a note, setting a node to private you will be denying the ability to auto-deploy to this node.', true);
         $data['scheme'] = $this->option('scheme') ?? $this->anticipate(
-            '请为 SSL 输入 https 或为非 SSL 连接输入 http',
+            'Please either enter https for SSL or http for a non-ssl connection',
             ['https', 'http'],
             'https'
         );
         if (filter_var($data['fqdn'], FILTER_VALIDATE_IP) && $data['scheme'] === 'https') {
-            $this->error('需要解析为公共 IP 地址的完全限定域名才能为此节点使用 SSL.');
+            $this->error('A fully qualified domain name that resolves to a public IP address is required in order to use SSL for this node.');
 
             return;
         }
-        $data['behind_proxy'] = $this->option('proxy') ?? $this->confirm('你的域名是代理服务器吗？');
-        $data['maintenance_mode'] = $this->option('maintenance') ?? $this->confirm('是否应该启用维护模式？');
-        $data['memory'] = $this->option('maxMemory') ?? $this->ask('输入最大内存量');
-        $data['memory_overallocate'] = $this->option('overallocateMemory') ?? $this->ask('输入要超额分配的内存量，-1将禁用检查，0将阻止创建新服务器');
-        $data['disk'] = $this->option('maxDisk') ?? $this->ask('输入磁盘空间的最大值');
-        $data['disk_overallocate'] = $this->option('overallocateDisk') ?? $this->ask('输入要超额分配的内存量，-1将禁用检查，0将阻止创建新服务器');
-        $data['upload_size'] = $this->option('uploadSize') ?? $this->ask('输入最大文件大小上传', '100');
-        $data['daemonListen'] = $this->option('daemonListeningPort') ?? $this->ask('进入后端监听端口', '8080');
-        $data['daemonSFTP'] = $this->option('daemonSFTPPort') ?? $this->ask('进入后端SFTP监听端口', '2022');
-        $data['daemonBase'] = $this->option('daemonBase') ?? $this->ask('输入基本文件夹', '/var/lib/pterodactyl/volumes');
+        $data['behind_proxy'] = $this->option('proxy') ?? $this->confirm('Is your FQDN behind a proxy?');
+        $data['maintenance_mode'] = $this->option('maintenance') ?? $this->confirm('Should maintenance mode be enabled?');
+        $data['memory'] = $this->option('maxMemory') ?? $this->ask('Enter the maximum amount of memory');
+        $data['memory_overallocate'] = $this->option('overallocateMemory') ?? $this->ask('Enter the amount of memory to over allocate by, -1 will disable checking and 0 will prevent creating new servers');
+        $data['disk'] = $this->option('maxDisk') ?? $this->ask('Enter the maximum amount of disk space');
+        $data['disk_overallocate'] = $this->option('overallocateDisk') ?? $this->ask('Enter the amount of memory to over allocate by, -1 will disable checking and 0 will prevent creating new server');
+        $data['upload_size'] = $this->option('uploadSize') ?? $this->ask('Enter the maximum filesize upload', '100');
+        $data['daemonListen'] = $this->option('daemonListeningPort') ?? $this->ask('Enter the wings listening port', '8080');
+        $data['daemonSFTP'] = $this->option('daemonSFTPPort') ?? $this->ask('Enter the wings SFTP listening port', '2022');
+        $data['daemonBase'] = $this->option('daemonBase') ?? $this->ask('Enter the base folder', '/var/lib/pterodactyl/volumes');
 
         $node = $this->creationService->handle($data);
-        $this->line('成功地在位置上创建了一个新节点 ' . $data['location_id'] . ' 名字 ' . $data['name'] . ' 并且有一个 id ' . $node->id . '.');
+        $this->line('Successfully created a new node on the location ' . $data['location_id'] . ' with the name ' . $data['name'] . ' and has an id of ' . $node->id . '.');
     }
 }

@@ -50,7 +50,7 @@ class BackupRemoteUploadController extends Controller
         // Get the size query parameter.
         $size = (int) $request->query('size');
         if (empty($size)) {
-            throw new BadRequestHttpException('必须提供非空的“size”查询参数.');
+            throw new BadRequestHttpException('A non-empty "size" query parameter must be provided.');
         }
 
         /** @var \Pterodactyl\Models\Backup $backup */
@@ -59,13 +59,13 @@ class BackupRemoteUploadController extends Controller
         // Prevent backups that have already been completed from trying to
         // be uploaded again.
         if (!is_null($backup->completed_at)) {
-            throw new ConflictHttpException('此备份已处于完成状态.');
+            throw new ConflictHttpException('This backup is already in a completed state.');
         }
 
         // Ensure we are using the S3 adapter.
         $adapter = $this->backupManager->adapter();
         if (!$adapter instanceof AwsS3Adapter) {
-            throw new BadRequestHttpException('配置的备份适配器不是 S3兼容的适配器.');
+            throw new BadRequestHttpException('The configured backup adapter is not an S3 compatible adapter.');
         }
 
         // The path where backup will be uploaded to

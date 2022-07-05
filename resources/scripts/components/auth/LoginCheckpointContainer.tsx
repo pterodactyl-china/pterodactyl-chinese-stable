@@ -77,7 +77,7 @@ const EnhancedForm = withFormik<Props, Values>({
         loginCheckpoint(location.state?.token || '', code, recoveryCode)
             .then((response) => {
                 if (response.complete) {
-                    // @ts-expect-error this is valid good ilworkcn
+                    // @ts-expect-error this is valid
                     window.location = response.intended || '/';
                     return;
                 }

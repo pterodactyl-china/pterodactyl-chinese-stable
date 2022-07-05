@@ -17,13 +17,13 @@ class PruneOrphanedBackupsCommand extends Command
     /**
      * @var string
      */
-    protected $description = '将最近“n”分钟内未完成的所有备份标记为失败.';
+    protected $description = 'Marks all backups that have not completed in the last "n" minutes as being failed.';
 
     public function handle(BackupRepository $repository)
     {
         $since = $this->option('prune-age') ?? config('backups.prune_age', 360);
         if (!$since || !is_digit($since)) {
-            throw new InvalidArgumentException('The "--prune-age" 参数必须是大于 0 的值.');
+            throw new InvalidArgumentException('The "--prune-age" argument must be a value greater than 0.');
         }
 
         $query = $repository->getBuilder()
@@ -32,12 +32,12 @@ class PruneOrphanedBackupsCommand extends Command
 
         $count = $query->count();
         if (!$count) {
-            $this->info('没有孤立的备份被标记为失败.');
+            $this->info('There are no orphaned backups to be marked as failed.');
 
             return;
         }
 
-        $this->warn("Marking {$count} 上次未标记为已完成的备份 {$since} 失败的分钟数.");
+        $this->warn("Marking {$count} backups that have not been marked as completed in the last {$since} minutes as failed.");
 
         $query->update([
             'is_successful' => false,

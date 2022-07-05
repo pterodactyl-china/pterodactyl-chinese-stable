@@ -16,7 +16,7 @@ use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 
 class LoginCheckpointController extends AbstractLoginController
 {
-    private const TOKEN_EXPIRED_MESSAGE = '提供的身份验证令牌已过期，请刷新页面并重试.';
+    private const TOKEN_EXPIRED_MESSAGE = 'The authentication token provided has expired, please refresh the page and try again.';
 
     private ValidationFactory $validation;
 
@@ -88,7 +88,7 @@ class LoginCheckpointController extends AbstractLoginController
             }
         }
 
-        $this->sendFailedLoginResponse($request, $user, !empty($recoveryToken) ? '提供的恢复令牌无效.' : null);
+        $this->sendFailedLoginResponse($request, $user, !empty($recoveryToken) ? 'The recovery token provided is not valid.' : null);
     }
 
     /**

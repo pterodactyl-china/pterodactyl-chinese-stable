@@ -76,7 +76,7 @@ class SettingsServiceProvider extends ServiceProvider
                 return [$setting->key => $setting->value];
             })->toArray();
         } catch (QueryException $exception) {
-            $log->notice('试图从数据库加载设置时遇到查询异常: ' . $exception->getMessage());
+            $log->notice('A query exception was encountered while trying to load settings from the database: ' . $exception->getMessage());
 
             return;
         }

@@ -65,7 +65,7 @@ const EulaModalFeature = () => {
             showSpinnerOverlay={loading}
         >
             <FlashMessageRender key={'feature:eula'} css={tw`mb-4`} />
-            <h2 css={tw`text-2xl mb-4 text-neutral-100`}>同意 我的世界&reg; 最终用户许可协议</h2>
+            <h2 css={tw`text-2xl mb-4 text-neutral-100`}>同意 Minecraft (我的世界)&reg; 最终用户许可协议</h2>
             <p css={tw`text-neutral-200`}>
                 请点击 {'"我接受"'} 来同意&nbsp;
                 <a
@@ -74,7 +74,7 @@ const EulaModalFeature = () => {
                     rel={'noreferrer noopener'}
                     href='https://account.mojang.com/documents/minecraft_eula'
                 >
-                    Minecraft&reg; EULA 协议
+                    Minecraft (我的世界)&reg; 最终用户许可协议
                 </a>
                 .
             </p>

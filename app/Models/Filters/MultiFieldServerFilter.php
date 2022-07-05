@@ -25,7 +25,7 @@ class MultiFieldServerFilter implements Filter
     public function __invoke(Builder $query, $value, string $property)
     {
         if ($query->getQuery()->from !== 'servers') {
-            throw new BadMethodCallException('无法对非服务器模型使用多字段服务器筛选器.');
+            throw new BadMethodCallException('Cannot use the MultiFieldServerFilter against a non-server model.');
         }
 
         if (preg_match(self::IPV4_REGEX, $value) || preg_match('/^:\d{1,5}$/', $value)) {

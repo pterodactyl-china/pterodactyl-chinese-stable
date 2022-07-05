@@ -53,11 +53,11 @@ export default forwardRef<HTMLFormElement, Props>(({ title, ...props }, ref) => 
 			&nbsp;which Sinicizated by&nbsp;
 			<a
                 rel={'noopener nofollow noreferrer'}
-                href={'https://ilwork.cn'}
+                href={'https://pterodactyl.top/'}
                 target={'_blank'}
                 css={tw`no-underline text-neutral-500 hover:text-neutral-300`}
             >
-                iLwork.CN STUDIO
+                翼龙中国
             </a>
         </p>
     </Container>

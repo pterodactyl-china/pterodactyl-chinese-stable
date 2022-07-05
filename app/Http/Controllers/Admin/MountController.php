@@ -99,7 +99,7 @@ class MountController extends Controller
         $model->saveOrFail();
         $mount = $model->fresh();
 
-        $this->alert->success('挂载创建成功.')->flash();
+        $this->alert->success('Mount was created successfully.')->flash();
 
         return redirect()->route('admin.mounts.view', $mount->id);
     }
@@ -119,7 +119,7 @@ class MountController extends Controller
 
         $mount->forceFill($request->validated())->save();
 
-        $this->alert->success('挂载已成功更新.')->flash();
+        $this->alert->success('Mount was updated successfully.')->flash();
 
         return redirect()->route('admin.mounts.view', $mount->id);
     }
@@ -154,7 +154,7 @@ class MountController extends Controller
             $mount->eggs()->attach($eggs);
         }
 
-        $this->alert->success('挂载已成功更新.')->flash();
+        $this->alert->success('Mount was updated successfully.')->flash();
 
         return redirect()->route('admin.mounts.view', $mount->id);
     }
@@ -173,7 +173,7 @@ class MountController extends Controller
             $mount->nodes()->attach($nodes);
         }
 
-        $this->alert->success('挂载已成功更新.')->flash();
+        $this->alert->success('Mount was updated successfully.')->flash();
 
         return redirect()->route('admin.mounts.view', $mount->id);
     }

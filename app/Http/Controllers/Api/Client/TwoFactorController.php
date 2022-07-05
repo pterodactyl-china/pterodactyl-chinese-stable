@@ -8,7 +8,6 @@ use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use Pterodactyl\Facades\Activity;
 use Illuminate\Contracts\Validation\Factory;
-use Illuminate\Validation\ValidationException;
 use Pterodactyl\Services\Users\TwoFactorSetupService;
 use Pterodactyl\Services\Users\ToggleTwoFactorService;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -58,7 +57,7 @@ class TwoFactorController extends ClientApiController
     public function index(Request $request)
     {
         if ($request->user()->use_totp) {
-            throw new BadRequestHttpException('此帐户已启用双重身份身份验证.');
+            throw new BadRequestHttpException('Two-factor authentication is already enabled on this account.');
         }
 
         return new JsonResponse([
@@ -73,22 +72,20 @@ class TwoFactorController extends ClientApiController
      *
      * @throws \Throwable
      * @throws \Illuminate\Validation\ValidationException
-     * @throws \PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException
-     * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
-     * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
-     * @throws \Pterodactyl\Exceptions\Service\User\TwoFactorAuthenticationTokenInvalid
      */
     public function store(Request $request)
     {
         $validator = $this->validation->make($request->all(), [
-            'code' => 'required|string',
+            'code' => ['required', 'string', 'size:6'],
+            'password' => ['required', 'string'],
         ]);
 
-        if ($validator->fails()) {
-            throw new ValidationException($validator);
+        $data = $validator->validate();
+        if (!password_verify($data['password'], $request->user()->password)) {
+            throw new BadRequestHttpException('The password provided was not valid.');
         }
 
-        $tokens = $this->toggleTwoFactorService->handle($request->user(), $request->input('code'), true);
+        $tokens = $this->toggleTwoFactorService->handle($request->user(), $data['code'], true);
 
         Activity::event('user:two-factor.create')->log();
 
@@ -105,11 +102,12 @@ class TwoFactorController extends ClientApiController
      * is valid.
      *
      * @return \Illuminate\Http\JsonResponse
+     * @throws \Throwable
      */
     public function delete(Request $request)
     {
         if (!password_verify($request->input('password') ?? '', $request->user()->password)) {
-            throw new BadRequestHttpException('提供的密码无效.');
+            throw new BadRequestHttpException('The password provided was not valid.');
         }
 
         /** @var \Pterodactyl\Models\User $user */

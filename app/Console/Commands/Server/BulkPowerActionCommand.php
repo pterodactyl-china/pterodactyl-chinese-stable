@@ -22,7 +22,7 @@ class BulkPowerActionCommand extends Command
     /**
      * @var string
      */
-    protected $description = '立即对大型服务器或节点组执行批量电源管理.';
+    protected $description = 'Perform bulk power management on large groupings of servers or nodes at once.';
 
     /**
      * Handle the bulk power request.
