@@ -70,7 +70,7 @@ abstract class SubuserRequest extends ClientApiRequest
         $service = $this->container->make(GetUserPermissionsService::class);
 
         if (count(array_diff($permissions, $service->handle($server, $user))) > 0) {
-            throw new HttpForbiddenException('无法将权限分配给您的帐户未主动拥有的子用户.');
+            throw new HttpForbiddenException('Cannot assign permissions to a subuser that your account does not actively possess.');
         }
     }
 }

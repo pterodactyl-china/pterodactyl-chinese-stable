@@ -101,7 +101,7 @@ class LocationController extends Controller
     public function create(LocationFormRequest $request)
     {
         $location = $this->creationService->handle($request->normalize());
-        $this->alert->success('位置创建成功.')->flash();
+        $this->alert->success('Location was created successfully.')->flash();
 
         return redirect()->route('admin.locations.view', $location->id);
     }
@@ -120,7 +120,7 @@ class LocationController extends Controller
         }
 
         $this->updateService->handle($location->id, $request->normalize());
-        $this->alert->success('位置已成功更新.')->flash();
+        $this->alert->success('Location was updated successfully.')->flash();
 
         return redirect()->route('admin.locations.view', $location->id);
     }

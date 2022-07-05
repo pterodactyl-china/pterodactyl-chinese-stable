@@ -41,20 +41,20 @@ export default () => {
         socket.on('status', (status) => setServerStatus(status));
 
         socket.on('daemon error', (message) => {
-            console.warn('´ÓÊØ»¤½ø³ÌÌ×½Ó×ÖÊÕµ½´íÎóÏûÏ¢:', message);
+            console.warn('ä»Žå®ˆæŠ¤è¿›ç¨‹å¥—æŽ¥å­—æ”¶åˆ°é”™è¯¯æ¶ˆæ¯:', message);
         });
 
         socket.on('token expiring', () => updateToken(uuid, socket));
         socket.on('token expired', () => updateToken(uuid, socket));
         socket.on('jwt error', (error: string) => {
             setConnectionState(false);
-            console.warn('ÊØ»¤½ø³Ì³¬¼¶ÃÜÔ¿ÑéÖ¤´íÎóÀ´×ÔÒíÁúºó¶Ë:', error);
+            console.warn('å®ˆæŠ¤è¿›ç¨‹è¶…çº§å¯†é’¥éªŒè¯é”™è¯¯æ¥è‡ªç¿¼é¾™åŽç«¯:', error);
 
             if (reconnectErrors.find((v) => error.toLowerCase().indexOf(v) >= 0)) {
                 updateToken(uuid, socket);
             } else {
                 setError(
-                    'ÑéÖ¤ÎªWebÌ×½Ó×ÖÌá¹©µÄÆ¾¾ÝÊ±·¢Éú´íÎó£¬ÇëË¢ÐÂÒ³Ãæ.'
+                    'éªŒè¯ä¸ºWebå¥—æŽ¥å­—æä¾›çš„å‡­æ®æ—¶å‘ç”Ÿé”™è¯¯ï¼Œè¯·åˆ·æ–°é¡µé¢.'
                 );
             }
         });
@@ -112,7 +112,7 @@ export default () => {
                         <>
                             <Spinner size={'small'} />
                             <p css={tw`ml-2 text-sm text-red-100`}>
-                                ÎÒÃÇ&apos;ÔÚÁ¬½Óµ½ÄúµÄ·þÎñÆ÷Ê±Óöµ½ÎÊÌâ£¬ÇëÉÔºò...
+                                æˆ‘ä»¬&apos;åœ¨è¿žæŽ¥åˆ°æ‚¨çš„æœåŠ¡å™¨æ—¶é‡åˆ°é—®é¢˜ï¼Œè¯·ç¨å€™...
                             </p>
                         </>
                     ) : (

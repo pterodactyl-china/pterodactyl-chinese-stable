@@ -33,9 +33,9 @@
             </div>
             <div class="box-body">
                 @if ($version->isLatestPanel())
-                    您正运行 Pterodactyl 最新翼龙面板版本 <code>{{ config('app.version') }}</code>. 冰凌家汉化版本 <code>sc_v1.9.1_003_cravatar</code>.
+                    您正运行 Pterodactyl-CHINA | 翼龙中国最新面板前端汉化版本 <code>{{ config('app.version') }}</code>
                 @else
-                    您目前使用的面板 <strong>并非最新版!</strong> 目前最新版本为 <a href="https://github.com/Pterodactyl/Panel/releases/v{{ $version->getPanel() }}" target="_blank"><code>{{ $version->getPanel() }}</code></a> 您正运行的版本为 <code>{{ config('app.version') }}</code>.  冰凌家汉化版本 <code>sc_v1.9.1_003_cravatar</code>.
+                    您目前使用的翼龙面板 <strong>并非最新版!</strong> 目前最新版本为 <a href="https://github.com/pterodactyl-china/panel-chinese-stable/releases/v{{ $version->getPanel() }}" target="_blank"><code>{{ $version->getPanel() }}</code></a> 您正运行的版本为 <code>{{ config('app.version') }}</code>.
                 @endif
             </div>
         </div>
@@ -43,14 +43,14 @@
 </div>
 <div class="row">
     <div class="col-xs-6 col-sm-3 text-center">
-        <a href="{{ $version->getDiscord() }}"><button class="btn btn-warning" style="width:100%;"><i class="fa fa-fw fa-support"></i> 获取帮助 <small>(通过 Discord)</small></button></a>
+        <a href="{{ $version->getDiscord() }}"><button class="btn btn-warning" style="width:100%;"><i class="fa fa-fw fa-support"></i> 获取帮助 <small>(翼龙中国社区)</small></button></a>
     </div>
     <div class="col-xs-6 col-sm-3 text-center">
-        <a href="https://pterodactyl.io"><button class="btn btn-primary" style="width:100%;"><i class="fa fa-fw fa-link"></i> 官方文档</button></a>
+        <a href="https://pterodactyl.top"><button class="btn btn-primary" style="width:100%;"><i class="fa fa-fw fa-link"></i> 翼龙中国文档</button></a>
     </div>
     <div class="clearfix visible-xs-block">&nbsp;</div>
     <div class="col-xs-6 col-sm-3 text-center">
-        <a href="https://github.com/pterodactyl/panel"><button class="btn btn-primary" style="width:100%;"><i class="fa fa-fw fa-support"></i> Github</button></a>
+        <a href="https://github.com/pterodactyl-china"><button class="btn btn-primary" style="width:100%;"><i class="fa fa-fw fa-support"></i>翼龙中国 Github</button></a>
     </div>
     <div class="col-xs-6 col-sm-3 text-center">
         <a href="{{ $version->getDonations() }}"><button class="btn btn-success" style="width:100%;"><i class="fa fa-fw fa-money"></i> 支持此项目</button></a>

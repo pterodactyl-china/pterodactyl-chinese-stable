@@ -55,13 +55,13 @@ class DaemonAuthenticate
         }
 
         if (is_null($bearer = $request->bearerToken())) {
-            throw new HttpException(401, '对此端点的访问必须包含授权标头.', null, ['WWW-Authenticate' => 'Bearer']);
+            throw new HttpException(401, 'Access to this endpoint must include an Authorization header.', null, ['WWW-Authenticate' => 'Bearer']);
         }
 
         $parts = explode('.', $bearer);
         // Ensure that all of the correct parts are provided in the header.
         if (count($parts) !== 2 || empty($parts[0]) || empty($parts[1])) {
-            throw new BadRequestHttpException('提供的授权标头的格式无效.');
+            throw new BadRequestHttpException('The Authorization header provided was not in a valid format.');
         }
 
         try {
@@ -79,6 +79,6 @@ class DaemonAuthenticate
             // Do nothing, we don't want to expose a node not existing at all.
         }
 
-        throw new AccessDeniedHttpException('您无权访问此资源.');
+        throw new AccessDeniedHttpException('You are not authorized to access this resource.');
     }
 }

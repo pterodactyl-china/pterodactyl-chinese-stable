@@ -8,7 +8,7 @@ import updateAccountPassword from '@/api/account/updateAccountPassword';
 import { httpErrorToHuman } from '@/api/http';
 import { ApplicationStore } from '@/state';
 import tw from 'twin.macro';
-import Button from '@/components/elements/Button';
+import { Button } from '@/components/elements/button/index';
 
 interface Values {
     current: string;
@@ -91,9 +91,7 @@ export default () => {
                                 />
                             </div>
                             <div css={tw`mt-6`}>
-                                <Button size={'small'} disabled={isSubmitting || !isValid}>
-                                    更新密码
-                                </Button>
+                                <Button disabled={isSubmitting || !isValid}>更新密码</Button>
                             </div>
                         </Form>
                     </React.Fragment>

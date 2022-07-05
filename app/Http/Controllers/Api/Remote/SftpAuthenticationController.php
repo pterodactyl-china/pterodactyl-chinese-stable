@@ -37,13 +37,13 @@ class SftpAuthenticationController extends Controller
     {
         $connection = $this->parseUsername($request->input('username'));
         if (empty($connection['server'])) {
-            throw new BadRequestHttpException('请求中未包含有效的服务器标识符.');
+            throw new BadRequestHttpException('No valid server identifier was included in the request.');
         }
 
         if ($this->hasTooManyLoginAttempts($request)) {
             $seconds = $this->limiter()->availableIn($this->throttleKey($request));
 
-            throw new TooManyRequestsHttpException($seconds, "此帐户的登录尝试次数太多，请 {$seconds} 秒后重试.");
+            throw new TooManyRequestsHttpException($seconds, "Too many login attempts for this account, please try again in {$seconds} seconds.");
         }
 
         $user = $this->getUser($request, $connection['username']);
@@ -124,7 +124,7 @@ class SftpAuthenticationController extends Controller
             $this->incrementLoginAttempts($request);
         }
 
-        throw new HttpForbiddenException('授权凭证不正确，请重试.');
+        throw new HttpForbiddenException('Authorization credentials were not correct, please try again.');
     }
 
     /**
@@ -136,7 +136,7 @@ class SftpAuthenticationController extends Controller
             $permissions = $this->permissions->handle($server, $user);
 
             if (!in_array(Permission::ACTION_FILE_SFTP, $permissions)) {
-                throw new HttpForbiddenException('您没有访问此服务器的 SFTP 权限.');
+                throw new HttpForbiddenException('You do not have permission to access SFTP for this server.');
             }
         }
 

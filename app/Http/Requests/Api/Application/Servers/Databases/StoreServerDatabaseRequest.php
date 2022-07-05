@@ -66,9 +66,9 @@ class StoreServerDatabaseRequest extends ApplicationApiRequest
     public function attributes()
     {
         return [
-            'host' => '数据库主机服务器 ID',
-            'remote' => '远程连接字符串',
-            'database' => '数据库名称',
+            'host' => 'Database Host Server ID',
+            'remote' => 'Remote Connection String',
+            'database' => 'Database Name',
         ];
     }
 

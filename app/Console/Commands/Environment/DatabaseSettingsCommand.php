@@ -25,7 +25,7 @@ class DatabaseSettingsCommand extends Command
     /**
      * @var string
      */
-    protected $description = '为面板配置数据库设置.';
+    protected $description = 'Configure database settings for the Panel.';
 
     /**
      * @var string
@@ -62,45 +62,45 @@ class DatabaseSettingsCommand extends Command
      */
     public function handle()
     {
-        $this->output->note('强烈建议不要使用“ localhost”作为数据库主机，因为我们经常看到套接字连接问题。如果要使用本地连接，则应使用“127.0.0.1”.');
+        $this->output->note('It is highly recommended to not use "localhost" as your database host as we have seen frequent socket connection issues. If you want to use a local connection you should be using "127.0.0.1".');
         $this->variables['DB_HOST'] = $this->option('host') ?? $this->ask(
-            '数据库主机',
+            'Database Host',
             config('database.connections.mysql.host', '127.0.0.1')
         );
 
         $this->variables['DB_PORT'] = $this->option('port') ?? $this->ask(
-            '数据库端口',
+            'Database Port',
             config('database.connections.mysql.port', 3306)
         );
 
         $this->variables['DB_DATABASE'] = $this->option('database') ?? $this->ask(
-            '数据库名称',
+            'Database Name',
             config('database.connections.mysql.database', 'panel')
         );
 
-        $this->output->note('为 MySQL 连接使用“ root”帐户不仅是非常不受欢迎的，这个应用程序也不允许这样做。您需要为这个软件创建一个 MySQL 用户.');
+        $this->output->note('Using the "root" account for MySQL connections is not only highly frowned upon, it is also not allowed by this application. You\'ll need to have created a MySQL user for this software.');
         $this->variables['DB_USERNAME'] = $this->option('username') ?? $this->ask(
-            '数据库用户名',
+            'Database Username',
             config('database.connections.mysql.username', 'pterodactyl')
         );
 
         $askForMySQLPassword = true;
         if (!empty(config('database.connections.mysql.password')) && $this->input->isInteractive()) {
             $this->variables['DB_PASSWORD'] = config('database.connections.mysql.password');
-            $askForMySQLPassword = $this->confirm('您似乎已经定义了一个 MySQL 连接密码，是否要更改它?');
+            $askForMySQLPassword = $this->confirm('It appears you already have a MySQL connection password defined, would you like to change it?');
         }
 
         if ($askForMySQLPassword) {
-            $this->variables['DB_PASSWORD'] = $this->option('password') ?? $this->secret('数据库密码');
+            $this->variables['DB_PASSWORD'] = $this->option('password') ?? $this->secret('Database Password');
         }
 
         try {
             $this->testMySQLConnection();
         } catch (PDOException $exception) {
-            $this->output->error(sprintf('无法使用提供的凭据连接到 MySQL 服务器。返回的错误是 "%s".', $exception->getMessage()));
-            $this->output->error('您的连接凭据尚未保存。在继续之前，您需要提供有效的连接信息.');
+            $this->output->error(sprintf('Unable to connect to the MySQL server using the provided credentials. The error returned was "%s".', $exception->getMessage()));
+            $this->output->error('Your connection credentials have NOT been saved. You will need to provide valid connection information before proceeding.');
 
-            if ($this->confirm('返回并重试?')) {
+            if ($this->confirm('Go back and try again?')) {
                 $this->database->disconnect('_pterodactyl_command_test');
 
                 return $this->handle();

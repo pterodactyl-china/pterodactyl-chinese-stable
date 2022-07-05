@@ -32,12 +32,12 @@ class ResourceBelongsToServer
     {
         $params = $request->route()->parameters();
         if (is_null($params) || !$params['server'] instanceof Server) {
-            throw new InvalidArgumentException('此中间件不能在参数中缺少服务器的上下文中使用.');
+            throw new InvalidArgumentException('This middleware cannot be used in a context that is missing a server in the parameters.');
         }
 
         /** @var \Pterodactyl\Models\Server $server */
         $server = $request->route()->parameter('server');
-        $exception = new NotFoundHttpException('未找到此服务器的请求资源.');
+        $exception = new NotFoundHttpException('The requested resource was not found for this server.');
         foreach ($params as $key => $model) {
             // Specifically skip the server, we're just trying to see if all of the
             // other resources are assigned to this server. Also skip anything that
@@ -81,7 +81,7 @@ class ResourceBelongsToServer
                 default:
                     // Don't return a 404 here since we want to make sure no one relies
                     // on this middleware in a context in which it will not work. Fail safe.
-                    throw new InvalidArgumentException('没有为此类型的资源配置处理程序: ' . get_class($model));
+                    throw new InvalidArgumentException('There is no handler configured for a resource of this type: ' . get_class($model));
             }
         }
 

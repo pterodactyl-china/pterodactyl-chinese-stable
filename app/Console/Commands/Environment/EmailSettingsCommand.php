@@ -25,7 +25,7 @@ class EmailSettingsCommand extends Command
     /**
      * @var string
      */
-    protected $description = '设置或更新面板的电子邮件发送配置.';
+    protected $description = 'Set or update the email sending configuration for the Panel.';
 
     /**
      * @var string
@@ -98,7 +98,7 @@ class EmailSettingsCommand extends Command
 
         $this->writeToEnvironment($this->variables);
 
-        $this->line('更新存储环境配置文件.');
+        $this->line('Updating stored environment configuration file.');
         $this->line('');
     }
 
