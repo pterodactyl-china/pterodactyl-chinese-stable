@@ -2,11 +2,11 @@
 
 return [
     'location' => [
-        'no_location_found' => 'Could not locate a record matching the provided short code.',
-        'ask_short' => 'Location Short Code',
-        'ask_long' => 'Location Description',
-        'created' => 'Successfully created a new location (:name) with an ID of :id.',
-        'deleted' => 'Successfully deleted the requested location.',
+        'no_location_found' => '找不到与提供的标识码匹配的记录。',
+        'ask_short' => '节点服务器组标识码',
+        'ask_long' => '节点服务器组描述',
+        'created' => '已成功创建 ID 为 :id 的新节点服务器组 (:name)。',
+        'deleted' => '已成功删除请求的节点服务器组。',
     ],
     'user' => [
         'search_users' => '输入用户名、用户 ID 或邮箱地址',
@@ -14,36 +14,36 @@ return [
         'deleted' => '已成功将该用户从面板中删除。',
         'confirm_delete' => '您确定要从面板中删除此用户吗？',
         'no_users_found' => '提供的搜索词未能找到相符的用户。',
-        'multiple_found' => 'Multiple accounts were found for the user provided, unable to delete a user because of the --no-interaction flag.',
+        'multiple_found' => '提供的搜索词找到多个帐户，由于 --no-interaction 标签而无法删除用户。',
         'ask_admin' => '此用户是否为管理员？',
         'ask_email' => '邮箱地址',
         'ask_username' => '用户名',
         'ask_name_first' => '名字',
         'ask_name_last' => '姓氏',
         'ask_password' => '密码',
-        'ask_password_tip' => 'If you would like to create an account with a random password emailed to the user, re-run this command (CTRL+C) and pass the `--no-password` flag.',
+        'ask_password_tip' => '如果您想使用通过电子邮件发送给用户的随机密码创建一个帐户，请重新运行此命令 (CTRL+C) 并传递 `--no-password` 标签。',
         'ask_password_help' => '密码长度必须至少为 8 个字符，并且至少包含一个大写字母和数字。',
         '2fa_help_text' => [
-            'This command will disable 2-factor authentication for a user\'s account if it is enabled. This should only be used as an account recovery command if the user is locked out of their account.',
-            'If this is not what you wanted to do, press CTRL+C to exit this process.',
+            '如果启用，此命令将禁用用户帐户的双因素认证。仅当用户被锁定在其帐户之外时，才应将其用作帐户恢复命令。',
+            '如果这不是您想要执行的操作，请按 CTRL+C 退出此过程。',
         ],
-        '2fa_disabled' => '2-Factor authentication has been disabled for :email.',
+        '2fa_disabled' => '已为 :email 禁用双因素认证。',
     ],
     'schedule' => [
-        'output_line' => 'Dispatching job for first task in `:schedule` (:hash).',
+        'output_line' => '为 `:schedule` (:hash) 中的第一个任务分配作业。',
     ],
     'maintenance' => [
-        'deleting_service_backup' => 'Deleting service backup file :file.',
+        'deleting_service_backup' => '删除服务备份文件 :file。',
     ],
     'server' => [
-        'rebuild_failed' => 'Rebuild request for ":name" (#:id) on node ":node" failed with error: :message',
+        'rebuild_failed' => '在节点 ":node" 上对 ":name" (#:id) 的重建请求失败并出现错误：:message',
         'reinstall' => [
-            'failed' => 'Reinstall request for ":name" (#:id) on node ":node" failed with error: :message',
-            'confirm' => 'You are about to reinstall against a group of servers. Do you wish to continue?',
+            'failed' => '在节点 ":node" 上重新安装 ":name" (#:id) 请求失败并出现错误: :message',
+            'confirm' => '您即将针对一组服务器重新安装。你想继续吗？',
         ],
         'power' => [
-            'confirm' => 'You are about to perform a :action against :count servers. Do you wish to continue?',
-            'action_failed' => 'Power action request for ":name" (#:id) on node ":node" failed with error: :message',
+            'confirm' => '您即将对 :count 服务器执行 :action。你想继续吗？',
+            'action_failed' => '节点 ":node" 上 ":name" (#:id) 的电源操作请求失败并出现错误: :message',
         ],
     ],
     'environment' => [

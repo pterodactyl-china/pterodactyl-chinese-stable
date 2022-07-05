@@ -23,9 +23,9 @@ return [
     'before' => ':attribute 的日期必须在 :date 之前。',
     'before_or_equal' => ':attribute 的日期必须是早于或等于 :date。',
     'between' => [
-        'numeric' => ':attribute 必须介于 :min 和 :max 之间。',
+        'numeric' => ':attribute 必须介于 :min 于 :max 之间。',
         'file' => 'The :attribute must be between :min and :max kilobytes.',
-        'string' => ':attribute 必须介于 :min 和 :max 字符之间。',
+        'string' => ':attribute 必须介于 :min 于 :max 字符之间。',
         'array' => 'The :attribute must have between :min and :max items.',
     ],
     'boolean' => ':attribute 字段必须是 true 或 false。',

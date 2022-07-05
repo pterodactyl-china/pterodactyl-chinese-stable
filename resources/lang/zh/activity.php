@@ -12,8 +12,8 @@ return [
         'success' => '已登入',
         'password-reset' => '重设密码',
         'reset-password' => '请求密码重置',
-        'checkpoint' => '请求双重验证',
-        'recovery-token' => '使用双重验证的恢复令牌',
+        'checkpoint' => '请求双因素认证',
+        'recovery-token' => '使用双因素认证的恢复令牌',
         'token' => 'Solved two-factor challenge',
         'ip-blocked' => '阻止不在IP白名单里的请求',
     ],
@@ -31,8 +31,8 @@ return [
             'delete' => '从帐户中删除了 SSH 密钥 :fingerprint',
         ],
         'two-factor' => [
-            'create' => '启用双重验证',
-            'delete' => '禁用双重验证',
+            'create' => '启用双因素认证',
+            'delete' => '禁用双因素认证',
         ],
     ],
     'server' => [

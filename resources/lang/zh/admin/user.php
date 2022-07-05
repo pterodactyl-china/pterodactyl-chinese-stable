@@ -10,7 +10,7 @@
 
 return [
     'exceptions' => [
-        'user_has_servers' => '无法删除帐户上有关联服务器实例的用户。 请先删除他们的服务器，然后再继续。',
+        'user_has_servers' => '无法删除帐户上有关联服务器实例的用户。请先删除他们的服务器，然后再继续。',
     ],
     'notices' => [
         'account_created' => '已成功创建帐户。',
