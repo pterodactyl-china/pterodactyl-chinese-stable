@@ -1,7 +1,8 @@
-![GitHub Stars](https://img.shields.io/github/stars/ilworkcn/pterodactyl-chinese-manual?style=for-the-badge)
-![Github Licenses](https://img.shields.io/github/license/ilworkcn/pterodactyl-chinese-manual?style=for-the-badge&logo=appveyor)
-![GitHub Releases](https://img.shields.io/github/v/release/ilworkcn/pterodactyl-chinese-manual.svg?style=for-the-badge&logo=appveyor)
-![Alt](https://repobeats.axiom.co/api/embed/8c99aac5f0f0e2fba136dc5fff96a30d207c234e.svg "Repobeats analytics image")
+![GitHub Stars](https://img.shields.io/github/stars/pterodactyl-china/pterodactyl-china-stable?style=for-the-badge&logo=appveyor)
+![GitHub Issues](https://img.shields.io/github/issues/pterodactyl-china/pterodactyl-china-stable?style=for-the-badge&logo=appveyor)
+![Github Licenses](https://img.shields.io/github/license/pterodactyl-china/pterodactyl-china-stable?style=for-the-badge&logo=appveyor)
+![GitHub Releases](https://img.shields.io/github/v/release/pterodactyl-china/pterodactyl-china-stable?style=for-the-badge&logo=appveyor)
+![Alt](https://repobeats.axiom.co/api/embed/81d74e5ff38632323a070c8c1f618cd96f59d9ee.svg "Repobeats analytics image")
 
 
 
