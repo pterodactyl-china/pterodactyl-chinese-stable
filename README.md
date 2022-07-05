@@ -19,10 +19,10 @@ main 主分支默认同步 Cravatar 修复版 ，若阁下需要原生版本请�
 或者直接拉取对应版本分支进行构建！  
 
 ## 文档（本地化进行中）
-* [Panel 前端文档 在鸽](https://pterodactyl.io/panel/1.0/getting_started.html)
-* [Wings 后端文档 在鸽](https://pterodactyl.io/wings/1.0/installing.html)
-* [社区支援文档 在鸽](https://pterodactyl.io/community/about.html)
-* [欢迎支持冰凌家 iLwork.CN STUDIO （不要脸）](https://ilwork.cn)
+* [Panel 前端中文文档](https://pterodactyl.top/panel/1.0/getting_started.html)
+* [Wings 后端中文文档](https://pterodactyl.top/wings/1.0/installing.html)
+* [社区支援文档](https://pterodactyl.io/community/about.html)
+
 
 ## 开源协议
 Pterodactyl® Copyright © 2015 - 2022 Dane Everitt and contributors.  
