@@ -1,8 +1,8 @@
-name: SC_192_C_Assests Build Test
+name: V192C Panel Assests Build Test
 on:
   push:
     branches:
-      - 'sc_v1.9.2_cravatar'
+      - 'v1.9.2_cravatar'
   pull_request:
 jobs:
   build:
