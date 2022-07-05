@@ -14,6 +14,10 @@ This project follows [Semantic Versioning](http://semver.org) guidelines.
 ### 更改
 * 更新了帐户双重验证设置的 UI，以使用新的 Dialog UI 并为新用户提供更好的视觉体验。
 * 将翼龙面板更新检测 API 更改至翼龙中国更新检测 API 若阁下希望使用原生 API，可移步config/pterodactyl.php
+* 将官方版本号新加一位小数点来区分汉化版本号
+
+### 移除
+* 暂时移除了 lang/zh 与 anye77 提供的一些报错汉化，其代码贡献在后续版本中核查并入
 
 ### 新增
 * 在模板输出中添加了缺少的 `<DOCTYPE html>` 标签，以避免在浏览器中进入怪异模式。
