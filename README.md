@@ -1,3 +1,4 @@
+[![Logo Image](https://api.pterodactyl.top/logos/new/pterodactyl_china_logo.png)](https://pterodactyl.top)
 ![GitHub Stars](https://img.shields.io/github/stars/pterodactyl-china/pterodactyl-china-stable?style=for-the-badge&logo=appveyor)
 ![GitHub Downloads](https://img.shields.io/github/downloads/pterodactyl-china/pterodactyl-china-stable/total?style=for-the-badge)
 ![Github Licenses](https://img.shields.io/github/license/pterodactyl-china/pterodactyl-china-stable?style=for-the-badge&logo=appveyor)
