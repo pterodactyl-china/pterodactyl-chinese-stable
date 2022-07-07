@@ -1,5 +1,5 @@
 ![GitHub Stars](https://img.shields.io/github/stars/pterodactyl-china/pterodactyl-china-stable?style=for-the-badge&logo=appveyor)
-![GitHub Downloads](https://img.shields.io/github/downloads/pterodactyl-china/pterodactyl-china-stable/latest/total?style=for-the-badge)
+![GitHub Downloads](https://img.shields.io/github/downloads/pterodactyl-china/pterodactyl-china-stable/total?style=for-the-badge)
 ![Github Licenses](https://img.shields.io/github/license/pterodactyl-china/pterodactyl-china-stable?style=for-the-badge&logo=appveyor)
 ![GitHub Releases](https://img.shields.io/github/v/release/pterodactyl-china/pterodactyl-china-stable?style=for-the-badge&logo=appveyor)
 ![Alt](https://repobeats.axiom.co/api/embed/81d74e5ff38632323a070c8c1f618cd96f59d9ee.svg "Repobeats analytics image")
