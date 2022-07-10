@@ -1,103 +1,112 @@
 <?php
-
+ /**
+ * Pterodactyl CHINA - Panel
+ * Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com>.
+ * Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn>
+ *
+ * This software is licensed under the terms of the MIT license.
+ * https://opensource.org/licenses/MIT
+ */
+ 
 /**
  * Contains all of the translation strings for different activity log
  * events. These should be keyed by the value in front of the colon (:)
  * in the event name. If there is no colon present, they should live at
  * the top level.
  */
+
 return [
     'auth' => [
-        'fail' => 'Failed log in',
-        'success' => 'Logged in',
-        'password-reset' => 'Password reset',
-        'reset-password' => 'Requested password reset',
-        'checkpoint' => 'Two-factor authentication requested',
-        'recovery-token' => 'Used two-factor recovery token',
-        'token' => 'Solved two-factor challenge',
-        'ip-blocked' => 'Blocked request from unlisted IP address for :identifier',
+        'fail' => '登入失败',
+        'success' => '成功登入',
+        'password-reset' => '重置密码',
+        'reset-password' => '请求重置密码',
+        'checkpoint' => '被要求输入动态口令',
+        'recovery-token' => '使用了动态口令恢复代码',
+        'token' => '正确输入了动态口令',
+        'ip-blocked' => '来自 IP 地址的请求被阻止于 :identifier',
     ],
     'user' => [
         'account' => [
-            'email-changed' => 'Changed email from :old to :new',
-            'password-changed' => 'Changed password',
+            'email-changed' => '电子邮件地址已从 :old 更改为 :new',
+            'password-changed' => '更改密码',
         ],
         'api-key' => [
-            'create' => 'Created new API key :identifier',
-            'delete' => 'Deleted API key :identifier',
+            'create' => '创建新 API 密钥 :identifier',
+            'delete' => '删除 API 密钥 :identifier',
         ],
         'ssh-key' => [
-            'create' => 'Added SSH key :fingerprint to account',
-            'delete' => 'Removed SSH key :fingerprint from account',
+            'create' => '添加 SSH 私钥 :fingerprint to account',
+            'delete' => '删除 SSH 私钥 :fingerprint from account',
         ],
         'two-factor' => [
-            'create' => 'Enabled two-factor auth',
-            'delete' => 'Disabled two-factor auth',
+            'create' => '启用动态口令认证',
+            'delete' => '停用动态口令认证',
         ],
     ],
     'server' => [
-        'reinstall' => 'Reinstalled server',
+        'reinstall' => '重新安装服务器实例',
         'backup' => [
-            'download' => 'Downloaded the :name backup',
-            'delete' => 'Deleted the :name backup',
-            'restore' => 'Restored the :name backup (deleted files: :truncate)',
-            'restore-complete' => 'Completed restoration of the :name backup',
-            'restore-failed' => 'Failed to complete restoration of the :name backup',
-            'start' => 'Started a new backup :name',
-            'complete' => 'Marked the :name backup as complete',
-            'fail' => 'Marked the :name backup as failed',
-            'lock' => 'Locked the :name backup',
-            'unlock' => 'Unlocked the :name backup',
+            'download' => '下载备份 :name ',
+            'delete' => '删除备份 :name ',
+            'restore' => '使用 :name 备份对服务器实例进行回档操作 (删除的文件: :truncate)',
+            'restore-complete' => '使用 :name 备份成功对服务器实例回档',
+            'restore-failed' => '使用 :name 备份回档失败',
+            'start' => '开始新备份 :name',
+            'complete' => '标记 :name 备份状态为完成',
+            'fail' => '标记 :name 备份状态为失败',
+            'lock' => '锁定备份 :name ',
+            'unlock' => '解锁备份 :name ',
         ],
         'database' => [
-            'create' => 'Created new database :name',
-            'rotate-password' => 'Password rotated for database :name',
-            'delete' => 'Deleted database :name',
+            'create' => '创建数据库 :name',
+            'rotate-password' => '为数据库 :name 重新生成密码',
+            'delete' => '删除数据库 :name',
         ],
         'file' => [
-            'compress_one' => 'Compressed :directory:file',
-            'compress_other' => 'Compressed :count files in :directory',
-            'read' => 'Viewed the contents of :file',
-            'copy' => 'Created a copy of :file',
-            'create-directory' => 'Created a new directory :name in :directory',
-            'decompress' => 'Decompressed :files in :directory',
-            'delete_one' => 'Deleted :directory:files.0',
-            'delete_other' => 'Deleted :count files in :directory',
-            'download' => 'Downloaded :file',
-            'pull' => 'Downloaded a remote file from :url to :directory',
-            'rename_one' => 'Renamed :directory:files.0.from to :directory:files.0.to',
-            'rename_other' => 'Renamed :count files in :directory',
-            'write' => 'Wrote new content to :file',
-            'upload' => 'Began a file upload',
+            'compress_one' => '压缩 :directory:file',
+            'compress_other' => '压缩了 :count 个文件于 :directory',
+            'read' => '查看了 :file 文件内容',
+            'copy' => '创建了 :file 的副本',
+            'create-directory' => '于 :directory 创建新目录 :name ',
+            'decompress' => '解压 :files 于 :directory',
+            'delete_one' => '删除了 :directory:files.0',
+            'delete_other' => '删除了 :count 个文件于 :directory',
+            'download' => '下载了文件 :file',
+            'pull' => '从 :url 下载了文件至 :directory',
+            'rename_one' => '重命名了 :directory:files.0.from 其新文件名为 :directory:files.0.to',
+            'rename_other' => '重命名了 :count 个文件于 :directory',
+            'write' => '为 :file 写入了新内容',
+            'upload' => '开始上传文件',
         ],
         'allocation' => [
-            'create' => 'Added :allocation to the server',
-            'notes' => 'Updated the notes for :allocation from ":old" to ":new"',
-            'primary' => 'Set :allocation as the primary server allocation',
-            'delete' => 'Deleted the :allocation allocation',
+            'create' => '添加网络分配 :allocation 至服务器实例',
+            'notes' => '更新了网络分配 :allocation 备注 ":old" 至 ":new"',
+            'primary' => '设置网络分配 :allocation 为服务器实例首选网络',
+            'delete' => '删除网络分配 :allocation ',
         ],
         'schedule' => [
-            'create' => 'Created the :name schedule',
-            'update' => 'Updated the :name schedule',
-            'execute' => 'Manually executed the :name schedule',
-            'delete' => 'Deleted the :name schedule',
+            'create' => '创建名称为 :name 的计划任务',
+            'update' => '更新了名称为 :name 的计划任务',
+            'execute' => '手动运行了名称为 :name 的计划任务',
+            'delete' => '删除了名称为 :name 的计划任务',
         ],
         'task' => [
-            'create' => 'Created a new ":action" task for the :name schedule',
-            'update' => 'Updated the ":action" task for the :name schedule',
-            'delete' => 'Deleted a task for the :name schedule',
+            'create' => '创建了新 ":action" 任务于计划 :name ',
+            'update' => '编辑了 ":action" 任务于计划 :name ',
+            'delete' => '为 :name 计划删除了一个任务',
         ],
         'settings' => [
-            'rename' => 'Renamed the server from :old to :new',
+            'rename' => '重命名服务器实例名称 :old 至 :new',
         ],
         'startup' => [
-            'edit' => 'Changed the :variable variable from ":old" to ":new"',
-            'image' => 'Updated the Docker Image for the server from :old to :new',
+            'edit' => '更改 :variable 变量从 ":old" 至 ":new"',
+            'image' => '为服务器实例更改了使用的 Docker 镜像从 :old 至 :new',
         ],
         'subuser' => [
-            'create' => 'Added :email as a subuser',
-            'update' => 'Updated the subuser permissions for :email',
-            'delete' => 'Removed :email as a subuser',
+            'create' => '添加 :email 作为服务器实例的子用户',
+            'update' => '更新了 :email 的子用户权限',
+            'delete' => '删除 :email 作为服务器实例的子用户',
         ],
     ],
 ];
