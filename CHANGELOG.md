@@ -6,7 +6,7 @@ This project follows [Semantic Versioning](http://semver.org) guidelines.
 
 ## v1.9.2.1
 ### 更改
-* 将 双重认证 更改为 动态口令认证
+* 将翻译 双重认证 更改为 动态口令认证 （TOTP）
 
 ### 新增
 * 新增了大量细节汉化
