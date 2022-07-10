@@ -3,6 +3,14 @@ This file is a running track of new features and fixes to each version of the pa
 
 This project follows [Semantic Versioning](http://semver.org) guidelines.
 
+
+## v1.9.2.1
+### 更改
+* 将 双重认证 更改为 动态口令认证
+
+### 新增
+* 新增了大量细节汉化
+
 ## v1.9.2.0
 ### 修复
 * 修复了 CPU 使用率图表侧边栏中导致渲染过多零的问题。
