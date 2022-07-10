@@ -76,7 +76,7 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
                 </p>
             </CopyOnClick>
             <p id={'totp-code-description'} className={'mt-6'}>
-                使用您的双重验证应用程序扫描上面的二维码。然后，输入 6 位数字
+                使用您的动态口令认证应用程序扫描上面的二维码。然后，输入 6 位数字
                 代码生成到下面。
             </p>
             <Input.Text
@@ -126,7 +126,7 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
 };
 
 export default asDialog({
-    title: '启用双重认证',
+    title: '启用动态口令认证',
     description:
         "帮助保护您的帐户免受未经授权的访问。 每次登录时都会提示您输入随机验证码.",
 })(ConfigureTwoFactorForm);

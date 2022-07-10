@@ -1,5 +1,12 @@
 <?php
-
+ /**
+ * Pterodactyl CHINA - Panel
+ * Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com>.
+ * Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn>
+ *
+ * This software is licensed under the terms of the MIT license.
+ * https://opensource.org/licenses/MIT
+ */
 return [
     /*
     |--------------------------------------------------------------------------
@@ -11,9 +18,9 @@ return [
     | has failed, such as for an invalid token or invalid new password.
     |
     */
-    'password' => 'Passwords must be at least six characters and match the confirmation.',
-    'reset' => 'Your password has been reset!',
-    'sent' => 'We have e-mailed your password reset link!',
-    'token' => 'This password reset token is invalid.',
-    'user' => "We can't find a user with that e-mail address.",
+    'password' => '密码必须至少为六个字符且两次确认相匹配.',
+    'reset' => '密码已重置!',
+    'sent' => '我们已向阁下的电子邮箱发送关于密码重置的电子邮件!',
+    'token' => '密码重置令牌无效.',
+    'user' => "我们找不到具有该电子邮件地址的用户.",
 ];

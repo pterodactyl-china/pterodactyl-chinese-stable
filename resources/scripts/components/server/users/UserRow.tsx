@@ -36,7 +36,7 @@ export default ({ subuser }: Props) => {
                     />
                     &nbsp;
                 </p>
-                <p css={tw`text-2xs text-neutral-500 uppercase hidden md:block`}>已启用双重认证</p>
+                <p css={tw`text-2xs text-neutral-500 uppercase hidden md:block`}>已启用动态口令认证</p>
             </div>
             <div css={tw`ml-4 hidden md:block`}>
                 <p css={tw`font-medium text-center`}>

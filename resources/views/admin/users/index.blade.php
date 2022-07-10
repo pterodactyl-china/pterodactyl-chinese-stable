@@ -44,7 +44,7 @@
                             <th>电子邮箱地址</th>
                             <th>姓名</th>
                             <th>用户名</th>
-                            <th class="text-center">双重验证</th>
+                            <th class="text-center">动态口令认证</th>
                             <th class="text-center"><span data-toggle="tooltip" data-placement="top" title="Servers that this user is marked as the owner of.">拥有的服务器实例</span></th>
                             <th class="text-center"><span data-toggle="tooltip" data-placement="top" title="Servers that this user can access because they are marked as a subuser.">作为子用户拥有的服务器实例</span></th>
                             <th></th>
