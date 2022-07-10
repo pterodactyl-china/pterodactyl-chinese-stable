@@ -9,12 +9,13 @@
 ## 翼龙面板
 Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP、React 和 Go 构建。  
 此仓库仅负责官方稳定发行版（stable）汉化 , 若阁下追求刺激（用开发版）, 请移步翼龙中国开发版仓库  
-自 v1.9.2.0 版本仅提供 Cravatar 修复版，若需要 Gravatar 版本请阁下自行修改    
+自 v1.9.2.0 版本仅提供 Cravatar 修复版完整程序，若需要 Gravatar 版本 / 汉化补丁请阁下自行修改    
+本仓库所有 Releases 均经过 Github Actions 构建测试，与本地测试环境运行测试，尽可能保证阁下生产环境的稳定运行  
 
 ## 汉化预览
 ![Image](https://s1.ax1x.com/2022/06/28/jZbYXd.jpg)  
 
-## 文档（本地化进行中）
+## 翼龙中国文档
 * [Panel 前端中文文档](https://pterodactyl.top/panel/1.0/getting_started.html)
 * [Wings 后端中文文档](https://pterodactyl.top/wings/1.0/installing.html)
 * [社区支援文档](https://pterodactyl.io/community/about.html)
