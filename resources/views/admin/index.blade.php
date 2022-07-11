@@ -33,9 +33,9 @@
             </div>
             <div class="box-body">
                 @if ($version->isLatestPanel())
-                    您正运行 Pterodactyl-CHINA | 翼龙中国最新面板前端汉化版本 <code>{{ config('app.version') }}</code>
+                    您正运行 Pterodactyl-CHINA | 翼龙中国最新面板前端汉化版本 (稳定版)<code>{{ config('app.version') }}</code>
                 @else
-                    您目前使用的翼龙面板 <strong>并非最新版!</strong> 目前最新版本为 <a href="https://github.com/pterodactyl-china/panel-chinese-stable/releases/v{{ $version->getPanel() }}" target="_blank"><code>{{ $version->getPanel() }}</code></a> 您正运行的版本为 <code>{{ config('app.version') }}</code>.
+                    您目前使用的翼龙中国面板 <strong>并非最新汉化版!</strong> 目前最新汉化版本为 <a href="https://github.com/pterodactyl-china/pterodactyl-chinese-stable/releases/v{{ $version->getPanel() }}" target="_blank"><code>{{ $version->getPanel() }}</code></a> 您正运行的版本为 <code>{{ config('app.version') }}</code>.
                 @endif
             </div>
         </div>
