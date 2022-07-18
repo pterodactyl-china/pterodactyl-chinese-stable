@@ -7,10 +7,10 @@
     "exported_at": "2021-06-15T17:24:18-04:00",
     "name": "Teamspeak3 Server",
     "author": "support@pterodactyl.io",
-    "description": "VoIP software designed with security in mind, featuring crystal clear voice quality, endless customization options, and scalabilty up to thousands of simultaneous users.",
+    "description": "VoIP 软件在设计时考虑了安全性，具有清晰的语音质量、无限的自定义选项以及可扩展到数千名用户同时使用的功能。",
     "features": null,
     "images": [
-        "ghcr.io\/pterodactyl\/yolks:debian"
+        "registry.cn-shanghai.aliyuncs.com\/pterodactyl-china\/yolks:debian"
     ],
     "file_denylist": [],
     "startup": ".\/ts3server default_voice_port={{SERVER_PORT}} query_port={{QUERY_PORT}} filetransfer_ip=0.0.0.0 filetransfer_port={{FILE_TRANSFER}} license_accepted=1",
@@ -23,14 +23,14 @@
     "scripts": {
         "installation": {
             "script": "#!\/bin\/ash\r\n# TS3 Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\n\r\nif [ -z ${TS_VERSION} ] || [ ${TS_VERSION} == latest ]; then\r\n    TS_VERSION=$(curl -sSL https:\/\/teamspeak.com\/versions\/server.json | jq -r '.linux.x86_64.version')\r\nfi\r\n\r\ncd \/mnt\/server\r\n\r\necho -e \"getting files from http:\/\/files.teamspeak-services.com\/releases\/server\/${TS_VERSION}\/teamspeak3-server_linux_amd64-${TS_VERSION}.tar.bz2\" \r\ncurl -L http:\/\/files.teamspeak-services.com\/releases\/server\/${TS_VERSION}\/teamspeak3-server_linux_amd64-${TS_VERSION}.tar.bz2 | tar -xvj --strip-components=1",
-            "container": "ghcr.io\/pterodactyl\/installers:alpine",
+            "container": "registry.cn-shanghai.aliyuncs.com\/pterodactyl-china\/installers:alpine",
             "entrypoint": "ash"
         }
     },
     "variables": [
         {
-            "name": "Server Version",
-            "description": "The version of Teamspeak 3 to use when running the server.",
+            "name": "服务器版本",
+            "description": "运行服务器时使用的 Teamspeak 3 版本。",
             "env_variable": "TS_VERSION",
             "default_value": "latest",
             "user_viewable": true,
@@ -38,8 +38,8 @@
             "rules": "required|string|max:6"
         },
         {
-            "name": "File Transfer Port",
-            "description": "The Teamspeak file transfer port",
+            "name": "文件传输端口",
+            "description": "Teamspeak 文件传输端口",
             "env_variable": "FILE_TRANSFER",
             "default_value": "30033",
             "user_viewable": true,
@@ -47,8 +47,8 @@
             "rules": "required|integer|between:1,65535"
         },
         {
-            "name": "Query Port",
-            "description": "The Teamspeak Query Port",
+            "name": "查询端口",
+            "description": "Teamspeak 查询端口",
             "env_variable": "QUERY_PORT",
             "default_value": "10011",
             "user_viewable": true,
