@@ -1,13 +1,12 @@
-{{-- Pterodactyl - Panel which Sinicizated by iLwork.CN STUDIO --}}
+{{-- Pterodactyl - Panel --}}
 {{-- Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com> --}}
-{{-- Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn> --}}
 
 {{-- This software is licensed under the terms of the MIT license. --}}
 {{-- https://opensource.org/licenses/MIT --}}
 @extends('layouts.admin')
 
 @section('title')
-    节点服务器列表
+    List Nodes
 @endsection
 
 @section('scripts')
@@ -16,10 +15,10 @@
 @endsection
 
 @section('content-header')
-    <h1>节点服务器<small>连接到面板服务器的所有节点服务器.</small></h1>
+    <h1>Nodes<small>All nodes available on the system.</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">管理</a></li>
-        <li class="active">节点服务器</li>
+        <li><a href="{{ route('admin.index') }}">Admin</a></li>
+        <li class="active">Nodes</li>
     </ol>
 @endsection
 
@@ -28,14 +27,14 @@
     <div class="col-xs-12">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">节点服务器列表</h3>
+                <h3 class="box-title">Node List</h3>
                 <div class="box-tools search01">
                     <form action="{{ route('admin.nodes') }}" method="GET">
                         <div class="input-group input-group-sm">
                             <input type="text" name="filter[name]" class="form-control pull-right" value="{{ request()->input('filter.name') }}" placeholder="Search Nodes">
                             <div class="input-group-btn">
                                 <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                                <a href="{{ route('admin.nodes.new') }}"><button type="button" class="btn btn-sm btn-primary" style="border-radius: 0 3px 3px 0;margin-left:-1px;">新建</button></a>
+                                <a href="{{ route('admin.nodes.new') }}"><button type="button" class="btn btn-sm btn-primary" style="border-radius: 0 3px 3px 0;margin-left:-1px;">Create New</button></a>
                             </div>
                         </div>
                     </form>
@@ -46,13 +45,13 @@
                     <tbody>
                         <tr>
                             <th></th>
-                            <th>名称</th>
-                            <th>节点服务器组</th>
-                            <th>内存容量</th>
-                            <th>存储容量</th>
-                            <th class="text-center">服务器实例</th>
+                            <th>Name</th>
+                            <th>Location</th>
+                            <th>Memory</th>
+                            <th>Disk</th>
+                            <th class="text-center">Servers</th>
                             <th class="text-center">SSL</th>
-                            <th class="text-center">公开</th>
+                            <th class="text-center">Public</th>
                         </tr>
                         @foreach ($nodes as $node)
                             <tr>
@@ -97,7 +96,7 @@
                 });
                 $(element).removeClass('text-muted').find('i').removeClass().addClass('fa fa-fw fa-heartbeat faa-pulse animated').css('color', '#50af51');
             }).fail(function (error) {
-                var errorText = '无法连接至节点服务器! 查看浏览器开发控制台以了解更多.';
+                var errorText = 'Error connecting to node! Check browser console for details.';
                 try {
                     errorText = error.responseJSON.errors[0].detail || errorText;
                 } catch (ex) {}

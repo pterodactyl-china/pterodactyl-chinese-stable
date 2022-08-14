@@ -25,8 +25,8 @@ const ServerConsoleContainer = () => {
             {(isInstalling || isTransferring) && (
                 <Alert type={'warning'} className={'mb-4'}>
                     {isInstalling
-                        ? '此服务器实例当前正在运行其安装过程，大多数操作都不可用.'
-                        : '此服务器实例当前正在转移到另一个节点服务器，所有操作都不可用'}
+                        ? 'This server is currently running its installation process and most actions are unavailable.'
+                        : 'This server is currently being transferred to another node and all actions are unavailable.'}
                 </Alert>
             )}
             <div className={'grid grid-cols-4 gap-4 mb-4'}>

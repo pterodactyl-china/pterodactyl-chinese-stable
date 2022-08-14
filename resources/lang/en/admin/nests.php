@@ -1,8 +1,7 @@
 <?php
 /**
- * Pterodactyl CHINA - Panel
+ * Pterodactyl - Panel
  * Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com>.
- * Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn>
  *
  * This software is licensed under the terms of the MIT license.
  * https://opensource.org/licenses/MIT
@@ -10,25 +9,25 @@
 
 return [
     'notices' => [
-        'created' => '新预设组, :name, 已被成功创建.',
-        'deleted' => '成功删除目标预设组.',
-        'updated' => '成功更新预设组配置文件.',
+        'created' => 'A new nest, :name, has been successfully created.',
+        'deleted' => 'Successfully deleted the requested nest from the Panel.',
+        'updated' => 'Successfully updated the nest configuration options.',
     ],
     'eggs' => [
         'notices' => [
-            'imported' => '成功导入预设并更新其关联服务器启动命令变量.',
-            'updated_via_import' => '此预设已使用上传的文件配置.',
-            'deleted' => '成功删除目标预设.',
-            'updated' => '预设配置已成功更新.',
-            'script_updated' => '预设安装脚本已更新，其将在安装服务器时运行.',
-            'egg_created' => '新预设已成功创建，你需要重启所有运行中的后端服务器以应用更改.',
+            'imported' => 'Successfully imported this Egg and its associated variables.',
+            'updated_via_import' => 'This Egg has been updated using the file provided.',
+            'deleted' => 'Successfully deleted the requested egg from the Panel.',
+            'updated' => 'Egg configuration has been updated successfully.',
+            'script_updated' => 'Egg install script has been updated and will run whenever servers are installed.',
+            'egg_created' => 'A new egg was laid successfully. You will need to restart any running daemons to apply this new egg.',
         ],
     ],
     'variables' => [
         'notices' => [
-            'variable_deleted' => '启动命令变量 ":variable" 已被删除，你需要对关联的服务器进行重建操作以同步更改.',
-            'variable_updated' => '启动命令变量 ":variable" 已更新. 你需要对关联的服务器进行重建操作以同步更改.',
-            'variable_created' => '新启动变量已成功创建并关联至预设.',
+            'variable_deleted' => 'The variable ":variable" has been deleted and will no longer be available to servers once rebuilt.',
+            'variable_updated' => 'The variable ":variable" has been updated. You will need to rebuild any servers using this variable in order to apply changes.',
+            'variable_created' => 'New variable has successfully been created and assigned to this egg.',
         ],
     ],
 ];

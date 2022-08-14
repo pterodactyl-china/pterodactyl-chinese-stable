@@ -59,24 +59,24 @@ export default ({ onKeyCreated }: { onKeyCreated: (key: ApiKey) => void }) => {
                     <Form>
                         <SpinnerOverlay visible={isSubmitting} />
                         <FormikFieldWrapper
-                            label={'描述'}
+                            label={'Description'}
                             name={'description'}
-                            description={'此 API 密钥的描述.'}
+                            description={'A description of this API key.'}
                             css={tw`mb-6`}
                         >
                             <Field name={'description'} as={Input} />
                         </FormikFieldWrapper>
                         <FormikFieldWrapper
-                            label={'IP 白名单'}
+                            label={'Allowed IPs'}
                             name={'allowedIps'}
                             description={
-                                '留空以允许任何 IP 地址使用此 API 密钥，否则在每一行中提供每个 IP 地址。'
+                                'Leave blank to allow any IP address to use this API key, otherwise provide each IP address on a new line.'
                             }
                         >
                             <Field name={'allowedIps'} as={CustomTextarea} />
                         </FormikFieldWrapper>
                         <div css={tw`flex justify-end mt-6`}>
-                            <Button>创建</Button>
+                            <Button>Create</Button>
                         </div>
                     </Form>
                 )}

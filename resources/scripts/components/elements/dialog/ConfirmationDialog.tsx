@@ -8,12 +8,12 @@ type ConfirmationProps = Omit<RenderDialogProps, 'description' | 'children'> & {
     onConfirmed: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };
 
-export default ({ confirm = '好的', children, onConfirmed, ...props }: ConfirmationProps) => {
+export default ({ confirm = 'Okay', children, onConfirmed, ...props }: ConfirmationProps) => {
     return (
         <Dialog {...props} description={typeof children === 'string' ? children : undefined}>
             {typeof children !== 'string' && children}
             <Dialog.Footer>
-                <Button.Text onClick={props.onClose}>取消</Button.Text>
+                <Button.Text onClick={props.onClose}>Cancel</Button.Text>
                 <Button.Danger onClick={onConfirmed}>{confirm}</Button.Danger>
             </Dialog.Footer>
         </Dialog>

@@ -36,8 +36,8 @@ export default ({ database, className }: Props) => {
 
     const schema = object().shape({
         confirm: string()
-            .required('必须提供数据库名称.')
-            .oneOf([database.name.split('_', 2)[1], database.name], '必须提供数据库名称.'),
+            .required('The database name must be provided.')
+            .oneOf([database.name.split('_', 2)[1], database.name], 'The database name must be provided.'),
     });
 
     const submit = (values: { confirm: string }, { setSubmitting }: FormikHelpers<{ confirm: string }>) => {
@@ -68,25 +68,25 @@ export default ({ database, className }: Props) => {
                         }}
                     >
                         <FlashMessageRender byKey={'database:delete'} css={tw`mb-6`} />
-                        <h2 css={tw`text-2xl mb-6`}>数据库删除确认</h2>
+                        <h2 css={tw`text-2xl mb-6`}>Confirm database deletion</h2>
                         <p css={tw`text-sm`}>
-                            删除数据库是一项永久性操作，无法撤消。
-							这将永久删除 <strong>{database.name}</strong> 数据库并删除所有相关数据。
+                            Deleting a database is a permanent action, it cannot be undone. This will permanently delete
+                            the <strong>{database.name}</strong> database and remove all associated data.
                         </p>
                         <Form css={tw`m-0 mt-6`}>
                             <Field
                                 type={'text'}
                                 id={'confirm_name'}
                                 name={'confirm'}
-                                label={'数据库删除确认'}
-                                description={'输入数据库名称以确认删除。'}
+                                label={'Confirm Database Name'}
+                                description={'Enter the database name to confirm deletion.'}
                             />
                             <div css={tw`mt-6 text-right`}>
                                 <Button type={'button'} isSecondary css={tw`mr-2`} onClick={() => setVisible(false)}>
-                                    取消
+                                    Cancel
                                 </Button>
                                 <Button type={'submit'} color={'red'} disabled={!isValid}>
-                                    删除数据库
+                                    Delete Database
                                 </Button>
                             </div>
                         </Form>
@@ -95,33 +95,33 @@ export default ({ database, className }: Props) => {
             </Formik>
             <Modal visible={connectionVisible} onDismissed={() => setConnectionVisible(false)}>
                 <FlashMessageRender byKey={'database-connection-modal'} css={tw`mb-6`} />
-                <h3 css={tw`mb-6 text-2xl`}>数据库连接详细信息</h3>
+                <h3 css={tw`mb-6 text-2xl`}>Database connection details</h3>
                 <div>
-                    <Label>连接地址</Label>
+                    <Label>Endpoint</Label>
                     <CopyOnClick text={database.connectionString}>
                         <Input type={'text'} readOnly value={database.connectionString} />
                     </CopyOnClick>
                 </div>
                 <div css={tw`mt-6`}>
-                    <Label>连接白名单</Label>
+                    <Label>Connections from</Label>
                     <Input type={'text'} readOnly value={database.allowConnectionsFrom} />
                 </div>
                 <div css={tw`mt-6`}>
-                    <Label>用户名</Label>
+                    <Label>Username</Label>
                     <CopyOnClick text={database.username}>
                         <Input type={'text'} readOnly value={database.username} />
                     </CopyOnClick>
                 </div>
                 <Can action={'database.view_password'}>
                     <div css={tw`mt-6`}>
-                        <Label>密码</Label>
+                        <Label>Password</Label>
                         <CopyOnClick text={database.password}>
                             <Input type={'text'} readOnly value={database.password} />
                         </CopyOnClick>
                     </div>
                 </Can>
                 <div css={tw`mt-6`}>
-                    <Label>JDBC 连接字符串</Label>
+                    <Label>JDBC Connection String</Label>
                     <CopyOnClick
                         text={`jdbc:mysql://${database.username}:${database.password}@${database.connectionString}/${database.name}`}
                     >
@@ -137,7 +137,7 @@ export default ({ database, className }: Props) => {
                         <RotatePasswordButton databaseId={database.id} onUpdate={appendDatabase} />
                     </Can>
                     <Button isSecondary onClick={() => setConnectionVisible(false)}>
-                        关闭
+                        Close
                     </Button>
                 </div>
             </Modal>
@@ -154,17 +154,17 @@ export default ({ database, className }: Props) => {
                     <CopyOnClick text={database.connectionString}>
                         <p css={tw`text-sm`}>{database.connectionString}</p>
                     </CopyOnClick>
-                    <p css={tw`mt-1 text-2xs text-neutral-500 uppercase select-none`}>连接地址</p>
+                    <p css={tw`mt-1 text-2xs text-neutral-500 uppercase select-none`}>Endpoint</p>
                 </div>
                 <div css={tw`ml-8 text-center hidden md:block`}>
                     <p css={tw`text-sm`}>{database.allowConnectionsFrom}</p>
-                    <p css={tw`mt-1 text-2xs text-neutral-500 uppercase select-none`}>连接白名单</p>
+                    <p css={tw`mt-1 text-2xs text-neutral-500 uppercase select-none`}>Connections from</p>
                 </div>
                 <div css={tw`ml-8 text-center hidden md:block`}>
                     <CopyOnClick text={database.username}>
                         <p css={tw`text-sm`}>{database.username}</p>
                     </CopyOnClick>
-                    <p css={tw`mt-1 text-2xs text-neutral-500 uppercase select-none`}>用户名</p>
+                    <p css={tw`mt-1 text-2xs text-neutral-500 uppercase select-none`}>Username</p>
                 </div>
                 <div css={tw`ml-8`}>
                     <Button isSecondary css={tw`mr-2`} onClick={() => setConnectionVisible(true)}>

@@ -1,22 +1,21 @@
-{{-- Pterodactyl - Panel which Sinicizated by iLwork.CN STUDIO --}}
+{{-- Pterodactyl - Panel --}}
 {{-- Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com> --}}
-{{-- Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn> --}}
 
 {{-- This software is licensed under the terms of the MIT license. --}}
 {{-- https://opensource.org/licenses/MIT --}}
 @extends('layouts.admin')
 
 @section('title')
-    服务器实例 — {{ $server->name }}: 数据库
+    Server — {{ $server->name }}: Databases
 @endsection
 
 @section('content-header')
-    <h1>{{ $server->name }}<small>管理服务器实例数据库.</small></h1>
+    <h1>{{ $server->name }}<small>Manage server databases.</small></h1>
     <ol class="breadcrumb">
-        <li><a href="{{ route('admin.index') }}">管理</a></li>
-        <li><a href="{{ route('admin.servers') }}">服务器实例</a></li>
+        <li><a href="{{ route('admin.index') }}">Admin</a></li>
+        <li><a href="{{ route('admin.servers') }}">Servers</a></li>
         <li><a href="{{ route('admin.servers.view', $server->id) }}">{{ $server->name }}</a></li>
-        <li class="active">数据库</li>
+        <li class="active">Databases</li>
     </ol>
 @endsection
 
@@ -25,20 +24,20 @@
 <div class="row">
     <div class="col-sm-7">
         <div class="alert alert-info">
-            数据库密码可以在 <a href="/server/{{ $server->uuidShort }}/databases">访问此服务器</a> 用户界面时查看.
+            Database passwords can be viewed when <a href="/server/{{ $server->uuidShort }}/databases">visiting this server</a> on the front-end.
         </div>
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">活跃的数据库</h3>
+                <h3 class="box-title">Active Databases</h3>
             </div>
             <div class="box-body table-responsible no-padding">
                 <table class="table table-hover">
                     <tr>
-                        <th>数据库</th>
-                        <th>用户名</th>
-                        <th>连接白名单</th>
-                        <th>域名</th>
-                        <th>最大连接数</th>
+                        <th>Database</th>
+                        <th>Username</th>
+                        <th>Connections From</th>
+                        <th>Host</th>
+                        <th>Max Connections</th>
                         <th></th>
                     </tr>
                     @foreach($server->databases as $database)
@@ -65,41 +64,41 @@
     <div class="col-sm-5">
         <div class="box box-success">
             <div class="box-header with-border">
-                <h3 class="box-title">创建新数据库</h3>
+                <h3 class="box-title">Create New Database</h3>
             </div>
             <form action="{{ route('admin.servers.view.database', $server->id) }}" method="POST">
                 <div class="box-body">
                     <div class="form-group">
-                        <label for="pDatabaseHostId" class="control-label">数据库主机</label>
+                        <label for="pDatabaseHostId" class="control-label">Database Host</label>
                         <select id="pDatabaseHostId" name="database_host_id" class="form-control">
                             @foreach($hosts as $host)
                                 <option value="{{ $host->id }}">{{ $host->name }}</option>
                             @endforeach
                         </select>
-                        <p class="text-muted small">选择应在其上创建此数据库的主机数据库服务器.</p>
+                        <p class="text-muted small">Select the host database server that this database should be created on.</p>
                     </div>
                     <div class="form-group">
-                        <label for="pDatabaseName" class="control-label">数据库</label>
+                        <label for="pDatabaseName" class="control-label">Database</label>
                         <div class="input-group">
                             <span class="input-group-addon">s{{ $server->id }}_</span>
                             <input id="pDatabaseName" type="text" name="database" class="form-control" placeholder="database" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="pRemote" class="control-label">连接白名单</label>
+                        <label for="pRemote" class="control-label">Connections</label>
                         <input id="pRemote" type="text" name="remote" class="form-control" value="%" />
-                        <p class="text-muted small">这应该反映允许连接的 IP 地址。 使用标准 MySQL 表示法。 如果不确定请填写 <code>%</code>。</p>
+                        <p class="text-muted small">This should reflect the IP address that connections are allowed from. Uses standard MySQL notation. If unsure leave as <code>%</code>.</p>
                     </div>
                     <div class="form-group">
-                        <label for="pmax_connections" class="control-label">最大连接数</label>
+                        <label for="pmax_connections" class="control-label">Concurrent Connections</label>
                         <input id="pmax_connections" type="text" name="max_connections" class="form-control"/>
-                        <p class="text-muted small">这应该反映从该用户到数据库的最大并发连接数。 留空表示无限制。</p>
+                        <p class="text-muted small">This should reflect the max number of concurrent connections from this user to the database. Leave empty for unlimited.</p>
                     </div>
                 </div>
                 <div class="box-footer">
                     {!! csrf_field() !!}
-                    <p class="text-muted small no-margin">该数据库的用户名和密码将在此表单提交后随机生成。</p>
-                    <input type="submit" class="btn btn-sm btn-success pull-right" value="创建数据库" />
+                    <p class="text-muted small no-margin">A username and password for this database will be randomly generated after form submission.</p>
+                    <input type="submit" class="btn btn-sm btn-success pull-right" value="Create Database" />
                 </div>
             </form>
         </div>
@@ -117,9 +116,9 @@
         swal({
             title: '',
             type: 'warning',
-            text: '您确定要删除此数据库吗？ 没有回头路，所有数据将立即被删除。',
+            text: 'Are you sure that you want to delete this database? There is no going back, all data will immediately be removed.',
             showCancelButton: true,
-            confirmButtonText: '删除',
+            confirmButtonText: 'Delete',
             confirmButtonColor: '#d9534f',
             closeOnConfirm: false,
             showLoaderOnConfirm: true,
@@ -136,7 +135,7 @@
                 swal({
                     type: 'error',
                     title: 'Whoops!',
-                    text: (typeof jqXHR.responseJSON.error !== 'undefined') ? jqXHR.responseJSON.error : '处理此请求时发生错误，此请求无法继续处理！'
+                    text: (typeof jqXHR.responseJSON.error !== 'undefined') ? jqXHR.responseJSON.error : 'An error occurred while processing this request.'
                 });
             });
         });
@@ -154,11 +153,11 @@
             swal({
                 type: 'success',
                 title: '',
-                text: '数据库密码已重置.',
+                text: 'The password for this database has been reset.',
             });
         }).fail(function(jqXHR, textStatus, errorThrown) {
             console.error(jqXHR);
-            var error = '处理此请求时发生错误，此请求无法继续处理！';
+            var error = 'An error occurred while trying to process this request.';
             if (typeof jqXHR.responseJSON !== 'undefined' && typeof jqXHR.responseJSON.error !== 'undefined') {
                 error = jqXHR.responseJSON.error;
             }

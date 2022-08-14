@@ -3,33 +3,32 @@ This file is a running track of new features and fixes to each version of the pa
 
 This project follows [Semantic Versioning](http://semver.org) guidelines.
 
+## v1.10.1
+### Fixed
+* Fixes a surprise `clock()` function that was used for debugging and should not have made it into the release. This was causing activity events to not properly sync between the Panel and Wings.
 
-## v1.9.2.1
-### 更改
-* 将翻译 双重认证 更改为 动态口令认证 （TOTP）
+## v1.10.0
+### Fixed
+* Fixes improper cache key naming on the frontend causing server activity logs to be duplicated across server page views.
+* Fixes overflow issues on dialogs when the internal content is too long.
+* Fixes spinner overlay on console improperly taking up the entire page making it impossible to use navigation controls.
+* Fixes 2FA QR code background being too dark for some phones to properly scan.
+* File manager now properly displays an error message if a user attempts to upload a folder rather than files.
+* Fixes the "Create Directory" dialog persisting the previously entered value when it is re-opened.
 
-### 新增
-* 新增了大量细节汉化
+### Changed
+* IP addresses in activity logs are now always displayed to administrators, regardless of if they own the server or not.
+* Scroll down indicator on the console has been changed to a down arrow to be clearer.
+* Docker builds have been updated to use `PHP 8.1`.
+* Recaptcha validation domain is now configurable using the `RECAPTCHA_DOMAIN` environment variable.
+* Drag and drop overlay on the file manager has been tweaked to be slightly more consistent with the frontend style and be a little easier to read.
 
-## v1.9.2.0
-### 修复
-* 修复了 CPU 使用率图表侧边栏中导致渲染过多零的问题。
-* 修复了最初选择了错误默认值的 Java 版本选择器模式。
-* 修复了 Safari 中导致控制台过度调整大小和图形覆盖内容的控制台渲染。
-* 修复服务器正常运行时间块中缺少“正在启动”/“停止”状态显示。
-* 修复查看某些文件操作时活动日志格式不正确的问题。
-
-### 更改
-* 更新了帐户双重验证设置的 UI，以使用新的 Dialog UI 并为新用户提供更好的视觉体验。
-* 将翼龙面板更新检测 API 更改至翼龙中国更新检测 API 若阁下希望使用原生 API，可移步config/pterodactyl.php
-* 将官方版本号新加一位小数点来区分汉化版本号
-
-### 移除
-* 暂时移除了 lang/zh 与 anye77 提供的一些报错汉化，其代码贡献在后续版本中核查并入
-
-### 新增
-* 在模板输出中添加了缺少的 `<DOCTYPE html>` 标签，以避免在浏览器中进入怪异模式。
-* 在帐户上启用 TOTP 时添加了密码要求。
+### Added
+* Adds support for the `user_uuid` claim on all generated JWTs which allows Wings to properly identify the user performing each action.
+* Adds support for recieving external activity log events from Wings instances (power state, commands, SFTP, and uploads).
+* Adds support for tracking failed password-based SFTP logins.
+* Server name and description are now passed along to Wings making them available in egg variables for parsing and including.
+* Adds support for displaying all active file uploads in the file manager.
 
 ## v1.9.2
 ### Fixed

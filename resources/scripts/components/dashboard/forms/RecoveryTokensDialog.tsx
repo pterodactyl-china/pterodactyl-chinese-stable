@@ -20,9 +20,9 @@ export default ({ tokens, open, onClose }: RecoveryTokenDialogProps) => {
         <Dialog
             open={open}
             onClose={onClose}
-            title={'动态口令认证已启用'}
+            title={'Two-Step Authentication Enabled'}
             description={
-                '将下面的代码存储在安全的地方。 如果您无法使用手机，可以使用这些备用验证码登录。'
+                'Store the codes below somewhere safe. If you lose access to your phone you can use these backup codes to sign in.'
             }
             hideCloseIcon
             preventExternalClose
@@ -41,10 +41,10 @@ export default ({ tokens, open, onClose }: RecoveryTokenDialogProps) => {
                 </pre>
             </CopyOnClick>
             <Alert type={'danger'} className={'mt-3'}>
-                这些代码只会显示这一次.
+                These codes will not be shown again.
             </Alert>
             <Dialog.Footer>
-                <Button.Text onClick={onClose}>我记好了</Button.Text>
+                <Button.Text onClick={onClose}>Done</Button.Text>
             </Dialog.Footer>
         </Dialog>
     );

@@ -31,7 +31,7 @@ export default () => {
     }, [error]);
 
     return (
-        <PageContentBlock title={'账户活动日志'}>
+        <PageContentBlock title={'Account Activity Log'}>
             <FlashMessageRender byKey={'account'} />
             {(filters.filters?.event || filters.filters?.ip) && (
                 <div className={'flex justify-end mb-2'}>
@@ -49,7 +49,7 @@ export default () => {
             ) : (
                 <div className={'bg-gray-700'}>
                     {data?.items.map((activity) => (
-                        <ActivityLogEntry key={activity.timestamp.toString() + activity.event} activity={activity}>
+                        <ActivityLogEntry key={activity.id} activity={activity}>
                             {typeof activity.properties.useragent === 'string' && (
                                 <Tooltip content={activity.properties.useragent} placement={'top'}>
                                     <span>

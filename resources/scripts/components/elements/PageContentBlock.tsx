@@ -32,16 +32,7 @@ const PageContentBlock: React.FC<PageContentBlockProps> = ({ title, showFlashKey
                             target={'_blank'}
                             css={tw`no-underline text-neutral-500 hover:text-neutral-300`}
                         >
-                            Pterodactyl
-                        </a>
-						&nbsp;which Sinicizated by&nbsp;
-						<a
-                            rel={'noopener nofollow noreferrer'}
-                            href={'https://pterodactyl.top'}
-                            target={'_blank'}
-                            css={tw`no-underline text-neutral-500 hover:text-neutral-300`}
-                        >
-                            翼龙中国 &reg;
+                            Pterodactyl&reg;
                         </a>
                         &nbsp;&copy; 2015 - {new Date().getFullYear()}
                     </p>

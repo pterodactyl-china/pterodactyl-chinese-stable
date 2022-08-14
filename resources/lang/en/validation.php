@@ -1,12 +1,5 @@
 <?php
- /**
- * Pterodactyl CHINA - Panel
- * Copyright (c) 2015 - 2017 Dane Everitt <dane@daneeveritt.com>.
- * Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn>
- *
- * This software is licensed under the terms of the MIT license.
- * https://opensource.org/licenses/MIT
- */
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -19,78 +12,78 @@ return [
     |
     */
 
-    'accepted' => ' :attribute 必须被接受.',
-    'active_url' => ' :attribute 不是有效的 URL.',
-    'after' => ' :attribute 必须晚于 :date.',
-    'after_or_equal' => ' :attribute 必须晚于或同于 :date.',
-    'alpha' => ' :attribute 只能包含字母.',
-    'alpha_dash' => ' :attribute 只能包含字母、数字和破折号.',
-    'alpha_num' => ' :attribute 只能包含字母和数字.',
-    'array' => ' :attribute 必须是一个数组.',
-    'before' => ' :attribute 必须早于 :date.',
-    'before_or_equal' => ' :attribute 必须是早于或同于 :date.',
+    'accepted' => 'The :attribute must be accepted.',
+    'active_url' => 'The :attribute is not a valid URL.',
+    'after' => 'The :attribute must be a date after :date.',
+    'after_or_equal' => 'The :attribute must be a date after or equal to :date.',
+    'alpha' => 'The :attribute may only contain letters.',
+    'alpha_dash' => 'The :attribute may only contain letters, numbers, and dashes.',
+    'alpha_num' => 'The :attribute may only contain letters and numbers.',
+    'array' => 'The :attribute must be an array.',
+    'before' => 'The :attribute must be a date before :date.',
+    'before_or_equal' => 'The :attribute must be a date before or equal to :date.',
     'between' => [
-        'numeric' => ' :attribute 必须介于 :min - :max.',
-        'file' => ' :attribute 必须介于 :min - :max KB.',
-        'string' => ' :attribute 必须介于 :min - :max 字符.',
-        'array' => ' :attribute 必须介于 :min - :max 数目.',
+        'numeric' => 'The :attribute must be between :min and :max.',
+        'file' => 'The :attribute must be between :min and :max kilobytes.',
+        'string' => 'The :attribute must be between :min and :max characters.',
+        'array' => 'The :attribute must have between :min and :max items.',
     ],
-    'boolean' => ' :attribute 字段必须为 true 或 false.',
-    'confirmed' => ' :attribute 确认不匹配.',
-    'date' => ' :attribute 不是一个有效的日期.',
-    'date_format' => ' :attribute 与格式 :format 不匹配.',
-    'different' => ' :attribute 和 :other 不可相同.',
-    'digits' => ' :attribute 必须 :digits 数字.',
-    'digits_between' => ' :attribute 必须介于 :min - :max 个数字.',
-    'dimensions' => ' :attribute 图片尺寸无效.',
-    'distinct' => ' :attribute 字段具有重复值.',
-    'email' => ' :attribute 必须是一个有效的电子邮箱地址.',
-    'exists' => ' 所选的 :attribute 无效.',
-    'file' => ' :attribute 必须是文件.',
-    'filled' => ' :attribute 字段是必填的.',
-    'image' => ' :attribute 必须是图片.',
-    'in' => ' 所选的 :attribute 无效.',
-    'in_array' => ' :attribute 字段不存在于 :other.',
-    'integer' => ' :attribute 必须是整数.',
-    'ip' => ' :attribute 必须是有效的 IP 地址.',
-    'json' => ' :attribute 必须是有效的 JSON 字符串.',
+    'boolean' => 'The :attribute field must be true or false.',
+    'confirmed' => 'The :attribute confirmation does not match.',
+    'date' => 'The :attribute is not a valid date.',
+    'date_format' => 'The :attribute does not match the format :format.',
+    'different' => 'The :attribute and :other must be different.',
+    'digits' => 'The :attribute must be :digits digits.',
+    'digits_between' => 'The :attribute must be between :min and :max digits.',
+    'dimensions' => 'The :attribute has invalid image dimensions.',
+    'distinct' => 'The :attribute field has a duplicate value.',
+    'email' => 'The :attribute must be a valid email address.',
+    'exists' => 'The selected :attribute is invalid.',
+    'file' => 'The :attribute must be a file.',
+    'filled' => 'The :attribute field is required.',
+    'image' => 'The :attribute must be an image.',
+    'in' => 'The selected :attribute is invalid.',
+    'in_array' => 'The :attribute field does not exist in :other.',
+    'integer' => 'The :attribute must be an integer.',
+    'ip' => 'The :attribute must be a valid IP address.',
+    'json' => 'The :attribute must be a valid JSON string.',
     'max' => [
-        'numeric' => ' :attribute 不得大于 :max.',
-        'file' => ' :attribute 不得大于 :max KB.',
-        'string' => ' :attribute 不得大于 :max 个字符.',
-        'array' => ' :attribute 不得大于 :max 个数字.',
+        'numeric' => 'The :attribute may not be greater than :max.',
+        'file' => 'The :attribute may not be greater than :max kilobytes.',
+        'string' => 'The :attribute may not be greater than :max characters.',
+        'array' => 'The :attribute may not have more than :max items.',
     ],
-    'mimes' => ' :attribute 必须是文件类型: :values.',
-    'mimetypes' => ' :attribute 必须是文件类型: :values.',
+    'mimes' => 'The :attribute must be a file of type: :values.',
+    'mimetypes' => 'The :attribute must be a file of type: :values.',
     'min' => [
-        'numeric' => ' :attribute 必须至少 :min.',
-        'file' => ' :attribute 必须至少 :min KB.',
-        'string' => ' :attribute 必须至少 :min 个字符.',
-        'array' => ' :attribute 必须至少 :min 个数字.',
+        'numeric' => 'The :attribute must be at least :min.',
+        'file' => 'The :attribute must be at least :min kilobytes.',
+        'string' => 'The :attribute must be at least :min characters.',
+        'array' => 'The :attribute must have at least :min items.',
     ],
-    'not_in' => ' 所选的 :attribute 无效.',
-    'numeric' => ' :attribute 必须是数字.',
-    'present' => ' :attribute 字段必须存在.',
-    'regex' => ' :attribute 格式无效.',
-    'required' => ' :attribute 字段是必填的.',
-    'required_if' => ' :attribute 字段是必填的, 当 :other 为 :value.',
-    'required_unless' => ' :attribute 字段是必填的, 除非 :other 为 :values.',
-    'required_with' => ' :attribute 字段是必填的, 当 :values 存在.',
-    'required_with_all' => ' :attribute 字段是必填的, 当 :values 存在.',
-    'required_without' => ' :attribute 字段是必填的, 当 :values 不存在.',
-    'required_without_all' => ' :attribute 字段是必填的, 当 :values 都不存在.',
-    'same' => ' :attribute 和 :other 必须一致.',
+    'not_in' => 'The selected :attribute is invalid.',
+    'numeric' => 'The :attribute must be a number.',
+    'present' => 'The :attribute field must be present.',
+    'regex' => 'The :attribute format is invalid.',
+    'required' => 'The :attribute field is required.',
+    'required_if' => 'The :attribute field is required when :other is :value.',
+    'required_unless' => 'The :attribute field is required unless :other is in :values.',
+    'required_with' => 'The :attribute field is required when :values is present.',
+    'required_with_all' => 'The :attribute field is required when :values is present.',
+    'required_without' => 'The :attribute field is required when :values is not present.',
+    'required_without_all' => 'The :attribute field is required when none of :values are present.',
+    'same' => 'The :attribute and :other must match.',
     'size' => [
-        'numeric' => ' :attribute 必须为 :size.',
-        'file' => ' :attribute 必须为 :size KB.',
-        'string' => ' :attribute 必须为 :size 字符.',
-        'array' => ' :attribute 必须包括 :size 个数字.',
+        'numeric' => 'The :attribute must be :size.',
+        'file' => 'The :attribute must be :size kilobytes.',
+        'string' => 'The :attribute must be :size characters.',
+        'array' => 'The :attribute must contain :size items.',
     ],
-    'string' => ' :attribute 必须是字符串.',
-    'timezone' => ' :attribute 必须是有效区域.',
-    'unique' => ' :attribute 已被占用.',
-    'uploaded' => ' :attribute 上传失败.',
-    'url' => ' :attribute 格式无效.',
+    'string' => 'The :attribute must be a string.',
+    'timezone' => 'The :attribute must be a valid zone.',
+    'unique' => 'The :attribute has already been taken.',
+    'uploaded' => 'The :attribute failed to upload.',
+    'url' => 'The :attribute format is invalid.',
 
     /*
     |--------------------------------------------------------------------------
@@ -100,14 +93,14 @@ return [
     | The following language lines are used to swap attribute place-holders
     | with something more reader friendly such as E-Mail Address instead
     | of "email". This simply helps us make messages a little cleaner.
-    | Simplified Chinese Translation Copyright (c) 2021 - 2022 Ice Ling <iceling@ilwork.cn>
+    |
     */
 
     'attributes' => [],
 
     // Internal validation logic for Pterodactyl
     'internal' => [
-        'variable_value' => ':env 变量',
-        'invalid_password' => '此帐户提供的密码无效.',
+        'variable_value' => ':env variable',
+        'invalid_password' => 'The password provided was invalid for this account.',
     ],
 ];

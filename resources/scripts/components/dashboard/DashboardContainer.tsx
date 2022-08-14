@@ -49,11 +49,11 @@ export default () => {
     }, [error]);
 
     return (
-        <PageContentBlock title={'仪表盘'} showFlashKey={'dashboard'}>
+        <PageContentBlock title={'Dashboard'} showFlashKey={'dashboard'}>
             {rootAdmin && (
                 <div css={tw`mb-2 flex justify-end items-center`}>
                     <p css={tw`uppercase text-xs text-neutral-400 mr-2`}>
-                        {showOnlyAdmin ? "仅显示其他人的服务器" : '仅显示你的服务器'}
+                        {showOnlyAdmin ? "Showing others' servers" : 'Showing your servers'}
                     </p>
                     <Switch
                         name={'show_all_servers'}
@@ -74,8 +74,8 @@ export default () => {
                         ) : (
                             <p css={tw`text-center text-sm text-neutral-400`}>
                                 {showOnlyAdmin
-                                    ? '这里没有服务器可显示。'
-                                    : '你的账户下没有关联的服务器实例。'}
+                                    ? 'There are no other servers to display.'
+                                    : 'There are no servers associated with your account.'}
                             </p>
                         )
                     }

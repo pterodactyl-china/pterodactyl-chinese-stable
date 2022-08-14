@@ -88,9 +88,9 @@ $style = [
                                                 {{ $greeting }}
                                             @else
                                                 @if ($level == 'error')
-                                                    噢!
+                                                    Whoops!
                                                 @else
-                                                    你好!
+                                                    Hello!
                                                 @endif
                                             @endif
                                         </h1>
@@ -149,8 +149,8 @@ $style = [
                                                 <tr>
                                                     <td style="{{ $fontFamily }}">
                                                         <p style="{{ $style['paragraph-sub'] }}">
-                                                            如果您无法点击 "{{ $actionText }}" 按钮,
-                                                            请将下方地址复制至浏览器地址栏打开:
+                                                            If you’re having trouble clicking the "{{ $actionText }}" button,
+                                                            copy and paste the URL below into your web browser:
                                                         </p>
 
                                                         <p style="{{ $style['paragraph-sub'] }}">

@@ -12,22 +12,22 @@ class AppSettingsCommand extends Command
     use EnvironmentWriterTrait;
 
     public const CACHE_DRIVERS = [
-        'redis' => 'Redis (推荐)',
+        'redis' => 'Redis (recommended)',
         'memcached' => 'Memcached',
         'file' => 'Filesystem',
     ];
 
     public const SESSION_DRIVERS = [
-        'redis' => 'Redis (推荐)',
+        'redis' => 'Redis (recommended)',
         'memcached' => 'Memcached',
-        'database' => 'MySQL 数据库',
+        'database' => 'MySQL Database',
         'file' => 'Filesystem',
         'cookie' => 'Cookie',
     ];
 
     public const QUEUE_DRIVERS = [
-        'redis' => 'Redis (推荐)',
-        'database' => 'MySQL 数据库',
+        'redis' => 'Redis (recommended)',
+        'database' => 'MySQL Database',
         'sync' => 'Sync',
     ];
 
@@ -39,23 +39,23 @@ class AppSettingsCommand extends Command
     /**
      * @var string
      */
-    protected $description = '进行面板的基本环境配置.';
+    protected $description = 'Configure basic environment settings for the Panel.';
 
     /**
      * @var string
      */
     protected $signature = 'p:environment:setup
-                            {--new-salt : 是否为 HashIDs 生成新 Salt,若生成新 Salt 当前用户所有密码验证都会失效，需要重设密码.}
-                            {--author= : 在此实例上创建的服务应链接到的电子邮件.}
-                            {--url= : 运行此面板的 URL 例如 https://pterodactyl.cn}
-                            {--timezone= : 用于面板时间的时区 北京时区为 Asia/Shanghai.}
-                            {--cache= : 要使用的缓存驱动程序后端 不懂就用默认值.}
-                            {--session= : 要使用的会话驱动程序后端 不懂就用默认值.}
-                            {--queue= : 要使用的队列驱动程序后端 不懂就用默认值.}
-                            {--redis-host= : 用于连接的 Redis 主机.}
-                            {--redis-pass= : 用于连接 Redis 的密码.}
-                            {--redis-port= : 连接到 Redis 的端口.}
-                            {--settings-ui= : 启用或禁用设置 UI.}';
+                            {--new-salt : Whether or not to generate a new salt for Hashids.}
+                            {--author= : The email that services created on this instance should be linked to.}
+                            {--url= : The URL that this Panel is running on.}
+                            {--timezone= : The timezone to use for Panel times.}
+                            {--cache= : The cache driver backend to use.}
+                            {--session= : The session driver backend to use.}
+                            {--queue= : The queue driver backend to use.}
+                            {--redis-host= : Redis host to use for connections.}
+                            {--redis-pass= : Password used to connect to redis.}
+                            {--redis-port= : Port to connect to redis over.}
+                            {--settings-ui= : Enable or disable the settings UI.}';
 
     /**
      * @var array
@@ -83,48 +83,48 @@ class AppSettingsCommand extends Command
             $this->variables['HASHIDS_SALT'] = str_random(20);
         }
 
-        $this->output->comment('提供预设导出中作者使用的电子邮件地址.');
+        $this->output->comment('Provide the email address that eggs exported by this Panel should be from. This should be a valid email address.');
         $this->variables['APP_SERVICE_AUTHOR'] = $this->option('author') ?? $this->ask(
-            '预设作者邮箱',
+            'Egg Author Email',
             config('pterodactyl.service.author', 'unknown@unknown.com')
         );
 
         if (!filter_var($this->variables['APP_SERVICE_AUTHOR'], FILTER_VALIDATE_EMAIL)) {
-            $this->output->error('提供的邮箱地址无效.');
+            $this->output->error('The service author email provided is invalid.');
 
             return 1;
         }
 
-        $this->output->comment('面板 URL 取决于是否使用 SSL 安全连接必须以 https:// 或 http:// 开头. 如果此处填写错误，您的电子邮件和其他内容将被链接到错误的地址.');
+        $this->output->comment('The application URL MUST begin with https:// or http:// depending on if you are using SSL or not. If you do not include the scheme your emails and other content will link to the wrong location.');
         $this->variables['APP_URL'] = $this->option('url') ?? $this->ask(
-            '面板应用 URL',
+            'Application URL',
             config('app.url', 'http://example.org')
         );
 
-        $this->output->comment('时区应与 PHP 支持的时区之一匹配 北京时区是 Asia/Shanghai。 如果不确定，请参考 http://php.net/manual/en/timezones.php.');
+        $this->output->comment('The timezone should match one of PHP\'s supported timezones. If you are unsure, please reference http://php.net/manual/en/timezones.php.');
         $this->variables['APP_TIMEZONE'] = $this->option('timezone') ?? $this->anticipate(
-            '应用时区',
+            'Application Timezone',
             DateTimeZone::listIdentifiers(DateTimeZone::ALL),
             config('app.timezone')
         );
 
         $selected = config('cache.default', 'redis');
         $this->variables['CACHE_DRIVER'] = $this->option('cache') ?? $this->choice(
-            'Cache 缓存驱动程序 不懂你就按回车',
+            'Cache Driver',
             self::CACHE_DRIVERS,
             array_key_exists($selected, self::CACHE_DRIVERS) ? $selected : null
         );
 
         $selected = config('session.driver', 'redis');
         $this->variables['SESSION_DRIVER'] = $this->option('session') ?? $this->choice(
-            'Session 会话驱动程序 不懂你就按回车',
+            'Session Driver',
             self::SESSION_DRIVERS,
             array_key_exists($selected, self::SESSION_DRIVERS) ? $selected : null
         );
 
         $selected = config('queue.default', 'redis');
         $this->variables['QUEUE_CONNECTION'] = $this->option('queue') ?? $this->choice(
-            'Queue 队列驱动程序 不懂你就按回车',
+            'Queue Driver',
             self::QUEUE_DRIVERS,
             array_key_exists($selected, self::QUEUE_DRIVERS) ? $selected : null
         );
@@ -132,7 +132,7 @@ class AppSettingsCommand extends Command
         if (!is_null($this->option('settings-ui'))) {
             $this->variables['APP_ENVIRONMENT_ONLY'] = $this->option('settings-ui') == 'true' ? 'false' : 'true';
         } else {
-            $this->variables['APP_ENVIRONMENT_ONLY'] = $this->confirm('启用基于 UI 的设置编辑器?', true) ? 'false' : 'true';
+            $this->variables['APP_ENVIRONMENT_ONLY'] = $this->confirm('Enable UI based settings editor?', true) ? 'false' : 'true';
         }
 
         // Make sure session cookies are set as "secure" when using HTTPS
@@ -160,22 +160,22 @@ class AppSettingsCommand extends Command
             return;
         }
 
-        $this->output->note('您为一个或多个选项选择了 Redis 驱动程序，请在下面提供有效的连接信息。 在大多数情况下，您可以使用提供的默认值，除非您修改了 Redis 主机设置.');
+        $this->output->note('You\'ve selected the Redis driver for one or more options, please provide valid connection information below. In most cases you can use the defaults provided unless you have modified your setup.');
         $this->variables['REDIS_HOST'] = $this->option('redis-host') ?? $this->ask(
-            'Redis 主机',
+            'Redis Host',
             config('database.redis.default.host')
         );
 
         $askForRedisPassword = true;
         if (!empty(config('database.redis.default.password'))) {
             $this->variables['REDIS_PASSWORD'] = config('database.redis.default.password');
-            $askForRedisPassword = $this->confirm('似乎已经为 Redis 定义了密码，您要更改吗?');
+            $askForRedisPassword = $this->confirm('It seems a password is already defined for Redis, would you like to change it?');
         }
 
         if ($askForRedisPassword) {
-            $this->output->comment('默认情况下，Redis 服务器连接无需密码，因为它在本地运行并且不允许外部访问。在这种情况下，阁下只需直接按回车键表示留空.');
+            $this->output->comment('By default a Redis server instance has no password as it is running locally and inaccessible to the outside world. If this is the case, simply hit enter without entering a value.');
             $this->variables['REDIS_PASSWORD'] = $this->option('redis-pass') ?? $this->output->askHidden(
-                'Redis 密码'
+                'Redis Password'
             );
         }
 
@@ -184,7 +184,7 @@ class AppSettingsCommand extends Command
         }
 
         $this->variables['REDIS_PORT'] = $this->option('redis-port') ?? $this->ask(
-            'Redis 端口',
+            'Redis Port',
             config('database.redis.default.port')
         );
     }

@@ -120,12 +120,10 @@ return [
     |
     | Information for the panel to use when contacting the CDN to confirm
     | if panel is up to date.
-	| Official URL https://cdn.pterodactyl.io/releases/latest.json
-	| If you want get official version updates ,you need also change x.x.x.x in config/app.php (eg. change 1.9.2.3 to 1.9.2
     */
     'cdn' => [
         'cache_time' => 60,
-        'url' => 'https://api.pterodactyl.top/releases/stable.json',
+        'url' => 'https://cdn.pterodactyl.io/releases/latest.json',
     ],
 
     /*

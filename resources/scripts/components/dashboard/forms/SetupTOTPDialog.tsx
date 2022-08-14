@@ -61,23 +61,21 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
     return (
         <form id={'enable-totp-form'} onSubmit={submit}>
             <FlashMessageRender byKey={'account:two-step'} className={'mt-4'} />
-            <div
-                className={'flex items-center justify-center w-56 h-56 p-2 bg-gray-800 rounded-lg shadow mx-auto mt-6'}
-            >
+            <div className={'flex items-center justify-center w-56 h-56 p-2 bg-gray-50 shadow mx-auto mt-6'}>
                 {!token ? (
                     <Spinner />
                 ) : (
-                    <QRCode renderAs={'svg'} value={token.image_url_data} css={tw`w-full h-full shadow-none rounded`} />
+                    <QRCode renderAs={'svg'} value={token.image_url_data} css={tw`w-full h-full shadow-none`} />
                 )}
             </div>
             <CopyOnClick text={token?.secret}>
                 <p className={'font-mono text-sm text-gray-100 text-center mt-2'}>
-                    {token?.secret.match(/.{1,4}/g)!.join(' ') || '加载中...'}
+                    {token?.secret.match(/.{1,4}/g)!.join(' ') || 'Loading...'}
                 </p>
             </CopyOnClick>
             <p id={'totp-code-description'} className={'mt-6'}>
-                使用您的动态口令认证应用程序扫描上面的二维码。然后，输入 6 位数字
-                代码生成到下面。
+                Scan the QR code above using the two-step authentication app of your choice. Then, enter the 6-digit
+                code generated into the field below.
             </p>
             <Input.Text
                 aria-labelledby={'totp-code-description'}
@@ -92,7 +90,7 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
                 pattern={'\\d{6}'}
             />
             <label htmlFor={'totp-password'} className={'block mt-3'}>
-                账户密码
+                Account Password
             </label>
             <Input.Text
                 variant={Input.Text.Variants.Loose}
@@ -102,13 +100,13 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
                 onChange={(e) => setPassword(e.currentTarget.value)}
             />
             <Dialog.Footer>
-                <Button.Text onClick={close}>取消</Button.Text>
+                <Button.Text onClick={close}>Cancel</Button.Text>
                 <Tooltip
                     disabled={password.length > 0 && value.length === 6}
                     content={
                         !token
-                            ? '等待二维码加载...'
-                            : '您必须输入 6 位代码和密码才能继续.'
+                            ? 'Waiting for QR code to load...'
+                            : 'You must enter the 6-digit code and your password to continue.'
                     }
                     delay={100}
                 >
@@ -117,7 +115,7 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
                         type={'submit'}
                         form={'enable-totp-form'}
                     >
-                        启用
+                        Enable
                     </Button>
                 </Tooltip>
             </Dialog.Footer>
@@ -126,7 +124,7 @@ const ConfigureTwoFactorForm = ({ onTokens }: Props) => {
 };
 
 export default asDialog({
-    title: '启用动态口令认证',
+    title: 'Enable Two-Step Verification',
     description:
-        "帮助保护您的帐户免受未经授权的访问。 每次登录时都会提示您输入随机验证码.",
+        "Help protect your account from unauthorized access. You'll be prompted for a verification code each time you sign in.",
 })(ConfigureTwoFactorForm);
