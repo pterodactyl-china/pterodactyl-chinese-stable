@@ -5,6 +5,9 @@
 ![GitHub Releases](https://img.shields.io/github/v/release/pterodactyl-china/pterodactyl-china-stable?style=for-the-badge&logo=appveyor)
 ![Alt](https://repobeats.axiom.co/api/embed/615faae51b6b9bba0b18371e4a7efce2b0c0d115.svg "Repobeats analytics image")
 
+## 项目说明
+
+由于一些原因，我们可能不再对此仓库进行更新。然而，我们仍在另一个仓库上积极维护内容。请访问：<https://github.com/pterodactyl-china/panel>
 
 ## 翼龙面板
 Pterodactyl® 是一个免费的开源游戏服务器管理面板，使用 PHP、React 和 Go 构建。  
